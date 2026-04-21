@@ -58,12 +58,21 @@
 
   // Slugify an address: lowercase, ASCII alnum + hyphens, no dupes.
   function slugify(s) {
+    var abbrevs = {
+      'street': 'st', 'avenue': 'ave', 'drive': 'dr', 'boulevard': 'blvd',
+      'lane': 'ln', 'road': 'rd', 'court': 'ct', 'place': 'pl',
+      'circle': 'cir', 'terrace': 'ter', 'parkway': 'pkwy', 'way': 'way',
+      'north': 'n', 'south': 's', 'east': 'e', 'west': 'w',
+      'northeast': 'ne', 'northwest': 'nw', 'southeast': 'se', 'southwest': 'sw',
+      'saint': 'st'
+    };
     return String(s)
       .toLowerCase()
       .normalize('NFKD').replace(/[\u0300-\u036f]/g, '')
       .replace(/[^a-z0-9]+/g, '-')
       .replace(/^-+|-+$/g, '')
-      .replace(/-{2,}/g, '-');
+      .replace(/-{2,}/g, '-')
+      .split('-').map(function (w) { return abbrevs[w] || w; }).join('-');
   }
 
   // SHA-256 hex via SubtleCrypto.
