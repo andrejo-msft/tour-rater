@@ -1,0 +1,190 @@
+{
+  "submissionId": "8df1ae00-7df3-47d1-8496-6f77a3fc2899",
+  "rubricVersion": "2026-04-20-v1",
+  "appVersion": "1.0.0",
+  "property": "123 Sesame St NYC",
+  "propertySlug": "123-sesame-st-nyc",
+  "rater": "sherry",
+  "date": "2026-04-21T08:14:08-05:00",
+  "categories": {
+    "location-civic": {
+      "criteria": {
+        "convenient-to-friends": {
+          "name": "Location convenient to friends",
+          "weight": 2.5,
+          "score": 0,
+          "note": ""
+        },
+        "active-transport": {
+          "name": "Active transport potential",
+          "weight": 3,
+          "score": 0,
+          "note": ""
+        },
+        "leisure-walking": {
+          "name": "Leisure walking potential",
+          "weight": 2.5,
+          "score": 0,
+          "note": ""
+        },
+        "lower-property-taxes": {
+          "name": "Lower property taxes",
+          "weight": 3,
+          "score": 0,
+          "note": ""
+        }
+      },
+      "categoryNote": ""
+    },
+    "outdoor-site": {
+      "criteria": {
+        "garage-workspace": {
+          "name": "Garage with workspace",
+          "weight": 3,
+          "score": null,
+          "note": ""
+        },
+        "sheltered-outdoor": {
+          "name": "Sheltered outdoor spaces with sufficient privacy",
+          "weight": 2,
+          "score": 0,
+          "note": ""
+        },
+        "mature-tree": {
+          "name": "At least one mature healthy tree",
+          "weight": 1.5,
+          "score": 0,
+          "note": ""
+        },
+        "native-plant-potential": {
+          "name": "Native plant potential",
+          "weight": 3,
+          "score": 0,
+          "note": ""
+        }
+      },
+      "categoryNote": ""
+    },
+    "interior-character": {
+      "criteria": {
+        "hardwood-floors": {
+          "name": "Hardwood floors > carpet",
+          "weight": 2,
+          "score": null,
+          "note": ""
+        },
+        "natural-woodwork": {
+          "name": "Natural woodwork",
+          "weight": 3,
+          "score": null,
+          "note": ""
+        },
+        "safe-stairs": {
+          "name": "Safe stairs",
+          "weight": 1.5,
+          "score": null,
+          "note": ""
+        },
+        "sunny-morning": {
+          "name": "Sunny morning space",
+          "weight": 3,
+          "score": null,
+          "note": ""
+        }
+      },
+      "categoryNote": ""
+    },
+    "size-program": {
+      "criteria": {
+        "square-footage": {
+          "name": "1700-2000 square feet",
+          "weight": 3,
+          "score": null,
+          "note": ""
+        },
+        "sedentary-hobbies": {
+          "name": "Space for sedentary hobbies",
+          "weight": 2.5,
+          "score": null,
+          "note": ""
+        },
+        "active-hobbies": {
+          "name": "Space for active hobbies",
+          "weight": 2,
+          "score": null,
+          "note": ""
+        },
+        "pet-care": {
+          "name": "Spaces for pet care and litter",
+          "weight": 1.5,
+          "score": null,
+          "note": ""
+        }
+      },
+      "categoryNote": ""
+    },
+    "kitchen": {
+      "criteria": {
+        "cooking-station": {
+          "name": "Cooking station",
+          "weight": 3,
+          "score": null,
+          "note": ""
+        },
+        "baking-station": {
+          "name": "Baking station",
+          "weight": 1.5,
+          "score": null,
+          "note": ""
+        },
+        "cleanup-station": {
+          "name": "Cleanup station",
+          "weight": 3,
+          "score": null,
+          "note": ""
+        },
+        "beverage-station": {
+          "name": "Beverage station",
+          "weight": 2,
+          "score": null,
+          "note": ""
+        }
+      },
+      "categoryNote": ""
+    },
+    "systems-bath": {
+      "criteria": {
+        "two-bathrooms": {
+          "name": "Two bathrooms, well placed",
+          "weight": 3,
+          "score": null,
+          "note": ""
+        },
+        "frictionless-bath": {
+          "name": "Frictionless bathroom amenities",
+          "weight": 2,
+          "score": null,
+          "note": ""
+        },
+        "johnson-ready-panel": {
+          "name": "Johnson-ready electrical panel",
+          "weight": 1.5,
+          "score": null,
+          "note": ""
+        },
+        "central-air-heat-pump": {
+          "name": "Central air or heat pumps",
+          "weight": 1,
+          "score": null,
+          "note": ""
+        }
+      },
+      "categoryNote": ""
+    }
+  },
+  "overallNotes": "",
+  "rawTotal": 0,
+  "rawMax": 72,
+  "weightedTotal": 0,
+  "weightedMax": 168
+}
