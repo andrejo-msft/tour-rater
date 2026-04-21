@@ -787,12 +787,46 @@
           qr.make();
           qrBox.innerHTML = qr.createSvgTag(4, 8);
         } catch (e) {
-          // qrcode-generator throws when content exceeds version-40 capacity
-          // for the chosen error correction. Try medium correction trimmed.
           flashAlert('QR generation failed: ' + e.message, 'error');
         }
       }
     }));
+    // Fallback: copy setup link button
+    pair.appendChild(el('button', {
+      class: 'btn btn-secondary btn-block', text: 'Copy setup link instead',
+      onclick: function () {
+        var pat = LS.getItem('tr.pat');
+        var repo = LS.getItem('tr.repo');
+        var ph = LS.getItem('tr.passphraseHash');
+        if (!pat || !repo || !ph) {
+          var missing = [];
+          if (!pat) missing.push('PAT');
+          if (!repo) missing.push('repo');
+          if (!ph) missing.push('passphrase');
+          flashAlert('Missing: ' + missing.join(', ') + '. Save them above first.', 'warn');
+          return;
+        }
+        var url = location.origin + location.pathname +
+          '#setup=' + encodeURIComponent(pat) +
+          '&repo=' + encodeURIComponent(repo) +
+          '&ph=' + encodeURIComponent(ph);
+        if (navigator.share) {
+          navigator.share({ title: 'Tour Rater Setup', url: url });
+        } else if (navigator.clipboard) {
+          navigator.clipboard.writeText(url).then(function () {
+            flashAlert('Setup link copied to clipboard.', 'ok');
+          });
+        } else {
+          prompt('Copy this link:', url);
+        }
+      }
+    }));
+    // Debug: show what's stored
+    var debugInfo = el('p', { class: 'hint' });
+    debugInfo.textContent = 'Stored: PAT=' + (LS.getItem('tr.pat') ? 'yes(' + LS.getItem('tr.pat').length + ' chars)' : 'NO') +
+      ', repo=' + (LS.getItem('tr.repo') || 'NO') +
+      ', passphrase=' + (LS.getItem('tr.passphraseHash') ? 'yes' : 'NO');
+    pair.appendChild(debugInfo);
     app.appendChild(pair);
 
     // Passphrase
