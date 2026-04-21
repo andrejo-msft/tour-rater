@@ -744,7 +744,7 @@
     gh.appendChild(patInput);
     gh.appendChild(el('label', { text: 'Repo (owner/name)' }));
     var repoInput = el('input', { type: 'text', placeholder: 'andrejo-msft/tour-rater' });
-    repoInput.value = LS.getItem('tr.repo') || '';
+    repoInput.value = LS.getItem('tr.repo') || 'andrejo-msft/tour-rater';
     gh.appendChild(repoInput);
     gh.appendChild(el('button', {
       class: 'btn btn-block', text: 'Save GitHub settings',
@@ -770,7 +770,11 @@
         var repo = LS.getItem('tr.repo');
         var ph = LS.getItem('tr.passphraseHash');
         if (!pat || !repo || !ph) {
-          flashAlert('Set PAT, repo, and passphrase first.', 'warn');
+          var missing = [];
+          if (!pat) missing.push('PAT');
+          if (!repo) missing.push('repo');
+          if (!ph) missing.push('passphrase');
+          flashAlert('Missing: ' + missing.join(', ') + '. Save them above first.', 'warn');
           return;
         }
         var url = location.origin + location.pathname +
