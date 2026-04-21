@@ -364,8 +364,11 @@
     var main = $('#app');
     if (!main) return;
     var a = el('div', { class: 'alert alert-' + (kind || 'info'), text: msg });
+    a.onclick = function () { if (a.parentNode) a.parentNode.removeChild(a); };
     main.insertBefore(a, main.firstChild);
-    setTimeout(function () { if (a.parentNode) a.parentNode.removeChild(a); }, 3500);
+    if (kind !== 'error') {
+      setTimeout(function () { if (a.parentNode) a.parentNode.removeChild(a); }, 3500);
+    }
   }
 
   // -------- screens --------
