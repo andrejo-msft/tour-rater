@@ -309,6 +309,8 @@
       body: JSON.stringify(body)
     });
     if (!res.ok) {
+      var respBody = '';
+      try { respBody = await res.text(); } catch (_) {}
       // 422 typically means file already exists at that path -- retry once
       // with a uuid-suffixed filename.
       if (res.status === 422 || res.status === 409) {
@@ -325,14 +327,16 @@
           body: JSON.stringify(body)
         });
         if (!res2.ok) {
-          var e2 = new Error('GitHub API error ' + res2.status);
+          var e2 = new Error('GitHub ' + res2.status);
           e2.status = res2.status;
+          try { e2.detail = await res2.text(); } catch (_) {}
           throw e2;
         }
         return await res2.json();
       }
-      var err = new Error('GitHub API error ' + res.status);
+      var err = new Error('GitHub ' + res.status);
       err.status = res.status;
+      err.detail = respBody;
       throw err;
     }
     return await res.json();
@@ -697,11 +701,15 @@
         } catch (err) {
           enqueueRating(state.rating);
           setStatus('error');
+          var detail = err.detail ? '\n' + err.detail : '';
           if (err && (err.status === 401 || err.status === 403)) {
-            flashAlert('GitHub auth failed (' + err.status + '). Check PAT in Settings. Queued.', 'error');
+            flashAlert('GitHub auth failed (' + err.status + '). Check PAT in Settings. Queued.' + detail, 'error');
+          } else if (err && err.status === 404) {
+            flashAlert('Repo not found (404). Check repo name in Settings: ' + (LS.getItem('tr.repo') || 'empty') + detail, 'error');
           } else {
-            flashAlert('Submit failed (' + (err && err.status ? err.status : 'network') + '). Queued.', 'error');
+            flashAlert('Submit failed (' + (err && err.status ? err.status : 'network') + '). Queued.' + detail, 'error');
           }
+          console.error('Tour Rater submit error:', err, detail);
           submitBtn.disabled = false;
           submitBtn.textContent = 'Retry submit';
         }
