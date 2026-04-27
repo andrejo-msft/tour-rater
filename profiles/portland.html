@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>1945 Portland Avenue &mdash; Property Profile</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:#0f172a;color:#e2e8f0}
+a{color:#60a5fa}
+.nav{padding:12px 40px;background:#1e293b;border-bottom:1px solid #334155;font-size:0.85em}
+.nav a{text-decoration:none;margin-right:16px}
+.hero{background:linear-gradient(135deg,#1e293b 0%,#0f172a 100%);padding:32px 40px;border-bottom:2px solid #334155}
+.hero h1{font-size:1.8em;color:#f8fafc;margin-bottom:4px}
+.hero .subtitle{color:#94a3b8;font-size:0.95em}
+.stats-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:20px}
+.stat-card{background:#1e293b;border:1px solid #334155;border-radius:8px;padding:10px 14px;min-width:110px}
+.stat-label{font-size:0.7em;color:#64748b;text-transform:uppercase;letter-spacing:0.05em}
+.stat-value{font-size:1.1em;font-weight:700;color:#f1f5f9;margin-top:2px}
+.stat-value.price{color:#4ade80}.stat-value.score{color:#e2c275}.stat-value.warn{color:#f97316}
+.tour-badge{display:inline-block;padding:6px 16px;border-radius:20px;font-weight:700;font-size:0.85em;margin-top:16px}
+.content{max-width:1200px;margin:0 auto;padding:24px 40px}
+.section{margin-bottom:32px}
+.section h2{color:#e2c275;font-size:1.15em;border-bottom:1px solid #334155;padding-bottom:8px;margin-bottom:16px}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+@media(max-width:900px){.two-col{grid-template-columns:1fr}.stats-row{gap:8px}.content{padding:16px 20px}.hero{padding:20px}.nav{padding:10px 20px}}
+.score-panel{background:#1e293b;border-radius:10px;padding:20px;border:1px solid #334155}
+.score-total{text-align:center;margin-bottom:16px}
+.score-total .big{font-size:2.8em;font-weight:800;color:#e2c275}
+.score-total .of{font-size:1.1em;color:#64748b}
+.score-total .pct{font-size:0.9em;color:#94a3b8}
+.threshold-note{text-align:center;font-size:0.8em;color:#64748b;margin-top:8px}
+.threshold-note span{color:#f97316;font-weight:600}
+table{width:100%;border-collapse:collapse;font-size:0.85em}
+th{text-align:left;color:#94a3b8;font-weight:600;padding:8px 10px;border-bottom:1px solid #334155;font-size:0.8em;text-transform:uppercase}
+td{padding:8px 10px;border-bottom:1px solid #1e293b}
+.floor-cell{color:#64748b;font-size:0.85em}
+.dim-cell{color:#5eead4;font-family:monospace}
+.notes-cell{color:#94a3b8;font-size:0.85em}
+.cost-cell{color:#4ade80;font-family:monospace;text-align:right;white-space:nowrap}
+ul{list-style:none}li{padding:4px 0;font-size:0.9em}
+.feature-item{color:#d1fae5}.concern-item{color:#fed7aa}
+.photo-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:8px}
+.photo-thumb{width:100%;height:130px;object-fit:cover;border-radius:6px;cursor:pointer;border:2px solid transparent;transition:border 0.2s,transform 0.2s}
+.photo-thumb:hover{border-color:#e2c275;transform:scale(1.03)}
+.photo-thumb.hero-img{grid-column:span 2;grid-row:span 2;height:276px}
+.lightbox{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.92);z-index:1000;justify-content:center;align-items:center;cursor:pointer}
+.lightbox.active{display:flex}
+.lightbox img{max-width:90vw;max-height:90vh;border-radius:8px}
+.cost-panel{background:#1e293b;border-radius:10px;padding:20px;border:1px solid #334155}
+.effective-cost{text-align:center;padding:16px;background:#0f172a;border-radius:8px;margin-top:12px}
+.effective-cost .label{color:#64748b;font-size:0.8em}
+.effective-cost .amount{font-size:1.6em;font-weight:700;color:#4ade80}
+.effective-cost .proj{font-size:0.85em;color:#94a3b8;margin-top:4px}
+.aip-box{background:#1e293b;border-radius:8px;padding:16px;border-left:4px solid #f97316;margin-top:16px;font-size:0.9em}
+.aip-box .aip-label{color:#f97316;font-weight:700;font-size:0.8em;text-transform:uppercase;margin-bottom:4px}
+.floorplan-link{display:inline-block;margin-top:12px;padding:10px 20px;background:#1e293b;border:1px solid #e2c275;border-radius:8px;color:#e2c275;text-decoration:none;font-weight:600;transition:background 0.2s}
+.floorplan-link:hover{background:#334155}
+.disclaimer{text-align:center;color:#475569;font-size:0.75em;padding:24px 40px;border-top:1px solid #1e293b}
+</style>
+</head>
+<body>
+<div class="nav"><a href="../">&larr; Tour Rater</a> <a href="index.html">All Profiles</a></div>
+<div class="hero">
+  <h1>&#x1F3E0; 1945 Portland Avenue</h1>
+  <div class="subtitle">1.5-Story Craftsman (1919) &middot; Merriam Park &middot; MLS# 7059438</div>
+  <div class="stats-row">
+    <div class="stat-card"><div class="stat-label">Price</div><div class="stat-value price">$525,000</div></div>
+    <div class="stat-card"><div class="stat-label">Score</div><div class="stat-value score">53.5 / 72</div></div>
+    <div class="stat-card"><div class="stat-label">Sqft (AG)</div><div class="stat-value">1,613</div></div>
+    <div class="stat-card"><div class="stat-label">Total Sqft</div><div class="stat-value">2,037</div></div>
+    <div class="stat-card"><div class="stat-label">Beds / Baths</div><div class="stat-value">4 / 2</div></div>
+    <div class="stat-card"><div class="stat-label">Garage</div><div class="stat-value">2-car detached</div></div>
+    <div class="stat-card"><div class="stat-label">Tax</div><div class="stat-value warn">$8,070</div></div>
+    <div class="stat-card"><div class="stat-label">Lot</div><div class="stat-value">40 &times; 150 ft</div></div>
+  </div>
+  <div class="tour-badge" style="background:#4ade8022;color:#4ade80;border:1px solid #4ade80">TOUR &mdash; Priority 1</div>
+</div>
+<div class="content">
+  <div class="section two-col">
+    <div class="score-panel">
+      <div class="score-total"><div class="big">53.5</div><div class="of">of 72</div><div class="pct">74.3% &middot; Purchase threshold: 57 (79.2%)</div></div>
+      <svg width="340" height="178" viewBox="0 0 340 178">
+  <text x="66" y="21" fill="#ccc" font-size="11" text-anchor="end" font-family="Segoe UI,system-ui,sans-serif">Location</text>
+  <rect x="70" y="5" width="220" height="22" rx="4" fill="#1e293b"/>
+  <rect x="70" y="5" width="146.66666666666666" height="22" rx="4" fill="#60a5fa" opacity="0.85"/>
+  <text x="294" y="21" fill="#eee" font-size="12" font-family="Segoe UI,system-ui,sans-serif" font-weight="600">8.0/12</text>
+  <text x="66" y="49" fill="#ccc" font-size="11" text-anchor="end" font-family="Segoe UI,system-ui,sans-serif">Outdoor</text>
+  <rect x="70" y="33" width="220" height="22" rx="4" fill="#1e293b"/>
+  <rect x="70" y="33" width="183.33333333333334" height="22" rx="4" fill="#4ade80" opacity="0.85"/>
+  <text x="294" y="49" fill="#eee" font-size="12" font-family="Segoe UI,system-ui,sans-serif" font-weight="600">10.0/12</text>
+  <text x="66" y="77" fill="#ccc" font-size="11" text-anchor="end" font-family="Segoe UI,system-ui,sans-serif">Interior</text>
+  <rect x="70" y="61" width="220" height="22" rx="4" fill="#1e293b"/>
+  <rect x="70" y="61" width="174.16666666666666" height="22" rx="4" fill="#e2c275" opacity="0.85"/>
+  <text x="294" y="77" fill="#eee" font-size="12" font-family="Segoe UI,system-ui,sans-serif" font-weight="600">9.5/12</text>
+  <text x="66" y="105" fill="#ccc" font-size="11" text-anchor="end" font-family="Segoe UI,system-ui,sans-serif">Size</text>
+  <rect x="70" y="89" width="220" height="22" rx="4" fill="#1e293b"/>
+  <rect x="70" y="89" width="165.0" height="22" rx="4" fill="#c084fc" opacity="0.85"/>
+  <text x="294" y="105" fill="#eee" font-size="12" font-family="Segoe UI,system-ui,sans-serif" font-weight="600">9.0/12</text>
+  <text x="66" y="133" fill="#ccc" font-size="11" text-anchor="end" font-family="Segoe UI,system-ui,sans-serif">Kitchen</text>
+  <rect x="70" y="117" width="220" height="22" rx="4" fill="#1e293b"/>
+  <rect x="70" y="117" width="137.5" height="22" rx="4" fill="#f97316" opacity="0.85"/>
+  <text x="294" y="133" fill="#eee" font-size="12" font-family="Segoe UI,system-ui,sans-serif" font-weight="600">7.5/12</text>
+  <text x="66" y="161" fill="#ccc" font-size="11" text-anchor="end" font-family="Segoe UI,system-ui,sans-serif">Systems</text>
+  <rect x="70" y="145" width="220" height="22" rx="4" fill="#1e293b"/>
+  <rect x="70" y="145" width="174.16666666666666" height="22" rx="4" fill="#5eead4" opacity="0.85"/>
+  <text x="294" y="161" fill="#eee" font-size="12" font-family="Segoe UI,system-ui,sans-serif" font-weight="600">9.5/12</text>
+</svg>
+      <div class="threshold-note">Post-improvement projection: <span>56.5&ndash;57.5</span></div>
+    </div>
+    <div>
+      <h2 style="color:#4ade80;border:none;padding:0;margin-bottom:12px">Strengths</h2>
+      <ul><li class="feature-item">&#x2705; Coffered ceiling (dining) &mdash; signature Craftsman character</li><li class="feature-item">&#x2705; Enclosed sunporch (8&times;13) &mdash; 3-season room, arched windows</li><li class="feature-item">&#x2705; Mini-split already installed &mdash; eliminates $8&ndash;15k retrofit</li><li class="feature-item">&#x2705; 50+ year single ownership &mdash; strong maintenance signal</li><li class="feature-item">&#x2705; Built-in basement bar &mdash; beverage program asset</li><li class="feature-item">&#x2705; Gas fireplace in living room</li><li class="feature-item">&#x2705; Drain-tiled basement &mdash; active moisture management</li><li class="feature-item">&#x2705; Newer boiler + roof (&le;8 yr)</li></ul>
+      <h2 style="color:#f97316;border:none;padding:0;margin:16px 0 12px">Concerns</h2>
+      <ul><li class="concern-item">&#x26A0;&#xFE0F; Taxes $8,070/yr &mdash; highest in batch</li><li class="concern-item">&#x26A0;&#xFE0F; Above-grade sqft 1,613 &mdash; below 1,700 target</li><li class="concern-item">&#x26A0;&#xFE0F; Kitchen: laminate counters, no island</li><li class="concern-item">&#x26A0;&#xFE0F; No upper-floor bathroom</li><li class="concern-item">&#x26A0;&#xFE0F; 1919 asbestos risk &mdash; inspection required</li></ul>
+      <div class="aip-box"><div class="aip-label">Aging-in-Place</div>BEST in batch &mdash; main-floor full bath + 2 main-floor bedrooms = single-floor living at purchase</div>
+    </div>
+  </div>
+  <div class="section"><h2>&#x1F4F8; Listing Photos (40)</h2><div class="photo-grid">
+  <img src="https://www.edinarealty.com/listing-images/listing/RMLS/1945-Portland-Avenue-Saint-Paul-MN-55104-7059438-image1.jpg" class="photo-thumb hero-img" loading="lazy" onclick="openLightbox(this.src)" alt="Photo 1" onerror="this.style.display='none'"/>
+  <img src="https://www.edinarealty.com/listing-images/listing/RMLS/1945-Portland-Avenue-Saint-Paul-MN-55104-7059438-image2.jpg" class="photo-thumb " loading="lazy" onclick="openLightbox(this.src)" alt="Photo 2" onerror="this.style.display='none'"/>
+  <img src="https://www.edinarealty.com/listing-images/listing/RMLS/1945-Portland-Avenue-Saint-Paul-MN-55104-7059438-image3.jpg" class="photo-thumb " loading="lazy" onclick="openLightbox(this.src)" alt="Photo 3" onerror="this.style.display='none'"/>
+  <img src="https://www.edinarealty.com/listing-images/listing/RMLS/1945-Portland-Avenue-Saint-Paul-MN-55104-7059438-image4.jpg" class="photo-thumb " loading="lazy" onclick="openLightbox(this.src)" alt="Photo 4" onerror="this.style.display='none'"/>
+  <img src="https://www.edinarealty.com/listing-images/listing/RMLS/1945-Portland-Avenue-Saint-Paul-MN-55104-7059438-image5.jpg" class="photo-thumb " loading="lazy" onclick="openLightbox(this.src)" alt="Photo 5" onerror="this.style.display='none'"/>
+  <img src="https://www.edinarealty.com/listing-images/listing/RMLS/1945-Portland-Avenue-Saint-Paul-MN-55104-7059438-image6.jpg" class="photo-thumb " loading="lazy" onclick="openLightbox(this.src)" alt="Photo 6" onerror="this.style.display='none'"/>
+  <img src="https://www.edinarealty.com/listing-images/listing/RMLS/1945-Portland-Avenue-Saint-Paul-MN-55104-7059438-image7.jpg" class="photo-thumb " loading="lazy" onclick="openLightbox(this.src)" alt="Photo 7" onerror="this.style.display='none'"/>
+  <img src="https://www.edinarealty.com/listing-images/listing/RMLS/1945-Portland-Avenue-Saint-Paul-MN-55104-7059438-image8.jpg" class="photo-thumb " loading="lazy" onclick="openLightbox(this.src)" alt="Photo 8" onerror="this.style.display='none'"/>
+  <img src="https://www.edinarealty.com/listing-images/listing/RMLS/1945-Portland-Avenue-Saint-Paul-MN-55104-7059438-image9.jpg" class="photo-thumb " loading="lazy" onclick="openLightbox(this.src)" alt="Photo 9" onerror="this.style.display='none'"/>
+  <img src="https://www.edinarealty.com/listing-images/listing/RMLS/1945-Portland-Avenue-Saint-Paul-MN-55104-7059438-image10.jpg" class="photo-thumb " loading="lazy" onclick="openLightbox(this.src)" alt="Photo 10" onerror="this.style.display='none'"/>
+  <img src="https://www.edinarealty.com/listing-images/listing/RMLS/1945-Portland-Avenue-Saint-Paul-MN-55104-7059438-image11.jpg" class="photo-thumb " loading="lazy" onclick="openLightbox(this.src)" alt="Photo 11" onerror="this.style.display='none'"/>
+  <img src="https://www.edinarealty.com/listing-images/listing/RMLS/1945-Portland-Avenue-Saint-Paul-MN-55104-7059438-image12.jpg" class="photo-thumb " loading="lazy" onclick="openLightbox(this.src)" alt="Photo 12" onerror="this.style.display='none'"/>
+  <img src="https://www.edinarealty.com/listing-images/listing/RMLS/1945-Portland-Avenue-Saint-Paul-MN-55104-7059438-image13.jpg" class="photo-thumb " loading="lazy" onclick="openLightbox(this.src)" alt="Photo 13" onerror="this.style.display='none'"/>
+  <img src="https://www.edinarealty.com/listing-images/listing/RMLS/1945-Portland-Avenue-Saint-Paul-MN-55104-7059438-image14.jpg" class="photo-thumb " loading="lazy" onclick="openLightbox(this.src)" alt="Photo 14" onerror="this.style.display='none'"/>
+  <img src="https://www.edinarealty.com/listing-images/listing/RMLS/1945-Portland-Avenue-Saint-Paul-MN-55104-7059438-image15.jpg" class="photo-thumb " loading="lazy" onclick="openLightbox(this.src)" alt="Photo 15" onerror="this.style.display='none'"/>
+  <img src="https://www.edinarealty.com/listing-images/listing/RMLS/1945-Portland-Avenue-Saint-Paul-MN-55104-7059438-image16.jpg" class="photo-thumb " loading="lazy" onclick="openLightbox(this.src)" alt="Photo 16" onerror="this.style.display='none'"/>
+  <img src="https://www.edinarealty.com/listing-images/listing/RMLS/1945-Portland-Avenue-Saint-Paul-MN-55104-7059438-image17.jpg" class="photo-thumb " loading="lazy" onclick="openLightbox(this.src)" alt="Photo 17" onerror="this.style.display='none'"/>
+  <img src="https://www.edinarealty.com/listing-images/listing/RMLS/1945-Portland-Avenue-Saint-Paul-MN-55104-7059438-image18.jpg" class="photo-thumb " loading="lazy" onclick="openLightbox(this.src)" alt="Photo 18" onerror="this.style.display='none'"/>
+  <img src="https://www.edinarealty.com/listing-images/listing/RMLS/1945-Portland-Avenue-Saint-Paul-MN-55104-7059438-image19.jpg" class="photo-thumb " loading="lazy" onclick="openLightbox(this.src)" alt="Photo 19" onerror="this.style.display='none'"/>
+  <img src="https://www.edinarealty.com/listing-images/listing/RMLS/1945-Portland-Avenue-Saint-Paul-MN-55104-7059438-image20.jpg" class="photo-thumb " loading="lazy" onclick="openLightbox(this.src)" alt="Photo 20" onerror="this.style.display='none'"/>
+  <img src="https://www.edinarealty.com/listing-images/listing/RMLS/1945-Portland-Avenue-Saint-Paul-MN-55104-7059438-image21.jpg" class="photo-thumb " loading="lazy" onclick="openLightbox(this.src)" alt="Photo 21" onerror="this.style.display='none'"/>
+  <img src="https://www.edinarealty.com/listing-images/listing/RMLS/1945-Portland-Avenue-Saint-Paul-MN-55104-7059438-image22.jpg" class="photo-thumb " loading="lazy" onclick="openLightbox(this.src)" alt="Photo 22" onerror="this.style.display='none'"/>
+  <img src="https://www.edinarealty.com/listing-images/listing/RMLS/1945-Portland-Avenue-Saint-Paul-MN-55104-7059438-image23.jpg" class="photo-thumb " loading="lazy" onclick="openLightbox(this.src)" alt="Photo 23" onerror="this.style.display='none'"/>
+  <img src="https://www.edinarealty.com/listing-images/listing/RMLS/1945-Portland-Avenue-Saint-Paul-MN-55104-7059438-image24.jpg" class="photo-thumb " loading="lazy" onclick="openLightbox(this.src)" alt="Photo 24" onerror="this.style.display='none'"/>
+  <img src="https://www.edinarealty.com/listing-images/listing/RMLS/1945-Portland-Avenue-Saint-Paul-MN-55104-7059438-image25.jpg" class="photo-thumb " loading="lazy" onclick="openLightbox(this.src)" alt="Photo 25" onerror="this.style.display='none'"/>
+  <img src="https://www.edinarealty.com/listing-images/listing/RMLS/1945-Portland-Avenue-Saint-Paul-MN-55104-7059438-image26.jpg" class="photo-thumb " loading="lazy" onclick="openLightbox(this.src)" alt="Photo 26" onerror="this.style.display='none'"/>
+  <img src="https://www.edinarealty.com/listing-images/listing/RMLS/1945-Portland-Avenue-Saint-Paul-MN-55104-7059438-image27.jpg" class="photo-thumb " loading="lazy" onclick="openLightbox(this.src)" alt="Photo 27" onerror="this.style.display='none'"/>
+  <img src="https://www.edinarealty.com/listing-images/listing/RMLS/1945-Portland-Avenue-Saint-Paul-MN-55104-7059438-image28.jpg" class="photo-thumb " loading="lazy" onclick="openLightbox(this.src)" alt="Photo 28" onerror="this.style.display='none'"/>
+  <img src="https://www.edinarealty.com/listing-images/listing/RMLS/1945-Portland-Avenue-Saint-Paul-MN-55104-7059438-image29.jpg" class="photo-thumb " loading="lazy" onclick="openLightbox(this.src)" alt="Photo 29" onerror="this.style.display='none'"/>
+  <img src="https://www.edinarealty.com/listing-images/listing/RMLS/1945-Portland-Avenue-Saint-Paul-MN-55104-7059438-image30.jpg" class="photo-thumb " loading="lazy" onclick="openLightbox(this.src)" alt="Photo 30" onerror="this.style.display='none'"/>
+  <img src="https://www.edinarealty.com/listing-images/listing/RMLS/1945-Portland-Avenue-Saint-Paul-MN-55104-7059438-image31.jpg" class="photo-thumb " loading="lazy" onclick="openLightbox(this.src)" alt="Photo 31" onerror="this.style.display='none'"/>
+  <img src="https://www.edinarealty.com/listing-images/listing/RMLS/1945-Portland-Avenue-Saint-Paul-MN-55104-7059438-image32.jpg" class="photo-thumb " loading="lazy" onclick="openLightbox(this.src)" alt="Photo 32" onerror="this.style.display='none'"/>
+  <img src="https://www.edinarealty.com/listing-images/listing/RMLS/1945-Portland-Avenue-Saint-Paul-MN-55104-7059438-image33.jpg" class="photo-thumb " loading="lazy" onclick="openLightbox(this.src)" alt="Photo 33" onerror="this.style.display='none'"/>
+  <img src="https://www.edinarealty.com/listing-images/listing/RMLS/1945-Portland-Avenue-Saint-Paul-MN-55104-7059438-image34.jpg" class="photo-thumb " loading="lazy" onclick="openLightbox(this.src)" alt="Photo 34" onerror="this.style.display='none'"/>
+  <img src="https://www.edinarealty.com/listing-images/listing/RMLS/1945-Portland-Avenue-Saint-Paul-MN-55104-7059438-image35.jpg" class="photo-thumb " loading="lazy" onclick="openLightbox(this.src)" alt="Photo 35" onerror="this.style.display='none'"/>
+  <img src="https://www.edinarealty.com/listing-images/listing/RMLS/1945-Portland-Avenue-Saint-Paul-MN-55104-7059438-image36.jpg" class="photo-thumb " loading="lazy" onclick="openLightbox(this.src)" alt="Photo 36" onerror="this.style.display='none'"/>
+  <img src="https://www.edinarealty.com/listing-images/listing/RMLS/1945-Portland-Avenue-Saint-Paul-MN-55104-7059438-image37.jpg" class="photo-thumb " loading="lazy" onclick="openLightbox(this.src)" alt="Photo 37" onerror="this.style.display='none'"/>
+  <img src="https://www.edinarealty.com/listing-images/listing/RMLS/1945-Portland-Avenue-Saint-Paul-MN-55104-7059438-image38.jpg" class="photo-thumb " loading="lazy" onclick="openLightbox(this.src)" alt="Photo 38" onerror="this.style.display='none'"/>
+  <img src="https://www.edinarealty.com/listing-images/listing/RMLS/1945-Portland-Avenue-Saint-Paul-MN-55104-7059438-image39.jpg" class="photo-thumb " loading="lazy" onclick="openLightbox(this.src)" alt="Photo 39" onerror="this.style.display='none'"/>
+  <img src="https://www.edinarealty.com/listing-images/listing/RMLS/1945-Portland-Avenue-Saint-Paul-MN-55104-7059438-image40.jpg" class="photo-thumb " loading="lazy" onclick="openLightbox(this.src)" alt="Photo 40" onerror="this.style.display='none'"/>
+</div>
+</div>
+  <div class="section"><h2>&#x1F3D7;&#xFE0F; Room Breakdown</h2>
+    <table><tr><th>Floor</th><th>Room</th><th>Dimensions</th><th>Observations</th></tr><tr><td class="floor-cell">Main</td><td>Living Room</td><td class="dim-cell">11&times;17</td><td class="notes-cell">Hardwood oak, gas fireplace, natural woodwork</td></tr>
+<tr><td class="floor-cell">Main</td><td>Dining Room</td><td class="dim-cell">13&times;11</td><td class="notes-cell">Coffered ceiling (dark oak), plate rail</td></tr>
+<tr><td class="floor-cell">Main</td><td>Kitchen</td><td class="dim-cell">13&times;11</td><td class="notes-cell">White cabinets, laminate counters, gas range</td></tr>
+<tr><td class="floor-cell">Main</td><td>Sunroom</td><td class="dim-cell">8&times;13</td><td class="notes-cell">Arched windows 3 sides, tile floor, beadboard ceiling</td></tr>
+<tr><td class="floor-cell">Main</td><td>Bedroom 1</td><td class="dim-cell">10&times;13</td><td class="notes-cell">Hardwood, oak trim</td></tr>
+<tr><td class="floor-cell">Main</td><td>Bedroom 2</td><td class="dim-cell">12&times;9</td><td class="notes-cell">Hardwood, oak trim</td></tr>
+<tr><td class="floor-cell">Main</td><td>Full Bath</td><td class="dim-cell">&mdash;</td><td class="notes-cell">Updated tile, tub/shower combo</td></tr>
+<tr><td class="floor-cell">Upper</td><td>Bedroom 3</td><td class="dim-cell">23&times;19</td><td class="notes-cell">Huge suite, knotty pine, knee-wall drawers (FIXTURE)</td></tr>
+<tr><td class="floor-cell">Upper</td><td>Bedroom 4</td><td class="dim-cell">10&times;11</td><td class="notes-cell">Carpeted, ceiling fan</td></tr>
+<tr><td class="floor-cell">Basement</td><td>Family Room</td><td class="dim-cell">22&times;13</td><td class="notes-cell">Finished, knotty pine bar (FIXTURE)</td></tr>
+<tr><td class="floor-cell">Basement</td><td>Laundry</td><td class="dim-cell">22&times;11</td><td class="notes-cell">Washer/dryer, utility</td></tr>
+<tr><td class="floor-cell">Basement</td><td>Bar</td><td class="dim-cell">8&times;13</td><td class="notes-cell">Built-in cabinetry + countertop</td></tr>
+<tr><td class="floor-cell">Basement</td><td>&frac34; Bath</td><td class="dim-cell">&mdash;</td><td class="notes-cell">Shower, basic finish</td></tr>
+</table>
+    
+  </div>
+  <div class="section two-col">
+    <div class="cost-panel"><h2 style="border:none;padding:0;margin-bottom:12px">Must-Do Improvements</h2>
+      <table><tr><th>Item</th><th style="text-align:right">Cost</th></tr><tr><td>Electrical panel 200A upgrade</td><td class="cost-cell">$2,500&ndash;$4,000</td></tr>
+<tr><td>EV L2 charger (2-car garage)</td><td class="cost-cell">$1,800&ndash;$2,800</td></tr>
+<tr><td>Kitchen refresh (counters, backsplash, reface)</td><td class="cost-cell">$25,000&ndash;$40,000</td></tr>
+</table></div>
+    <div class="cost-panel"><h2 style="border:none;padding:0;margin-bottom:12px">Should-Do Improvements</h2>
+      <table><tr><th>Item</th><th style="text-align:right">Cost</th></tr><tr><td>Upper floor carpet &rarr; hardwood (~725sf)</td><td class="cost-cell">$4,000&ndash;$6,500</td></tr>
+<tr><td>Mini-split expansion (2-3 heads)</td><td class="cost-cell">$4,000&ndash;$8,000</td></tr>
+<tr><td>Aging-in-place mods</td><td class="cost-cell">$1,500&ndash;$3,000</td></tr>
+</table>
+      <div class="effective-cost"><div class="label">Effective Cost (Must-Do)</div><div class="amount">$554k&ndash;$572k</div>
+        <div class="proj">Post-improvement score: 56.5&ndash;57.5 / 72</div></div></div>
+  </div>
+</div>
+<div class="disclaimer">Photo-enhanced scoring from 40 listing photos &middot; Analysis: 2026-04-27<br>
+  Costs: 2025-2026 Twin Cities contractor data &middot; Scores approximate &mdash; verify at tour</div>
+<div class="lightbox" id="lightbox" onclick="this.classList.remove('active')"><img id="lb-img" src="" alt="Full size"/></div>
+<script>
+function openLightbox(s){document.getElementById('lb-img').src=s;document.getElementById('lightbox').classList.add('active')}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')document.getElementById('lightbox').classList.remove('active')});
+</script>
+</body>
+</html>
