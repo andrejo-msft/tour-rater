@@ -12,19 +12,21 @@ a{color:#60a5fa;text-decoration:none}
 .header{text-align:center;padding:40px 20px 20px}
 .header h1{font-size:1.8em;color:#f8fafc}
 .header p{color:#94a3b8;margin-top:8px;font-size:0.95em}
-.grid{max-width:1000px;margin:0 auto;padding:20px 40px;display:grid;gap:16px}
+.section-label{max-width:1000px;margin:24px auto 8px;padding:0 40px;font-size:0.8em;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:#94a3b8}
+.section-label .ring-badge{display:inline-block;padding:2px 10px;border-radius:10px;font-size:0.85em;margin-left:8px}
+.grid{max-width:1000px;margin:0 auto;padding:0 40px 20px;display:grid;gap:16px}
 .prop-card{display:grid;grid-template-columns:200px 1fr;background:#1e293b;border-radius:10px;overflow:hidden;border:1px solid #334155;transition:transform 0.2s,border-color 0.2s;color:#e2e8f0}
 .prop-card:hover{transform:translateY(-2px);border-color:#e2c275}
 .prop-img{background-size:cover;background-position:center;min-height:140px}
 .prop-info{padding:16px 20px}
 .prop-addr{font-size:1.15em;font-weight:700;color:#f8fafc}
 .prop-sub{color:#94a3b8;font-size:0.85em;margin-top:4px}
-.prop-stats{display:flex;gap:16px;margin-top:12px;font-size:0.9em}
+.prop-stats{display:flex;gap:16px;margin-top:12px;font-size:0.9em;flex-wrap:wrap}
 .ps-price{color:#4ade80;font-weight:700}
 .ps-score{color:#e2c275;font-weight:700}
 .ps-sqft{color:#94a3b8}
 .prop-tour{margin-top:8px;font-size:0.8em;font-weight:600}
-@media(max-width:700px){.prop-card{grid-template-columns:1fr}.prop-img{height:180px}.grid{padding:16px}.nav{padding:10px 16px}}
+@media(max-width:700px){.prop-card{grid-template-columns:1fr}.prop-img{height:180px}.grid{padding:0 16px 16px}.nav{padding:10px 16px}.section-label{padding:0 16px}}
 .disclaimer{text-align:center;color:#64748b;font-size:0.75em;padding:24px;margin-top:20px}
 </style>
 </head>
@@ -32,8 +34,11 @@ a{color:#60a5fa;text-decoration:none}
 <div class="nav"><a href="../">&larr; Tour Rater</a></div>
 <div class="header">
   <h1>&#x1F3E0; Property Profiles</h1>
-  <p>Move 2026 &mdash; Active Candidates &middot; Photo-Enhanced Scoring</p>
+  <p>Move 2026 &mdash; Active Candidates &middot; Photo-Enhanced Scoring &middot; Updated 2026-04-28</p>
 </div>
+
+<!-- TOURED / THRESHOLD CLEARED -->
+<div class="section-label">&#x2705; Toured &amp; Scored</div>
 <div class="grid">
     <a href="portland.html" class="prop-card" style="border-left:4px solid #4ade80">
       <div class="prop-img" style="background-image:url('https://www.edinarealty.com/listing-images/listing/RMLS/1945-Portland-Avenue-Saint-Paul-MN-55104-7059438-image1.jpg')"></div>
@@ -42,13 +47,139 @@ a{color:#60a5fa;text-decoration:none}
         <div class="prop-sub">1.5-Story Craftsman (1919) &middot; Merriam Park</div>
         <div class="prop-stats">
           <span class="ps-price">$525,000</span>
-          <span class="ps-score">59/72 ✓</span>
+          <span class="ps-score">Drew 59/72 ✓</span>
+          <span class="ps-score">Sherry 82.5/99</span>
           <span class="ps-sqft">2,037 sf</span>
         </div>
         <div class="prop-tour" style="color:#4ade80">TOURED &mdash; Clears Threshold (59/72)</div>
       </div>
     </a>
-    <a href="pascal.html" class="prop-card" style="border-left:4px solid #f59e0b">
+</div>
+
+<!-- UPCOMING TOURS -->
+<div class="section-label">&#x1F4C5; Upcoming Tours</div>
+<div class="grid">
+    <a href="fairmount.html" class="prop-card" style="border-left:4px solid #818cf8">
+      <div class="prop-img" style="background-image:url('https://www.edinarealty.com/listing-images/listing/RMLS/1327-Fairmount-Avenue-Saint-Paul-MN-55105-6777234-image1.jpg')"></div>
+      <div class="prop-info">
+        <div class="prop-addr">1327 Fairmount Avenue</div>
+        <div class="prop-sub">American Foursquare (1922) &middot; Mac-Groveland</div>
+        <div class="prop-stats">
+          <span class="ps-price">$499,000</span>
+          <span class="ps-score">Cleo 51.0/72</span>
+          <span class="ps-score">Sherry 81/99</span>
+          <span class="ps-sqft">2,165 sf</span>
+        </div>
+        <div class="prop-tour" style="color:#818cf8">COMING SOON &mdash; Tours Thu/Fri</div>
+      </div>
+    </a>
+</div>
+
+<!-- NEW CANDIDATES (First Ring) -->
+<div class="section-label">&#x1F50D; New Candidates &mdash; First Ring <span class="ring-badge" style="background:#4ade8022;color:#4ade80;border:1px solid #4ade80">Cleo remote scored</span></div>
+<div class="grid">
+    <a href="albany.html" class="prop-card" style="border-left:4px solid #f59e0b">
+      <div class="prop-img" style="background-image:url('https://www.edinarealty.com/listing-images/listing/RMLS/1416-Albany-Avenue-Saint-Paul-MN-55108-7046074-image1.jpg')"></div>
+      <div class="prop-info">
+        <div class="prop-addr">1416 Albany Avenue</div>
+        <div class="prop-sub">1.5-Story (1912) &middot; Como &middot; 0.24ac Double Lot</div>
+        <div class="prop-stats">
+          <span class="ps-price">$425,000</span>
+          <span class="ps-score">Cleo 53.5/72</span>
+          <span class="ps-sqft">1,754 sf</span>
+        </div>
+        <div class="prop-tour" style="color:#f59e0b">MONITOR &mdash; Under Contract (Contingent-Inspection)</div>
+      </div>
+    </a>
+    <a href="sargent.html" class="prop-card" style="border-left:4px solid #f59e0b">
+      <div class="prop-img" style="background-image:url('https://www.edinarealty.com/listing-images/listing/RMLS/1224-Sargent-Avenue-Saint-Paul-MN-55105-7058635-image1.jpg')"></div>
+      <div class="prop-info">
+        <div class="prop-addr">1224 Sargent Avenue</div>
+        <div class="prop-sub">1.5-Story Postwar (1953) &middot; Mac-Groveland</div>
+        <div class="prop-stats">
+          <span class="ps-price">$389,900</span>
+          <span class="ps-score">Cleo 47.5/72</span>
+          <span class="ps-sqft">1,762 sf</span>
+        </div>
+        <div class="prop-tour" style="color:#f59e0b">ACTIVE &mdash; Postwar Style Flag (47.5/72)</div>
+      </div>
+    </a>
+    <a href="california.html" class="prop-card" style="border-left:4px solid #818cf8">
+      <div class="prop-img" style="background-color:#1e293b"></div>
+      <div class="prop-info">
+        <div class="prop-addr">1105 California Ave W</div>
+        <div class="prop-sub">Rambler (1926) &middot; Como &middot; 9ft Ceilings</div>
+        <div class="prop-stats">
+          <span class="ps-price">$424,999</span>
+          <span class="ps-score">Cleo 46.0/72</span>
+          <span class="ps-sqft">~2,114 sf</span>
+        </div>
+        <div class="prop-tour" style="color:#818cf8">COMING SOON 4/30 &mdash; Tour Recommended</div>
+      </div>
+    </a>
+    <a href="stanford.html" class="prop-card" style="border-left:4px solid #818cf8">
+      <div class="prop-img" style="background-color:#1e293b"></div>
+      <div class="prop-info">
+        <div class="prop-addr">2043 Stanford Avenue</div>
+        <div class="prop-sub">Craftsman? (1924) &middot; Mac-Groveland</div>
+        <div class="prop-stats">
+          <span class="ps-price">$475,000</span>
+          <span class="ps-score">Cleo 42.0/72</span>
+          <span class="ps-sqft">~1,860 sf</span>
+        </div>
+        <div class="prop-tour" style="color:#818cf8">COMING SOON 5/1 &mdash; Data Incomplete</div>
+      </div>
+    </a>
+    <a href="stclair.html" class="prop-card" style="border-left:4px solid #eab308">
+      <div class="prop-img" style="background-color:#1e293b"></div>
+      <div class="prop-info">
+        <div class="prop-addr">1315 Saint Clair Avenue</div>
+        <div class="prop-sub">Character Home (1922) &middot; 55105 (verify Mac-Grov vs Summit Hill)</div>
+        <div class="prop-stats">
+          <span class="ps-price">$400,000</span>
+          <span class="ps-score">Cleo 41.0/72</span>
+          <span class="ps-sqft">~2,169 sf</span>
+        </div>
+        <div class="prop-tour" style="color:#eab308">HOLD &mdash; Verify Neighborhood Before Tour</div>
+      </div>
+    </a>
+</div>
+
+<!-- SECOND RING (Stretch Comparisons) -->
+<div class="section-label">&#x1F535; Second Ring &mdash; Stretch Comparisons <span class="ring-badge" style="background:#60a5fa22;color:#93c5fd;border:1px solid #60a5fa">outside comfort zone</span></div>
+<div class="grid">
+    <a href="44th-ave.html" class="prop-card" style="border-left:4px solid #60a5fa">
+      <div class="prop-img" style="background-image:url('https://www.edinarealty.com/listing-images/listing/RMLS/3729-44th-Avenue-S-Minneapolis-MN-55406-7053027-image1.jpg')"></div>
+      <div class="prop-info">
+        <div class="prop-addr">3729 44th Ave S, Minneapolis</div>
+        <div class="prop-sub">1.5-Story Craftsman (1928) &middot; Standish (55406) &middot; &#x1F535; Minneapolis</div>
+        <div class="prop-stats">
+          <span class="ps-price">$549,900</span>
+          <span class="ps-score">Not scored</span>
+          <span class="ps-sqft">2,219 sf</span>
+        </div>
+        <div class="prop-tour" style="color:#93c5fd">SECOND RING &mdash; Minneapolis + at price ceiling</div>
+      </div>
+    </a>
+    <a href="bayard.html" class="prop-card" style="border-left:4px solid #60a5fa">
+      <div class="prop-img" style="background-color:#1e293b"></div>
+      <div class="prop-info">
+        <div class="prop-addr">1451 Bayard Ave, Highland Park</div>
+        <div class="prop-sub">Post-1930s (1941) &middot; Highland Park (55116) &middot; &#x1F535; EV-Ready Garage</div>
+        <div class="prop-stats">
+          <span class="ps-price">$415,000</span>
+          <span class="ps-score">Not scored</span>
+          <span class="ps-sqft">1,747 sf</span>
+        </div>
+        <div class="prop-tour" style="color:#93c5fd">SECOND RING &mdash; Highland Park (off IN-list)</div>
+      </div>
+    </a>
+</div>
+
+<!-- ELIMINATED -->
+<div class="section-label" style="color:#64748b">&#x1F6D1; Eliminated</div>
+<div class="grid">
+    <a href="pascal.html" class="prop-card" style="border-left:4px solid #64748b;opacity:0.7">
       <div class="prop-img" style="background-image:url('https://www.edinarealty.com/listing-images/listing/RMLS/453-Pascal-Street-S-Saint-Paul-MN-55105-7048885-image1.jpg')"></div>
       <div class="prop-info">
         <div class="prop-addr">453 Pascal Street S</div>
@@ -58,23 +189,10 @@ a{color:#60a5fa;text-decoration:none}
           <span class="ps-score">52/72</span>
           <span class="ps-sqft">1,745 sf</span>
         </div>
-        <div class="prop-tour" style="color:#f59e0b">TOURED &mdash; Below Threshold (52/72)</div>
-      </div>
-    </a>
-    <a href="fairmount.html" class="prop-card" style="border-left:4px solid #4ade80">
-      <div class="prop-img" style="background-image:url('https://www.edinarealty.com/listing-images/listing/RMLS/1327-Fairmount-Avenue-Saint-Paul-MN-55105-6777234-image1.jpg')"></div>
-      <div class="prop-info">
-        <div class="prop-addr">1327 Fairmount Avenue</div>
-        <div class="prop-sub">American Foursquare (1922) &middot; Mac-Groveland</div>
-        <div class="prop-stats">
-          <span class="ps-price">$499,000</span>
-          <span class="ps-score">51.0/72</span>
-          <span class="ps-sqft">2,165 sf</span>
-        </div>
-        <div class="prop-tour" style="color:#818cf8">COMING SOON &mdash; Tours Thursday</div>
+        <div class="prop-tour" style="color:#64748b">ELIMINATED &mdash; Room program insufficient</div>
       </div>
     </a>
     </div>
-<div class="disclaimer">Scored 2026-04-27 &middot; Drew /72 + Sherry /99 dual-rater &middot; Purchase threshold: 57/72</div>
+<div class="disclaimer">Scored 2026-04-28 &middot; Drew /72 + Sherry /99 dual-rater &middot; Cleo /72 remote-only for new candidates &middot; Purchase threshold: 57/72</div>
 </body>
 </html>

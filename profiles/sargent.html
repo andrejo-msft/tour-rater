@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>1224 Sargent Avenue &mdash; Property Profile</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:#0f172a;color:#e2e8f0;line-height:1.5}
+a{color:#60a5fa}
+.nav{padding:12px 40px;background:#1e293b;border-bottom:1px solid #334155;font-size:0.85em}
+.nav a{text-decoration:none;margin-right:16px}
+.hero{background:linear-gradient(135deg,#1e293b 0%,#0f172a 100%);padding:32px 40px;border-bottom:2px solid #334155}
+.hero h1{font-size:1.8em;color:#f8fafc;margin-bottom:4px}
+.hero .subtitle{color:#94a3b8;font-size:0.95em}
+.stats-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:20px}
+.stat-card{background:#1e293b;border:1px solid #334155;border-radius:8px;padding:10px 14px;min-width:110px}
+.stat-label{font-size:0.7em;color:#94a3b8;text-transform:uppercase;letter-spacing:0.05em}
+.stat-value{font-size:1.1em;font-weight:700;color:#f1f5f9;margin-top:2px}
+.stat-value.price{color:#4ade80}.stat-value.score{color:#e2c275}.stat-value.warn{color:#f97316}
+.tour-badge{display:inline-block;padding:6px 16px;border-radius:20px;font-weight:700;font-size:0.85em;margin-top:16px}
+.content{max-width:1200px;margin:0 auto;padding:24px 40px}
+.section{margin-bottom:32px}
+.section h2{color:#e2c275;font-size:1.15em;border-bottom:1px solid #334155;padding-bottom:8px;margin-bottom:16px}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+@media(max-width:900px){.two-col{grid-template-columns:1fr}.stats-row{gap:8px}.content{padding:16px 20px}.hero{padding:20px}.nav{padding:10px 20px}}
+.score-panel{background:#1e293b;border-radius:10px;padding:20px;border:1px solid #334155}
+.score-total{text-align:center;margin-bottom:16px}
+.score-total .big{font-size:2.8em;font-weight:800;color:#e2c275}
+.score-total .of{font-size:1.1em;color:#64748b}
+.score-total .pct{font-size:0.9em;color:#94a3b8}
+.threshold-note{text-align:center;font-size:0.8em;color:#64748b;margin-top:8px}
+.threshold-note span{color:#f97316;font-weight:600}
+table{width:100%;border-collapse:collapse;font-size:0.85em}
+th{text-align:left;color:#94a3b8;font-weight:600;padding:8px 10px;border-bottom:1px solid #334155;font-size:0.8em;text-transform:uppercase}
+td{padding:8px 10px;border-bottom:1px solid #1e293b}
+.floor-cell{color:#64748b;font-size:0.85em}
+.dim-cell{color:#5eead4;font-family:monospace}
+.notes-cell{color:#94a3b8;font-size:0.85em}
+.cost-cell{color:#4ade80;font-family:monospace;text-align:right;white-space:nowrap}
+ul{list-style:none}li{padding:4px 0;font-size:0.9em}
+.feature-item{color:#d1fae5}.concern-item{color:#fed7aa}
+.photo-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:8px}
+.photo-thumb{width:100%;height:130px;object-fit:cover;border-radius:6px;cursor:pointer;border:2px solid transparent;transition:border 0.2s,transform 0.2s}
+.photo-thumb:hover{border-color:#e2c275;transform:scale(1.03)}
+.photo-thumb.hero-img{grid-column:span 2;grid-row:span 2;height:276px}
+.lightbox{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.92);z-index:1000;justify-content:center;align-items:center;cursor:pointer}
+.lightbox.active{display:flex}
+.lightbox img{max-width:90vw;max-height:90vh;border-radius:8px}
+.cost-panel{background:#1e293b;border-radius:10px;padding:20px;border:1px solid #334155}
+.effective-cost{text-align:center;padding:16px;background:#0f172a;border-radius:8px;margin-top:12px}
+.effective-cost .label{color:#64748b;font-size:0.8em}
+.effective-cost .amount{font-size:1.6em;font-weight:700;color:#4ade80}
+.effective-cost .proj{font-size:0.85em;color:#94a3b8;margin-top:4px}
+.aip-box{background:#1e293b;border-radius:8px;padding:16px;border-left:4px solid #f97316;margin-top:16px;font-size:0.9em}
+.aip-box .aip-label{color:#f97316;font-weight:700;font-size:0.8em;text-transform:uppercase;margin-bottom:4px}
+.disclaimer{text-align:center;color:#64748b;font-size:0.75em;padding:24px 40px;border-top:1px solid #1e293b}
+</style>
+</head>
+<body>
+<div class="nav"><a href="../">&larr; Tour Rater</a> <a href="index.html">All Profiles</a></div>
+<div class="hero" style="border-left:4px solid #f59e0b">
+  <h1>&#x1F3E0; 1224 Sargent Avenue</h1>
+  <div class="subtitle">1.5-Story Postwar (1953) &middot; Mac-Groveland &middot; MLS# 7058635</div>
+  <div class="stats-row">
+    <div class="stat-card"><div class="stat-label">Price</div><div class="stat-value price">$389,900</div></div>
+    <div class="stat-card"><div class="stat-label">Cleo (Remote)</div><div class="stat-value score">47.5 / 72</div></div>
+    <div class="stat-card"><div class="stat-label">Sqft (AG)</div><div class="stat-value">1,322</div></div>
+    <div class="stat-card"><div class="stat-label">Total Sqft</div><div class="stat-value">1,762</div></div>
+    <div class="stat-card"><div class="stat-label">Beds / Baths</div><div class="stat-value">4 / 2</div></div>
+    <div class="stat-card"><div class="stat-label">Garage</div><div class="stat-value">1-car detached</div></div>
+    <div class="stat-card"><div class="stat-label">Tax</div><div class="stat-value">$5,300</div></div>
+    <div class="stat-card"><div class="stat-label">Lot</div><div class="stat-value">70 &times; 100 ft</div></div>
+    <div class="stat-card"><div class="stat-label">Status</div><div class="stat-value">Active (4 DOM)</div></div>
+  </div>
+  <div class="tour-badge" style="background:#f59e0b22;color:#f59e0b;border:1px solid #f59e0b">ACTIVE &mdash; Postwar Style Flag (47.5/72)</div>
+</div>
+<div class="content">
+  <!-- Score Panel + Room Program -->
+  <div class="section two-col">
+    <div class="score-panel">
+      <div class="score-total">
+        <div class="big">47.5</div>
+        <div class="of">of 72</div>
+        <div class="pct">65.9% &middot; Cleo (Remote) &middot; Purchase threshold: 57 (79.2%)</div>
+      </div>
+      <svg width="340" height="178" viewBox="0 0 340 178" style="max-width:100%;height:auto">
+  <text x="66" y="21" fill="#ccc" font-size="11" text-anchor="end" font-family="Segoe UI,system-ui,sans-serif">Location</text>
+  <rect x="70" y="5" width="220" height="22" rx="4" fill="#1e293b"/>
+  <rect x="70" y="5" width="165" height="22" rx="4" fill="#60a5fa" opacity="0.85"/>
+  <text x="294" y="21" fill="#eee" font-size="12" font-family="Segoe UI,system-ui,sans-serif" font-weight="600">9/12</text>
+  <text x="66" y="49" fill="#ccc" font-size="11" text-anchor="end" font-family="Segoe UI,system-ui,sans-serif">Outdoor</text>
+  <rect x="70" y="33" width="220" height="22" rx="4" fill="#1e293b"/>
+  <rect x="70" y="33" width="100.83" height="22" rx="4" fill="#4ade80" opacity="0.85"/>
+  <text x="294" y="49" fill="#eee" font-size="12" font-family="Segoe UI,system-ui,sans-serif" font-weight="600">5.5/12</text>
+  <text x="66" y="77" fill="#ccc" font-size="11" text-anchor="end" font-family="Segoe UI,system-ui,sans-serif">Interior</text>
+  <rect x="70" y="61" width="220" height="22" rx="4" fill="#1e293b"/>
+  <rect x="70" y="61" width="183.33" height="22" rx="4" fill="#e2c275" opacity="0.85"/>
+  <text x="294" y="77" fill="#eee" font-size="12" font-family="Segoe UI,system-ui,sans-serif" font-weight="600">10/12</text>
+  <text x="66" y="105" fill="#ccc" font-size="11" text-anchor="end" font-family="Segoe UI,system-ui,sans-serif">Size</text>
+  <rect x="70" y="89" width="220" height="22" rx="4" fill="#1e293b"/>
+  <rect x="70" y="89" width="128.33" height="22" rx="4" fill="#c084fc" opacity="0.85"/>
+  <text x="294" y="105" fill="#eee" font-size="12" font-family="Segoe UI,system-ui,sans-serif" font-weight="600">7/12</text>
+  <text x="66" y="133" fill="#ccc" font-size="11" text-anchor="end" font-family="Segoe UI,system-ui,sans-serif">Kitchen</text>
+  <rect x="70" y="117" width="220" height="22" rx="4" fill="#1e293b"/>
+  <rect x="70" y="117" width="137.5" height="22" rx="4" fill="#f97316" opacity="0.85"/>
+  <text x="294" y="133" fill="#eee" font-size="12" font-family="Segoe UI,system-ui,sans-serif" font-weight="600">7.5/12</text>
+  <text x="66" y="161" fill="#ccc" font-size="11" text-anchor="end" font-family="Segoe UI,system-ui,sans-serif">Systems</text>
+  <rect x="70" y="145" width="220" height="22" rx="4" fill="#1e293b"/>
+  <rect x="70" y="145" width="155.83" height="22" rx="4" fill="#5eead4" opacity="0.85"/>
+  <text x="294" y="161" fill="#eee" font-size="12" font-family="Segoe UI,system-ui,sans-serif" font-weight="600">8.5/12</text>
+</svg>
+      <div class="threshold-note">Remote scored 2026-04-28. <span>BELOW 57 threshold &mdash; 9.5 pts short.</span> Gap analysis: in-person ceiling ~49&ndash;54.</div>
+    </div>
+    <div>
+      <h2 style="color:#e2c275;border:none;padding:0;margin-bottom:8px">&#x1F3E0; Room Program Assessment</h2>
+      <p style="font-size:0.85em;color:#94a3b8;margin-bottom:12px">Verdict: &#x26A0;&#xFE0F; MARGINAL &mdash; works but requires everyone on different floors.</p>
+      <table>
+        <tr><th>Requirement</th><th>Status</th><th>Space</th></tr>
+        <tr><td>Master bedroom</td><td style="color:#4ade80">&#x2705; Pass</td><td class="notes-cell">Upper Bed 3: 20&times;12 = 240sqft</td></tr>
+        <tr><td>Maxy&rsquo;s bedroom</td><td style="color:#4ade80">&#x2705; Pass</td><td class="notes-cell">Main Bed 11&times;10 or Bsmt Bed 10&times;9</td></tr>
+        <tr><td>Sherry&rsquo;s office</td><td style="color:#4ade80">&#x2705; Pass</td><td class="notes-cell">Bsmt Office 10&times;7 &mdash; small but has door</td></tr>
+        <tr><td>Drew&rsquo;s office</td><td style="color:#f59e0b">&#x26A0; Marginal</td><td class="notes-cell">Main Bed 12&times;11 if master upstairs</td></tr>
+        <tr><td>Gym / library</td><td style="color:#4ade80">&#x2705; Pass</td><td class="notes-cell">Bsmt family room 20&times;14 flat floor</td></tr>
+        <tr><td>5&ndash;8 person social</td><td style="color:#4ade80">&#x2705; Pass</td><td class="notes-cell">Living 17&times;12 + bsmt overflow</td></tr>
+      </table>
+      <div style="margin-top:12px;padding:10px;background:#334155;border-radius:6px;font-size:0.85em;color:#94a3b8">
+        <strong style="color:#f59e0b">&#x26A0;&#xFE0F; Key concern:</strong> Basement office at 70sqft is genuinely small. Sherry will need in-person assessment for comfort.
+      </div>
+    </div>
+  </div>
+
+  <!-- Listing Photo -->
+  <div class="section"><h2>&#x1F4F8; Listing Photo</h2>
+    <div class="photo-grid">
+      <img src="https://www.edinarealty.com/listing-images/listing/RMLS/1224-Sargent-Avenue-Saint-Paul-MN-55105-7058635-image1.jpg" class="photo-thumb hero-img" loading="lazy" onclick="openLightbox(this.src)" alt="1224 Sargent Ave exterior" onerror="this.style.display='none'"/>
+    </div>
+  </div>
+
+  <!-- Room Breakdown -->
+  <div class="section"><h2>&#x1F3D7;&#xFE0F; Room Breakdown</h2>
+    <table>
+      <tr><th>Floor</th><th>Room</th><th>Dimensions</th><th>Notes</th></tr>
+      <tr><td class="floor-cell">Main</td><td>Bedroom 1</td><td class="dim-cell">12&times;11</td><td class="notes-cell">Hardwood, natural woodwork</td></tr>
+      <tr><td class="floor-cell">Main</td><td>Bedroom 2</td><td class="dim-cell">11&times;10</td><td class="notes-cell">Hardwood, natural woodwork</td></tr>
+      <tr><td class="floor-cell">Main</td><td>Kitchen</td><td class="dim-cell">15&times;10</td><td class="notes-cell">Eat-in; largest kitchen in batch; kitchen window</td></tr>
+      <tr><td class="floor-cell">Main</td><td>Living Room</td><td class="dim-cell">17&times;12</td><td class="notes-cell">Hardwood, free-standing fireplace</td></tr>
+      <tr><td class="floor-cell">Main</td><td>Porch</td><td class="dim-cell">13&times;8</td><td class="notes-cell">Extends living space</td></tr>
+      <tr><td class="floor-cell">Main</td><td>Full Bath</td><td class="dim-cell">&mdash;</td><td class="notes-cell">Main floor &mdash; AIP accessible</td></tr>
+      <tr><td class="floor-cell">Upper</td><td>Bedroom 3</td><td class="dim-cell">20&times;12</td><td class="notes-cell">Largest bedroom; master suite candidate</td></tr>
+      <tr><td class="floor-cell">Basement</td><td>Bedroom 4</td><td class="dim-cell">10&times;9</td><td class="notes-cell">Below grade</td></tr>
+      <tr><td class="floor-cell">Basement</td><td>Family Room</td><td class="dim-cell">20&times;14</td><td class="notes-cell">Flat floor; gym/library convertible</td></tr>
+      <tr><td class="floor-cell">Basement</td><td>Office</td><td class="dim-cell">10&times;7</td><td class="notes-cell">Has door per room label; Sherry&rsquo;s office candidate</td></tr>
+      <tr><td class="floor-cell">Basement</td><td>&frac34; Bath</td><td class="dim-cell">&mdash;</td><td class="notes-cell">Below grade</td></tr>
+    </table>
+  </div>
+
+  <!-- Effective Cost + Features -->
+  <div class="section two-col">
+    <div class="cost-panel">
+      <h2 style="border:none;padding:0;margin-bottom:12px">&#x1F4B0; Effective Cost Model</h2>
+      <table>
+        <tr><th>Item</th><th style="text-align:right">Cost</th></tr>
+        <tr><td>Purchase price</td><td class="cost-cell">$389,900</td></tr>
+        <tr><td>EV circuit (garage)</td><td class="cost-cell">$1,500&ndash;$4,000</td></tr>
+        <tr><td>Garage upgrade / expansion</td><td class="cost-cell">$0&ndash;$20,000</td></tr>
+        <tr><td>Electrical assessment (1953)</td><td class="cost-cell">$1,500&ndash;$4,000</td></tr>
+        <tr><td>Kitchen station additions</td><td class="cost-cell">$3,000&ndash;$8,000</td></tr>
+        <tr><td>HELOC carry (7.5%, 5 mo.)</td><td class="cost-cell">$12,184</td></tr>
+      </table>
+      <div class="effective-cost">
+        <div class="label">Effective Cost (Total)</div>
+        <div class="amount">$408k&ndash;$438k</div>
+        <div class="proj">&#x2705; Well under $510k flag threshold</div>
+      </div>
+      <div style="margin-top:12px;padding:10px;background:#334155;border-radius:6px;font-size:0.85em;color:#94a3b8">
+        <strong style="color:#4ade80">Pre-sale pool:</strong> $500k &minus; $390k = <strong>$110,100</strong> &mdash; second-largest in batch. Garage is optional cost.
+      </div>
+    </div>
+    <div>
+      <div class="cost-panel" style="margin-bottom:16px">
+        <h2 style="border:none;padding:0;margin-bottom:12px">&#x2705; Strengths</h2>
+        <ul>
+          <li class="feature-item">&#x2705; Lowest effective cost in batch ($408k floor)</li>
+          <li class="feature-item">&#x2705; Central AC already installed &mdash; no retrofit</li>
+          <li class="feature-item">&#x2705; Hardwood throughout + natural woodwork confirmed</li>
+          <li class="feature-item">&#x2705; Best kitchen size in batch (15&times;10 eat-in)</li>
+          <li class="feature-item">&#x2705; Main floor full bath &mdash; AIP clean at purchase</li>
+          <li class="feature-item">&#x2705; Mac-Groveland, Grand Ave walkability</li>
+          <li class="feature-item">&#x2705; Taxes moderate at $5,300</li>
+        </ul>
+      </div>
+      <div class="cost-panel">
+        <h2 style="border:none;padding:0;margin-bottom:12px">&#x26A0;&#xFE0F; Concerns</h2>
+        <ul>
+          <li class="concern-item">&#x26A0;&#xFE0F; 1953 postwar &mdash; Drew prefers pre-1940 craftsman</li>
+          <li class="concern-item">&#x26A0;&#xFE0F; 1-car 280sqft garage &mdash; active hobby program insufficient</li>
+          <li class="concern-item">&#x26A0;&#xFE0F; Room program marginal &mdash; dual offices on different floors</li>
+          <li class="concern-item">&#x26A0;&#xFE0F; Recently updated retaining wall &mdash; inspect for moisture history</li>
+          <li class="concern-item">&#x26A0;&#xFE0F; Corner lot reduces backyard privacy</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- AIP -->
+  <div class="section">
+    <div class="aip-box" style="border-left-color:#4ade80">
+      <div class="aip-label" style="color:#4ade80">Aging-in-Place: GOOD</div>
+      Main floor full bath &#x2705; + two main-floor bedrooms = single-floor daily living possible at purchase. Eat-in kitchen (15&times;10) on main floor. No conversion required.
+    </div>
+  </div>
+
+  <!-- Tour Recommendation -->
+  <div class="section">
+    <h2>&#x1F3AF; Tour-or-Pass Recommendation</h2>
+    <div style="padding:16px;background:#1e293b;border-radius:10px;border:1px solid #334155">
+      <div style="font-size:1.1em;color:#f59e0b;font-weight:700;margin-bottom:8px">RECOMMENDATION: TOUR &mdash; but go in knowing the style issue</div>
+      <div style="font-size:0.9em;color:#94a3b8;margin-bottom:12px">Tour bar: &#x2705; CLEARS (25.0/36 vs. 20/36 threshold) &middot; Gap to purchase: 47.5 &rarr; 57 needs +9.5 pts &middot; In-person ceiling: ~49&ndash;54</div>
+      <div class="two-col">
+        <div>
+          <h2 style="color:#4ade80;border:none;padding:0;margin-bottom:8px;font-size:0.95em">Affirmative Case</h2>
+          <ul>
+            <li class="feature-item">Lowest effective cost ($408k&ndash;$438k) &mdash; $40k below next cheapest</li>
+            <li class="feature-item">Central AC already installed &mdash; eliminates expensive retrofit</li>
+            <li class="feature-item">Hardwood throughout + natural woodwork &mdash; confirmed character</li>
+            <li class="feature-item">Best kitchen size in batch &mdash; genuine 4-station program</li>
+            <li class="feature-item">Main floor full bath &mdash; AIP clean at purchase</li>
+            <li class="feature-item">Mac-Groveland, Grand Ave access &mdash; best walkable amenities</li>
+          </ul>
+        </div>
+        <div>
+          <h2 style="color:#f97316;border:none;padding:0;margin-bottom:8px;font-size:0.95em">Case Against</h2>
+          <ul>
+            <li class="concern-item">1953 postwar &mdash; Drew&rsquo;s explicit preference runs against this</li>
+            <li class="concern-item">1-car 280sqft garage &mdash; active hobby program has no resolution</li>
+            <li class="concern-item">Room program is marginal &mdash; dual offices require awkward floor-split</li>
+          </ul>
+          <div style="margin-top:8px;padding:8px;background:#334155;border-radius:6px;font-size:0.85em;color:#94a3b8">
+            <strong>Key tour question:</strong> How does the 1953 exterior and interior feel in person? Drew will know in the first 60 seconds.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="disclaimer">Cleo remote score 2026-04-28 (47.5/72) &middot; Not yet toured &middot; No Sherry assessment<br>
+  Costs: 2025&ndash;2026 Twin Cities contractor data &middot; HELOC 7.5%, 5-month bridge &middot; Pre-sale pool: $110,100</div>
+<div class="lightbox" id="lightbox" onclick="this.classList.remove('active')"><img id="lb-img" src="" alt="Full size"/></div>
+<script>
+function openLightbox(s){document.getElementById('lb-img').src=s;document.getElementById('lightbox').classList.add('active')}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')document.getElementById('lightbox').classList.remove('active')});
+</script>
+</body>
+</html>

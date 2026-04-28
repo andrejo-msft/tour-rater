@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>1315 Saint Clair Avenue &mdash; Property Profile</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:#0f172a;color:#e2e8f0;line-height:1.5}
+a{color:#60a5fa}
+.nav{padding:12px 40px;background:#1e293b;border-bottom:1px solid #334155;font-size:0.85em}
+.nav a{text-decoration:none;margin-right:16px}
+.hero{background:linear-gradient(135deg,#1e293b 0%,#0f172a 100%);padding:32px 40px;border-bottom:2px solid #334155}
+.hero h1{font-size:1.8em;color:#f8fafc;margin-bottom:4px}
+.hero .subtitle{color:#94a3b8;font-size:0.95em}
+.stats-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:20px}
+.stat-card{background:#1e293b;border:1px solid #334155;border-radius:8px;padding:10px 14px;min-width:110px}
+.stat-label{font-size:0.7em;color:#94a3b8;text-transform:uppercase;letter-spacing:0.05em}
+.stat-value{font-size:1.1em;font-weight:700;color:#f1f5f9;margin-top:2px}
+.stat-value.price{color:#4ade80}.stat-value.score{color:#e2c275}.stat-value.warn{color:#f97316}
+.tour-badge{display:inline-block;padding:6px 16px;border-radius:20px;font-weight:700;font-size:0.85em;margin-top:16px}
+.content{max-width:1200px;margin:0 auto;padding:24px 40px}
+.section{margin-bottom:32px}
+.section h2{color:#e2c275;font-size:1.15em;border-bottom:1px solid #334155;padding-bottom:8px;margin-bottom:16px}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+@media(max-width:900px){.two-col{grid-template-columns:1fr}.stats-row{gap:8px}.content{padding:16px 20px}.hero{padding:20px}.nav{padding:10px 20px}}
+.score-panel{background:#1e293b;border-radius:10px;padding:20px;border:1px solid #334155}
+.score-total{text-align:center;margin-bottom:16px}
+.score-total .big{font-size:2.8em;font-weight:800;color:#e2c275}
+.score-total .of{font-size:1.1em;color:#64748b}
+.score-total .pct{font-size:0.9em;color:#94a3b8}
+.threshold-note{text-align:center;font-size:0.8em;color:#64748b;margin-top:8px}
+.threshold-note span{color:#f97316;font-weight:600}
+table{width:100%;border-collapse:collapse;font-size:0.85em}
+th{text-align:left;color:#94a3b8;font-weight:600;padding:8px 10px;border-bottom:1px solid #334155;font-size:0.8em;text-transform:uppercase}
+td{padding:8px 10px;border-bottom:1px solid #1e293b}
+.floor-cell{color:#64748b;font-size:0.85em}
+.dim-cell{color:#5eead4;font-family:monospace}
+.notes-cell{color:#94a3b8;font-size:0.85em}
+.cost-cell{color:#4ade80;font-family:monospace;text-align:right;white-space:nowrap}
+ul{list-style:none}li{padding:4px 0;font-size:0.9em}
+.feature-item{color:#d1fae5}.concern-item{color:#fed7aa}
+.cost-panel{background:#1e293b;border-radius:10px;padding:20px;border:1px solid #334155}
+.effective-cost{text-align:center;padding:16px;background:#0f172a;border-radius:8px;margin-top:12px}
+.effective-cost .label{color:#64748b;font-size:0.8em}
+.effective-cost .amount{font-size:1.6em;font-weight:700;color:#4ade80}
+.effective-cost .proj{font-size:0.85em;color:#94a3b8;margin-top:4px}
+.aip-box{background:#1e293b;border-radius:8px;padding:16px;border-left:4px solid #f97316;margin-top:16px;font-size:0.9em}
+.aip-box .aip-label{color:#f97316;font-weight:700;font-size:0.8em;text-transform:uppercase;margin-bottom:4px}
+.hold-banner{background:#eab30822;border:2px solid #eab308;border-radius:10px;padding:16px;margin-bottom:24px}
+.hold-banner .hold-title{font-size:1.1em;font-weight:700;color:#eab308;margin-bottom:4px}
+.hold-banner .hold-text{font-size:0.9em;color:#fde68a}
+.knockout-box{background:#1e293b;border-radius:8px;padding:16px;border-left:4px solid #ef4444;margin-bottom:16px;font-size:0.9em}
+.knockout-box .ko-label{color:#ef4444;font-weight:700;font-size:0.8em;text-transform:uppercase;margin-bottom:4px}
+.disclaimer{text-align:center;color:#64748b;font-size:0.75em;padding:24px 40px;border-top:1px solid #1e293b}
+</style>
+</head>
+<body>
+<div class="nav"><a href="../">&larr; Tour Rater</a> <a href="index.html">All Profiles</a></div>
+<div class="hero" style="border-left:4px solid #eab308">
+  <h1>&#x1F3E0; 1315 Saint Clair Avenue</h1>
+  <div class="subtitle">Pre-1940 Character Home (1922) &middot; 55105 &mdash; Verify Neighborhood &middot; Coming Soon 4/30</div>
+  <div class="stats-row">
+    <div class="stat-card"><div class="stat-label">Price</div><div class="stat-value price">$400,000</div></div>
+    <div class="stat-card"><div class="stat-label">Cleo (Remote)</div><div class="stat-value score">41.0 / 72</div></div>
+    <div class="stat-card"><div class="stat-label">Total Sqft</div><div class="stat-value">~2,169</div></div>
+    <div class="stat-card"><div class="stat-label">Beds / Baths</div><div class="stat-value">3 / 2</div></div>
+    <div class="stat-card"><div class="stat-label">Garage</div><div class="stat-value warn">Not mentioned</div></div>
+    <div class="stat-card"><div class="stat-label">Tax</div><div class="stat-value warn">Unknown</div></div>
+    <div class="stat-card"><div class="stat-label">Lot</div><div class="stat-value">3,920 sqft</div></div>
+    <div class="stat-card"><div class="stat-label">Zestimate</div><div class="stat-value">$423,400</div></div>
+  </div>
+  <div class="tour-badge" style="background:#eab30822;color:#eab308;border:1px solid #eab308">HOLD &mdash; Verify Neighborhood Before Tour (41.0/72)</div>
+</div>
+<div class="content">
+  <!-- HOLD Banner -->
+  <div class="hold-banner">
+    <div class="hold-title">&#x1F6D1; HOLD &mdash; Two Unresolved Knockout Risks</div>
+    <div class="hold-text">Do not schedule tour until both are confirmed:<br>
+      <strong>1. Neighborhood:</strong> Is 1315 Saint Clair Ave in Mac-Groveland or Summit Hill? Summit Hill = Section 3 hard knockout.<br>
+      <strong>2. EV path:</strong> No garage mentioned anywhere in listing. If no off-street parking with panel reach = hard knockout.
+    </div>
+  </div>
+
+  <!-- Score Panel + Room Program -->
+  <div class="section two-col">
+    <div class="score-panel">
+      <div class="score-total">
+        <div class="big">41.0</div>
+        <div class="of">of 72</div>
+        <div class="pct">56.9% &middot; Cleo (Remote) &middot; Assumes Mac-Groveland &middot; Threshold: 57</div>
+      </div>
+      <svg width="340" height="178" viewBox="0 0 340 178" style="max-width:100%;height:auto">
+  <text x="66" y="21" fill="#ccc" font-size="11" text-anchor="end" font-family="Segoe UI,system-ui,sans-serif">Location</text>
+  <rect x="70" y="5" width="220" height="22" rx="4" fill="#1e293b"/>
+  <rect x="70" y="5" width="155.83" height="22" rx="4" fill="#60a5fa" opacity="0.85"/>
+  <text x="294" y="21" fill="#eee" font-size="12" font-family="Segoe UI,system-ui,sans-serif" font-weight="600">8.5/12</text>
+  <text x="66" y="49" fill="#ccc" font-size="11" text-anchor="end" font-family="Segoe UI,system-ui,sans-serif">Outdoor</text>
+  <rect x="70" y="33" width="220" height="22" rx="4" fill="#1e293b"/>
+  <rect x="70" y="33" width="73.33" height="22" rx="4" fill="#4ade80" opacity="0.85"/>
+  <text x="294" y="49" fill="#eee" font-size="12" font-family="Segoe UI,system-ui,sans-serif" font-weight="600">4/12</text>
+  <text x="66" y="77" fill="#ccc" font-size="11" text-anchor="end" font-family="Segoe UI,system-ui,sans-serif">Interior</text>
+  <rect x="70" y="61" width="220" height="22" rx="4" fill="#1e293b"/>
+  <rect x="70" y="61" width="165" height="22" rx="4" fill="#e2c275" opacity="0.85"/>
+  <text x="294" y="77" fill="#eee" font-size="12" font-family="Segoe UI,system-ui,sans-serif" font-weight="600">9/12</text>
+  <text x="66" y="105" fill="#ccc" font-size="11" text-anchor="end" font-family="Segoe UI,system-ui,sans-serif">Size</text>
+  <rect x="70" y="89" width="220" height="22" rx="4" fill="#1e293b"/>
+  <rect x="70" y="89" width="100.83" height="22" rx="4" fill="#c084fc" opacity="0.85"/>
+  <text x="294" y="105" fill="#eee" font-size="12" font-family="Segoe UI,system-ui,sans-serif" font-weight="600">5.5/12</text>
+  <text x="66" y="133" fill="#ccc" font-size="11" text-anchor="end" font-family="Segoe UI,system-ui,sans-serif">Kitchen</text>
+  <rect x="70" y="117" width="220" height="22" rx="4" fill="#1e293b"/>
+  <rect x="70" y="117" width="119.17" height="22" rx="4" fill="#f97316" opacity="0.85"/>
+  <text x="294" y="133" fill="#eee" font-size="12" font-family="Segoe UI,system-ui,sans-serif" font-weight="600">6.5/12</text>
+  <text x="66" y="161" fill="#ccc" font-size="11" text-anchor="end" font-family="Segoe UI,system-ui,sans-serif">Systems</text>
+  <rect x="70" y="145" width="220" height="22" rx="4" fill="#1e293b"/>
+  <rect x="70" y="145" width="137.5" height="22" rx="4" fill="#5eead4" opacity="0.85"/>
+  <text x="294" y="161" fill="#eee" font-size="12" font-family="Segoe UI,system-ui,sans-serif" font-weight="600">7.5/12</text>
+</svg>
+      <div class="threshold-note">Remote scored 2026-04-28. <span>BELOW 57 threshold.</span> Score assumes knockouts clear. If gates pass, could reach 48&ndash;55.</div>
+    </div>
+    <div>
+      <h2 style="color:#e2c275;border:none;padding:0;margin-bottom:8px">&#x1F3E0; Room Program Assessment</h2>
+      <p style="font-size:0.85em;color:#94a3b8;margin-bottom:12px">Verdict: &#x26A0;&#xFE0F; LIKELY FAIL &mdash; only 3 bedrooms; dual closed offices cannot be satisfied without a 4th room.</p>
+      <table>
+        <tr><th>Requirement</th><th>Status</th><th>Notes</th></tr>
+        <tr><td>Master bedroom</td><td style="color:#4ade80">&#x2705; Pass</td><td class="notes-cell">&ldquo;Private primary suite as a true retreat&rdquo;</td></tr>
+        <tr><td>Maxy&rsquo;s bedroom</td><td style="color:#4ade80">&#x2705; Pass</td><td class="notes-cell">One of the 3 bedrooms</td></tr>
+        <tr><td>Sherry&rsquo;s office</td><td style="color:#ef4444">&#x274C; Likely Fail</td><td class="notes-cell">No room remains after master + Maxy</td></tr>
+        <tr><td>Drew&rsquo;s office</td><td style="color:#ef4444">&#x274C; Likely Fail</td><td class="notes-cell">Same &mdash; no 4th space described</td></tr>
+        <tr><td>Gym / library</td><td style="color:#94a3b8">&#x2753; Unknown</td><td class="notes-cell">Basement existence unknown</td></tr>
+        <tr><td>5&ndash;8 person social</td><td style="color:#4ade80">&#x2705; Likely</td><td class="notes-cell">Open-concept living/kitchen</td></tr>
+      </table>
+      <div style="margin-top:12px;padding:10px;background:#334155;border-radius:6px;font-size:0.85em;color:#94a3b8">
+        <strong style="color:#eab308">&#x1F511; Needed to pass:</strong> A 4th room (office, den, sitting room, finished attic) with a closable door, OR two separate basement workspaces with closing doors.
+      </div>
+    </div>
+  </div>
+
+  <!-- Knockout Risks -->
+  <div class="section">
+    <h2>&#x1F6A8; Knockout Risk Assessment</h2>
+    <div class="two-col">
+      <div class="knockout-box">
+        <div class="ko-label">&#x1F6D1; Risk 1: Neighborhood</div>
+        13xx block Saint Clair Ave is <em>generally</em> Mac-Groveland (west of Lexington Pkwy), but has <strong>not been verified</strong> against the official Saint Paul neighborhood boundary map. If this address falls within Summit Hill / Crocus Hill = <strong>Section 3 hard knockout. File closed.</strong>
+      </div>
+      <div class="knockout-box">
+        <div class="ko-label">&#x1F6D1; Risk 2: EV Path</div>
+        No garage mentioned anywhere in the listing data. If there is no off-street parking reachable by electrical panel = <strong>potential Section 3 knockout.</strong> Even if solvable, a carport/new structure could add $15&ndash;30k to effective cost.
+      </div>
+    </div>
+  </div>
+
+  <!-- Features + Concerns -->
+  <div class="section two-col">
+    <div class="cost-panel">
+      <h2 style="border:none;padding:0;margin-bottom:12px">&#x2705; Confirmed Strengths</h2>
+      <ul>
+        <li class="feature-item">&#x2705; &ldquo;Stunning original natural woodwork and classic built-ins&rdquo; &mdash; strongest woodwork language in batch</li>
+        <li class="feature-item">&#x2705; Main floor bath with &ldquo;fabulous walk-in shower&rdquo; &mdash; best AIP bath in batch</li>
+        <li class="feature-item">&#x2705; Redesigned kitchen with open-concept + breakfast bar</li>
+        <li class="feature-item">&#x2705; &ldquo;Private primary suite as a true retreat&rdquo;</li>
+        <li class="feature-item">&#x2705; South-facing front porch</li>
+        <li class="feature-item">&#x2705; 1922 pre-1940 character home</li>
+        <li class="feature-item">&#x2705; $400k price with $100k pre-sale pool</li>
+        <li class="feature-item">&#x2705; Zestimate $423k above ask &mdash; potential value</li>
+      </ul>
+    </div>
+    <div class="cost-panel">
+      <h2 style="border:none;padding:0;margin-bottom:12px">&#x26A0;&#xFE0F; Concerns</h2>
+      <ul>
+        <li class="concern-item">&#x274C; Only 3 bedrooms &mdash; room program likely fails</li>
+        <li class="concern-item">&#x274C; No garage mentioned &mdash; highest-weighted outdoor criterion</li>
+        <li class="concern-item">&#x26A0;&#xFE0F; 3,920sqft lot &mdash; very limited outdoor program</li>
+        <li class="concern-item">&#x26A0;&#xFE0F; Open-concept kitchen conflicts with Drew&rsquo;s preference</li>
+        <li class="concern-item">&#x2753; Neighborhood unverified (Summit Hill = knockout)</li>
+        <li class="concern-item">&#x2753; Basement, heating, cooling, electrical all unknown</li>
+        <li class="concern-item">&#x2753; Hardwood floors implied but not explicitly stated</li>
+        <li class="concern-item">&#x2753; No main-floor bedroom described for AIP</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Effective Cost -->
+  <div class="section two-col">
+    <div class="cost-panel">
+      <h2 style="border:none;padding:0;margin-bottom:12px">&#x1F4B0; Effective Cost Model</h2>
+      <table>
+        <tr><th>Item</th><th style="text-align:right">Cost</th></tr>
+        <tr><td>Purchase price</td><td class="cost-cell">$400,000</td></tr>
+        <tr><td>EV charging setup</td><td class="cost-cell">$3,000&ndash;$15,000</td></tr>
+        <tr><td>Heating / cooling (unknown)</td><td class="cost-cell">$0&ndash;$12,000</td></tr>
+        <tr><td>Electrical assessment (1922)</td><td class="cost-cell">$2,000&ndash;$7,000</td></tr>
+        <tr><td>Kitchen station finish</td><td class="cost-cell">$2,000&ndash;$6,000</td></tr>
+        <tr><td>Sewer scope</td><td class="cost-cell">$500&ndash;$5,000</td></tr>
+        <tr><td>HELOC carry (7.5%, 5 mo.)</td><td class="cost-cell">$12,500</td></tr>
+      </table>
+      <div class="effective-cost">
+        <div class="label">Effective Cost (Total)</div>
+        <div class="amount">$420k&ndash;$458k</div>
+        <div class="proj">&#x2705; Both ends under $510k flag threshold</div>
+      </div>
+      <div style="margin-top:12px;padding:10px;background:#334155;border-radius:6px;font-size:0.85em;color:#94a3b8">
+        <strong style="color:#4ade80">Pre-sale pool:</strong> $500k &minus; $400k = <strong>$100,000</strong> &mdash; strong financial flexibility if knockouts resolve.
+      </div>
+    </div>
+    <div>
+      <div class="aip-box" style="border-left-color:#4ade80;margin-top:0">
+        <div class="aip-label" style="color:#4ade80">Aging-in-Place: PARTIAL</div>
+        Main floor walk-in shower bath is the best AIP bath signal in the batch (explicitly stated, zero-threshold shower). However, if all bedrooms are upper-floor, single-floor daily living requires conversion of a main-floor space.
+      </div>
+      <div style="margin-top:16px;padding:16px;background:#1e293b;border-radius:10px;border:1px solid #334155">
+        <h2 style="color:#eab308;border:none;padding:0;margin-bottom:12px;font-size:0.95em">&#x1F6A6; Decision Tree (4/30 MLS)</h2>
+        <table>
+          <tr><th>Gate</th><th>Check</th><th>If Fail</th></tr>
+          <tr><td style="color:#eab308;font-weight:700">1</td><td>Is address in Mac-Groveland?</td><td class="notes-cell">Summit Hill = KNOCKOUT; file closed</td></tr>
+          <tr><td style="color:#eab308;font-weight:700">2</td><td>Off-street parking with EV path?</td><td class="notes-cell">No parking = KNOCKOUT; file closed</td></tr>
+          <tr><td style="color:#eab308;font-weight:700">3</td><td>Is there a 4th room / den / bonus?</td><td class="notes-cell">Room program FAILS; deprioritize</td></tr>
+          <tr><td style="color:#eab308;font-weight:700">4</td><td>Main floor bedroom exists?</td><td class="notes-cell">AIP requires conversion; add to cost</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tour Recommendation -->
+  <div class="section">
+    <h2>&#x1F3AF; Tour-or-Pass Recommendation</h2>
+    <div style="padding:16px;background:#1e293b;border-radius:10px;border:1px solid #334155">
+      <div style="font-size:1.1em;color:#eab308;font-weight:700;margin-bottom:8px">RECOMMENDATION: HOLD &mdash; Verify Neighborhood + EV + 4th Room FIRST (4/30)</div>
+      <div style="font-size:0.9em;color:#94a3b8;margin-bottom:12px">Tour bar: &#x26A0;&#xFE0F; Marginal (20.0/36 exactly at threshold) &middot; Two unresolved knockout risks &middot; If gates pass, could reach 48&ndash;55</div>
+      <div class="two-col">
+        <div>
+          <h2 style="color:#4ade80;border:none;padding:0;margin-bottom:8px;font-size:0.95em">Case For (If Gates Pass)</h2>
+          <ul>
+            <li class="feature-item">Best interior character language in batch</li>
+            <li class="feature-item">Most affordable price with $100k pre-sale pool</li>
+            <li class="feature-item">Best main-floor bath in batch (walk-in shower)</li>
+            <li class="feature-item">Walkable neighborhood</li>
+            <li class="feature-item">1922 pre-1940 construction aligns with Drew&rsquo;s preference</li>
+          </ul>
+        </div>
+        <div>
+          <h2 style="color:#f97316;border:none;padding:0;margin-bottom:8px;font-size:0.95em">Case Against</h2>
+          <ul>
+            <li class="concern-item">No garage on rubric&rsquo;s highest-weighted outdoor criterion</li>
+            <li class="concern-item">Tiny 3,920sqft lot &mdash; permanent outdoor limitation</li>
+            <li class="concern-item">Only 3 bedrooms &mdash; room program likely fails</li>
+            <li class="concern-item">Open-concept kitchen conflicts with Drew&rsquo;s preference</li>
+            <li class="concern-item">Two unresolved knockout risks</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="disclaimer">Cleo remote score 2026-04-28 (41.0/72) &middot; HOLD: Verify neighborhood before any action &middot; Not yet toured &middot; No Sherry assessment<br>
+  Score assumes Mac-Groveland + EV path exist &mdash; if either fails, score is moot &middot; HELOC 7.5%, 5-month bridge &middot; Pre-sale pool: $100,000</div>
+</body>
+</html>

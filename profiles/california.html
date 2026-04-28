@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>1105 California Ave W &mdash; Property Profile</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:#0f172a;color:#e2e8f0;line-height:1.5}
+a{color:#60a5fa}
+.nav{padding:12px 40px;background:#1e293b;border-bottom:1px solid #334155;font-size:0.85em}
+.nav a{text-decoration:none;margin-right:16px}
+.hero{background:linear-gradient(135deg,#1e293b 0%,#0f172a 100%);padding:32px 40px;border-bottom:2px solid #334155}
+.hero h1{font-size:1.8em;color:#f8fafc;margin-bottom:4px}
+.hero .subtitle{color:#94a3b8;font-size:0.95em}
+.stats-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:20px}
+.stat-card{background:#1e293b;border:1px solid #334155;border-radius:8px;padding:10px 14px;min-width:110px}
+.stat-label{font-size:0.7em;color:#94a3b8;text-transform:uppercase;letter-spacing:0.05em}
+.stat-value{font-size:1.1em;font-weight:700;color:#f1f5f9;margin-top:2px}
+.stat-value.price{color:#4ade80}.stat-value.score{color:#e2c275}.stat-value.warn{color:#f97316}
+.tour-badge{display:inline-block;padding:6px 16px;border-radius:20px;font-weight:700;font-size:0.85em;margin-top:16px}
+.content{max-width:1200px;margin:0 auto;padding:24px 40px}
+.section{margin-bottom:32px}
+.section h2{color:#e2c275;font-size:1.15em;border-bottom:1px solid #334155;padding-bottom:8px;margin-bottom:16px}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+@media(max-width:900px){.two-col{grid-template-columns:1fr}.stats-row{gap:8px}.content{padding:16px 20px}.hero{padding:20px}.nav{padding:10px 20px}}
+.score-panel{background:#1e293b;border-radius:10px;padding:20px;border:1px solid #334155}
+.score-total{text-align:center;margin-bottom:16px}
+.score-total .big{font-size:2.8em;font-weight:800;color:#e2c275}
+.score-total .of{font-size:1.1em;color:#64748b}
+.score-total .pct{font-size:0.9em;color:#94a3b8}
+.threshold-note{text-align:center;font-size:0.8em;color:#64748b;margin-top:8px}
+.threshold-note span{color:#f97316;font-weight:600}
+table{width:100%;border-collapse:collapse;font-size:0.85em}
+th{text-align:left;color:#94a3b8;font-weight:600;padding:8px 10px;border-bottom:1px solid #334155;font-size:0.8em;text-transform:uppercase}
+td{padding:8px 10px;border-bottom:1px solid #1e293b}
+.floor-cell{color:#64748b;font-size:0.85em}
+.dim-cell{color:#5eead4;font-family:monospace}
+.notes-cell{color:#94a3b8;font-size:0.85em}
+.cost-cell{color:#4ade80;font-family:monospace;text-align:right;white-space:nowrap}
+ul{list-style:none}li{padding:4px 0;font-size:0.9em}
+.feature-item{color:#d1fae5}.concern-item{color:#fed7aa}
+.cost-panel{background:#1e293b;border-radius:10px;padding:20px;border:1px solid #334155}
+.effective-cost{text-align:center;padding:16px;background:#0f172a;border-radius:8px;margin-top:12px}
+.effective-cost .label{color:#64748b;font-size:0.8em}
+.effective-cost .amount{font-size:1.6em;font-weight:700;color:#4ade80}
+.effective-cost .proj{font-size:0.85em;color:#94a3b8;margin-top:4px}
+.aip-box{background:#1e293b;border-radius:8px;padding:16px;border-left:4px solid #818cf8;margin-top:16px;font-size:0.9em}
+.aip-box .aip-label{color:#818cf8;font-weight:700;font-size:0.8em;text-transform:uppercase;margin-bottom:4px}
+.room-pass{color:#4ade80;font-weight:700}
+.room-marginal{color:#f59e0b;font-weight:700}
+.room-fail{color:#ef4444;font-weight:700}
+.no-photo{background:#1e293b;border:2px dashed #334155;border-radius:10px;padding:48px 24px;text-align:center;color:#64748b;font-size:0.9em}
+.disclaimer{text-align:center;color:#64748b;font-size:0.75em;padding:24px 40px;border-top:1px solid #1e293b}
+</style>
+</head>
+<body>
+<div class="nav"><a href="../">&larr; Tour Rater</a> <a href="index.html">All Profiles</a></div>
+<div class="hero">
+  <h1>&#x1F3E0; 1105 California Ave W</h1>
+  <div class="subtitle">Rambler / Bungalow (1926) &middot; Como &middot; Coming Soon</div>
+  <div class="stats-row">
+    <div class="stat-card"><div class="stat-label">Price</div><div class="stat-value price">$424,999</div></div>
+    <div class="stat-card"><div class="stat-label">Cleo (Remote)</div><div class="stat-value score">46.0 / 72</div></div>
+    <div class="stat-card"><div class="stat-label">Total Sqft</div><div class="stat-value">~2,114</div></div>
+    <div class="stat-card"><div class="stat-label">AG Sqft (est.)</div><div class="stat-value warn">~1,200&ndash;1,400</div></div>
+    <div class="stat-card"><div class="stat-label">Beds / Baths</div><div class="stat-value">4 / 2</div></div>
+    <div class="stat-card"><div class="stat-label">Garage</div><div class="stat-value warn">Present (TBD)</div></div>
+    <div class="stat-card"><div class="stat-label">Tax</div><div class="stat-value">~$4,500&ndash;$5,500</div></div>
+    <div class="stat-card"><div class="stat-label">Lot</div><div class="stat-value">8,059 sqft</div></div>
+  </div>
+  <div class="tour-badge" style="background:#818cf822;color:#818cf8;border:1px solid #818cf8">COMING SOON 4/30 &mdash; Tour Recommended (46.0/72)</div>
+</div>
+<div class="content">
+  <div class="section two-col">
+    <div class="score-panel">
+      <div class="score-total"><div class="big">46.0</div><div class="of">of 72</div><div class="pct">63.9% &middot; Purchase threshold: 57 (79.2%)</div></div>
+      <svg width="340" height="178" viewBox="0 0 340 178" style="max-width:100%;height:auto">
+  <text x="66" y="21" fill="#ccc" font-size="11" text-anchor="end" font-family="Segoe UI,system-ui,sans-serif">Location</text>
+  <rect x="70" y="5" width="220" height="22" rx="4" fill="#1e293b"/>
+  <rect x="70" y="5" width="165.00" height="22" rx="4" fill="#60a5fa" opacity="0.85"/>
+  <text x="294" y="21" fill="#eee" font-size="12" font-family="Segoe UI,system-ui,sans-serif" font-weight="600">9/12</text>
+  <text x="66" y="49" fill="#ccc" font-size="11" text-anchor="end" font-family="Segoe UI,system-ui,sans-serif">Outdoor</text>
+  <rect x="70" y="33" width="220" height="22" rx="4" fill="#1e293b"/>
+  <rect x="70" y="33" width="146.67" height="22" rx="4" fill="#4ade80" opacity="0.85"/>
+  <text x="294" y="49" fill="#eee" font-size="12" font-family="Segoe UI,system-ui,sans-serif" font-weight="600">8/12</text>
+  <text x="66" y="77" fill="#ccc" font-size="11" text-anchor="end" font-family="Segoe UI,system-ui,sans-serif">Interior</text>
+  <rect x="70" y="61" width="220" height="22" rx="4" fill="#1e293b"/>
+  <rect x="70" y="61" width="165.00" height="22" rx="4" fill="#e2c275" opacity="0.85"/>
+  <text x="294" y="77" fill="#eee" font-size="12" font-family="Segoe UI,system-ui,sans-serif" font-weight="600">9/12</text>
+  <text x="66" y="105" fill="#ccc" font-size="11" text-anchor="end" font-family="Segoe UI,system-ui,sans-serif">Size</text>
+  <rect x="70" y="89" width="220" height="22" rx="4" fill="#1e293b"/>
+  <rect x="70" y="89" width="119.17" height="22" rx="4" fill="#c084fc" opacity="0.85"/>
+  <text x="294" y="105" fill="#eee" font-size="12" font-family="Segoe UI,system-ui,sans-serif" font-weight="600">6.5/12</text>
+  <text x="66" y="133" fill="#ccc" font-size="11" text-anchor="end" font-family="Segoe UI,system-ui,sans-serif">Kitchen</text>
+  <rect x="70" y="117" width="220" height="22" rx="4" fill="#1e293b"/>
+  <rect x="70" y="117" width="119.17" height="22" rx="4" fill="#f97316" opacity="0.85"/>
+  <text x="294" y="133" fill="#eee" font-size="12" font-family="Segoe UI,system-ui,sans-serif" font-weight="600">6.5/12</text>
+  <text x="66" y="161" fill="#ccc" font-size="11" text-anchor="end" font-family="Segoe UI,system-ui,sans-serif">Systems</text>
+  <rect x="70" y="145" width="220" height="22" rx="4" fill="#1e293b"/>
+  <rect x="70" y="145" width="128.33" height="22" rx="4" fill="#5eead4" opacity="0.85"/>
+  <text x="294" y="161" fill="#eee" font-size="12" font-family="Segoe UI,system-ui,sans-serif" font-weight="600">7/12</text>
+</svg>
+      <div class="threshold-note">Remote-scored by Cleo 2026-04-28. <span>BELOW 57 threshold &mdash; clears 20/36 tour bar (23.0/36).</span></div>
+    </div>
+    <div>
+      <h2 style="color:#e2c275;border:none;padding:0;margin-bottom:8px">&#x1F3C6; Standout Features</h2>
+      <ul>
+        <li class="feature-item">&#x2705; Hardwood floors explicitly confirmed</li>
+        <li class="feature-item">&#x2705; 9-ft ceilings (main level) &mdash; rare for 1926</li>
+        <li class="feature-item">&#x2705; Large double-pane windows &mdash; abundant natural light</li>
+        <li class="feature-item">&#x2705; Private fully fenced backyard (8,059sqft lot)</li>
+        <li class="feature-item">&#x2705; Lower bedroom with egress window (legal 4th bed)</li>
+        <li class="feature-item">&#x2705; Lower full bath with separate tub AND shower</li>
+        <li class="feature-item">&#x2705; Wood-burning fireplace</li>
+        <li class="feature-item">&#x2705; Walking distance to Como Park</li>
+      </ul>
+      <div style="margin-top:12px">
+        <h2 style="color:#f97316;border:none;padding:0;margin-bottom:8px;font-size:0.95em">&#x26A0;&#xFE0F; Flags &amp; Unknowns</h2>
+        <ul>
+          <li class="concern-item">&#x26A0;&#xFE0F; Open-concept layout &mdash; conflicts with Drew&rsquo;s preference for many small rooms</li>
+          <li class="concern-item">&#x26A0;&#xFE0F; &ldquo;Rambler&rdquo; for 1926 is unusual &mdash; may be remodeled bungalow</li>
+          <li class="concern-item">&#x26A0;&#xFE0F; Above-grade sqft likely ~1,200&ndash;1,400 (below 1,700 target)</li>
+          <li class="concern-item">&#x26A0;&#xFE0F; Garage size and workspace potential unknown</li>
+          <li class="concern-item">&#x26A0;&#xFE0F; Cooling system unknown &mdash; assume mini-split needed</li>
+          <li class="concern-item">&#x26A0;&#xFE0F; Natural woodwork uncertain after open-concept renovation</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="section">
+    <div class="no-photo">&#x1F4F7; Coming Soon &mdash; No listing photos available yet. First showing 4/30.</div>
+  </div>
+  <div class="section"><h2>&#x1F3D7;&#xFE0F; Room Breakdown (Partial &mdash; Coming Soon)</h2>
+    <table><tr><th>Floor</th><th>Room</th><th>Dimensions</th><th>Notes</th></tr>
+<tr><td class="floor-cell">Main</td><td>Bedroom 1</td><td class="dim-cell">TBD</td><td class="notes-cell">Primary; size unknown</td></tr>
+<tr><td class="floor-cell">Main</td><td>Bedroom 2</td><td class="dim-cell">TBD</td><td class="notes-cell">Size unknown</td></tr>
+<tr><td class="floor-cell">Main</td><td>Bedroom 3</td><td class="dim-cell">TBD</td><td class="notes-cell">Size unknown</td></tr>
+<tr><td class="floor-cell">Main</td><td>Kitchen</td><td class="dim-cell">TBD</td><td class="notes-cell">Open-concept; maple cabinets + stainless</td></tr>
+<tr><td class="floor-cell">Main</td><td>Living</td><td class="dim-cell">TBD</td><td class="notes-cell">&ldquo;Large family room&rdquo; &mdash; open-concept main area; 9-ft ceilings</td></tr>
+<tr><td class="floor-cell">Main</td><td>Bath</td><td class="dim-cell">TBD</td><td class="notes-cell">Likely main floor (4/2 with 1 confirmed lower)</td></tr>
+<tr><td class="floor-cell">Lower</td><td>Bedroom 4</td><td class="dim-cell">TBD</td><td class="notes-cell">Egress window &#x2705; &mdash; legal sleeping; ideal Maxy zone</td></tr>
+<tr><td class="floor-cell">Lower</td><td>Family Room</td><td class="dim-cell">TBD</td><td class="notes-cell">&ldquo;Large family room&rdquo; (lower) &mdash; gym/library candidate</td></tr>
+<tr><td class="floor-cell">Lower</td><td>Full Bath</td><td class="dim-cell">&mdash;</td><td class="notes-cell">Separate tub AND shower &#x2705; &mdash; best lower bath in batch</td></tr>
+</table>
+  </div>
+  <div class="section"><h2>&#x2705; Room Program Assessment</h2>
+    <table><tr><th>Requirement</th><th>Status</th><th>Candidate Space</th></tr>
+<tr><td>Larger bedroom (master)</td><td class="room-pass">&#x2705; Pass</td><td class="notes-cell">Largest of 3 main-floor bedrooms</td></tr>
+<tr><td>Smaller bedroom (Maxy)</td><td class="room-pass">&#x2705; Pass</td><td class="notes-cell">Lower bedroom with egress &mdash; own floor, own bath</td></tr>
+<tr><td>Sherry&rsquo;s office (closed door)</td><td class="room-pass">&#x2705; Pass</td><td class="notes-cell">Main Bed 2 (if confirmed with door)</td></tr>
+<tr><td>Drew&rsquo;s office (closed door)</td><td class="room-pass">&#x2705; Pass</td><td class="notes-cell">Main Bed 3 (if confirmed with door)</td></tr>
+<tr><td>Gym / library (flat floor)</td><td class="room-pass">&#x2705; Pass</td><td class="notes-cell">Lower family room &mdash; flat, large, accessible</td></tr>
+<tr><td>5&ndash;8 person social space</td><td class="room-pass">&#x2705; Pass</td><td class="notes-cell">Open-concept main level designed for this</td></tr>
+</table>
+    <div style="margin-top:12px;padding:12px;background:#0f172a;border-radius:8px;font-size:0.9em">
+      <strong class="room-marginal">Room Program: CONDITIONAL PASS</strong> &mdash; Works IF 3 main-floor bedrooms are confirmed as separate rooms with closable doors (not washed into the open-concept area). Layout: master + Sherry office + Drew office on main; Maxy in lower with her own bath.
+    </div>
+  </div>
+  <div class="section two-col">
+    <div class="cost-panel"><h2 style="border:none;padding:0;margin-bottom:12px">Effective Cost Model</h2>
+      <table><tr><th>Line Item</th><th style="text-align:right">Low Est.</th><th style="text-align:right">High Est.</th></tr>
+<tr><td>Purchase price</td><td class="cost-cell">$424,999</td><td class="cost-cell">$424,999</td></tr>
+<tr><td>Central air / mini-split (if needed)</td><td class="cost-cell">$7,000</td><td class="cost-cell">$14,000</td></tr>
+<tr><td>Electrical assessment</td><td class="cost-cell">$1,500</td><td class="cost-cell">$5,000</td></tr>
+<tr><td>EV circuit (garage)</td><td class="cost-cell">$1,500</td><td class="cost-cell">$4,000</td></tr>
+<tr><td>Sewer scope + remediation</td><td class="cost-cell">$500</td><td class="cost-cell">$5,000</td></tr>
+<tr><td>HELOC carry (7.5%, 5 mo.)</td><td class="cost-cell">$13,281</td><td class="cost-cell">$13,281</td></tr>
+</table>
+      <div class="effective-cost"><div class="label">Total Effective Cost</div><div class="amount">$448k &ndash; $466k</div>
+        <div class="proj">Pre-sale pool: ~$75,001 &mdash; matches Albany</div></div>
+    </div>
+    <div>
+      <div class="cost-panel" style="margin-bottom:16px"><h2 style="border:none;padding:0;margin-bottom:12px">&#x1F3E5; Aging-in-Place</h2>
+        <table><tr><th>Criterion</th><th>Status</th></tr>
+<tr><td>Main-floor full bath</td><td style="color:#f59e0b">&#x26A0;&#xFE0F; Likely (unconfirmed)</td></tr>
+<tr><td>Main-floor convertible bedroom</td><td style="color:#4ade80">&#x2705; 3 bedrooms on main</td></tr>
+<tr><td>Single-floor daily living</td><td style="color:#4ade80">&#x2705; Good (if bath confirmed)</td></tr>
+<tr><td>Grab-bar provision</td><td style="color:#94a3b8">&#x2753; Unknown</td></tr>
+</table>
+        <div style="margin-top:8px;padding:8px;background:#0f172a;border-radius:6px;font-size:0.85em;color:#94a3b8">
+          <strong style="color:#4ade80">Verdict: LIKELY GOOD.</strong> Rambler is the best AIP form factor &mdash; no stairs for daily living. 3 main-floor bedrooms + main bath (probable). Zero stairs required.
+        </div>
+      </div>
+      <div class="aip-box">
+        <div class="aip-label">&#x1F4C5; Coming Soon 4/30</div>
+        First showing available 4/30. Request full MLS data same day. Garage reveal is the single highest-leverage data point &mdash; score swings &plusmn;2.5 pts on garage alone.
+      </div>
+    </div>
+  </div>
+  <div class="section"><h2>&#x1F3AF; Tour-or-Pass Recommendation</h2>
+    <div style="padding:20px;background:#1e293b;border-radius:10px;border-left:4px solid #818cf8">
+      <div style="font-size:1.2em;font-weight:700;color:#818cf8;margin-bottom:12px">TOUR &mdash; Priority 2 (after Albany if it returns)</div>
+      <div style="font-size:0.9em;color:#94a3b8;margin-bottom:16px">Tour bar: &#x2705; CLEARS (23.0/36 vs. 20/36 threshold). First showing available 4/30.</div>
+      <div class="two-col">
+        <div>
+          <h2 style="color:#4ade80;border:none;padding:0;margin-bottom:8px;font-size:0.95em">Affirmative Case</h2>
+          <ul>
+            <li class="feature-item">&#x2705; Como Park walking distance</li>
+            <li class="feature-item">&#x2705; 8,059sqft fenced lot (2nd largest in batch)</li>
+            <li class="feature-item">&#x2705; 4 beds with lower egress bedroom</li>
+            <li class="feature-item">&#x2705; 9-ft ceilings + large double-pane windows</li>
+            <li class="feature-item">&#x2705; Hardwood floors confirmed</li>
+            <li class="feature-item">&#x2705; Lower full bath (tub + shower) &mdash; best in batch</li>
+            <li class="feature-item">&#x2705; Effective cost comparable to Albany (~$448k low)</li>
+          </ul>
+        </div>
+        <div>
+          <h2 style="color:#e2c275;border:none;padding:0;margin-bottom:8px;font-size:0.95em">Gap to 57: Need +11 pts</h2>
+          <table style="font-size:0.8em"><tr><th>Section</th><th>Now</th><th>Ceiling</th><th>Key</th></tr>
+<tr><td>Location</td><td>9.0</td><td>9.5</td><td class="notes-cell">Taxes confirmed low?</td></tr>
+<tr><td>Outdoor</td><td>8.0</td><td>11.5</td><td class="notes-cell">Garage 480sqft+ w/ workspace?</td></tr>
+<tr><td>Interior</td><td>9.0</td><td>11.0</td><td class="notes-cell">Woodwork survived open-concept?</td></tr>
+<tr><td>Size</td><td>6.5</td><td>9.0</td><td class="notes-cell">AG sqft + active hobbies</td></tr>
+<tr><td>Kitchen</td><td>6.5</td><td>8.5</td><td class="notes-cell">4-station + beverage setup</td></tr>
+<tr><td>Systems</td><td>7.0</td><td>9.0</td><td class="notes-cell">Main bath + cooling</td></tr>
+</table>
+          <div style="margin-top:8px;padding:8px;background:#0f172a;border-radius:6px;font-size:0.85em;color:#94a3b8">
+            <strong style="color:#e2c275">Stretch:</strong> Need +11 of +12.5 available. Reaches 57 IF (a) garage is 2-car w/ workspace AND (b) woodwork survived renovation. Best case ~58.5; realistic 52&ndash;57.
+          </div>
+        </div>
+      </div>
+      <div style="margin-top:16px;padding:12px;background:#0f172a;border-radius:8px">
+        <h2 style="color:#e2c275;border:none;padding:0;margin-bottom:8px;font-size:0.95em">&#x1F50D; Make-or-Break Tour Items</h2>
+        <table style="font-size:0.8em"><tr><th>Issue</th><th>Why</th><th>What to Look For</th></tr>
+<tr><td>Garage size + workspace</td><td class="notes-cell">Score &plusmn;2.5 pts</td><td class="notes-cell">How large? Detached? Workbench? EV?</td></tr>
+<tr><td>Open-concept scope</td><td class="notes-cell">Preference + woodwork</td><td class="notes-cell">Kitchen/living only or bedroom walls removed?</td></tr>
+<tr><td>3 main beds with doors</td><td class="notes-cell">Room program pass/fail</td><td class="notes-cell">Separate rooms with closing doors?</td></tr>
+<tr><td>Main floor bath</td><td class="notes-cell">AIP + 2-baths</td><td class="notes-cell">Confirm location relative to bedrooms</td></tr>
+<tr><td>Above-grade sqft</td><td class="notes-cell">Size &amp; Program</td><td class="notes-cell">Walk with tape; ask agent for actual AG sqft</td></tr>
+<tr><td>Cooling system</td><td class="notes-cell">Effective cost</td><td class="notes-cell">Central AC exists or mini-splits needed?</td></tr>
+<tr><td>Street character</td><td class="notes-cell">Leisure walking</td><td class="notes-cell">Quiet or through street? Traffic?</td></tr>
+</table>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="disclaimer">Remote-scored by Cleo 2026-04-28 (46.0/72) &middot; NOT YET TOURED &middot; No Sherry assessment<br>
+  Status: Coming Soon 4/30 &mdash; request full MLS data on listing day<br>
+  Costs: 2025-2026 Twin Cities estimates &middot; HELOC rate 7.5%, 5-month bridge &middot; Pre-sale pool ~$75,001</div>
+</body>
+</html>

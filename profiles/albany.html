@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>1416 Albany Avenue &mdash; Property Profile</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:#0f172a;color:#e2e8f0;line-height:1.5}
+a{color:#60a5fa}
+.nav{padding:12px 40px;background:#1e293b;border-bottom:1px solid #334155;font-size:0.85em}
+.nav a{text-decoration:none;margin-right:16px}
+.hero{background:linear-gradient(135deg,#1e293b 0%,#0f172a 100%);padding:32px 40px;border-bottom:2px solid #334155}
+.hero h1{font-size:1.8em;color:#f8fafc;margin-bottom:4px}
+.hero .subtitle{color:#94a3b8;font-size:0.95em}
+.stats-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:20px}
+.stat-card{background:#1e293b;border:1px solid #334155;border-radius:8px;padding:10px 14px;min-width:110px}
+.stat-label{font-size:0.7em;color:#94a3b8;text-transform:uppercase;letter-spacing:0.05em}
+.stat-value{font-size:1.1em;font-weight:700;color:#f1f5f9;margin-top:2px}
+.stat-value.price{color:#4ade80}.stat-value.score{color:#e2c275}.stat-value.warn{color:#f97316}
+.tour-badge{display:inline-block;padding:6px 16px;border-radius:20px;font-weight:700;font-size:0.85em;margin-top:16px}
+.content{max-width:1200px;margin:0 auto;padding:24px 40px}
+.section{margin-bottom:32px}
+.section h2{color:#e2c275;font-size:1.15em;border-bottom:1px solid #334155;padding-bottom:8px;margin-bottom:16px}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+@media(max-width:900px){.two-col{grid-template-columns:1fr}.stats-row{gap:8px}.content{padding:16px 20px}.hero{padding:20px}.nav{padding:10px 20px}}
+.score-panel{background:#1e293b;border-radius:10px;padding:20px;border:1px solid #334155}
+.score-total{text-align:center;margin-bottom:16px}
+.score-total .big{font-size:2.8em;font-weight:800;color:#e2c275}
+.score-total .of{font-size:1.1em;color:#64748b}
+.score-total .pct{font-size:0.9em;color:#94a3b8}
+.threshold-note{text-align:center;font-size:0.8em;color:#64748b;margin-top:8px}
+.threshold-note span{color:#f97316;font-weight:600}
+table{width:100%;border-collapse:collapse;font-size:0.85em}
+th{text-align:left;color:#94a3b8;font-weight:600;padding:8px 10px;border-bottom:1px solid #334155;font-size:0.8em;text-transform:uppercase}
+td{padding:8px 10px;border-bottom:1px solid #1e293b}
+.floor-cell{color:#64748b;font-size:0.85em}
+.dim-cell{color:#5eead4;font-family:monospace}
+.notes-cell{color:#94a3b8;font-size:0.85em}
+.cost-cell{color:#4ade80;font-family:monospace;text-align:right;white-space:nowrap}
+ul{list-style:none}li{padding:4px 0;font-size:0.9em}
+.feature-item{color:#d1fae5}.concern-item{color:#fed7aa}
+.photo-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:8px}
+.photo-thumb{width:100%;height:130px;object-fit:cover;border-radius:6px;cursor:pointer;border:2px solid transparent;transition:border 0.2s,transform 0.2s}
+.photo-thumb:hover{border-color:#e2c275;transform:scale(1.03)}
+.photo-thumb.hero-img{grid-column:span 2;grid-row:span 2;height:276px}
+.lightbox{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.92);z-index:1000;justify-content:center;align-items:center;cursor:pointer}
+.lightbox.active{display:flex}
+.lightbox img{max-width:90vw;max-height:90vh;border-radius:8px}
+.cost-panel{background:#1e293b;border-radius:10px;padding:20px;border:1px solid #334155}
+.effective-cost{text-align:center;padding:16px;background:#0f172a;border-radius:8px;margin-top:12px}
+.effective-cost .label{color:#64748b;font-size:0.8em}
+.effective-cost .amount{font-size:1.6em;font-weight:700;color:#4ade80}
+.effective-cost .proj{font-size:0.85em;color:#94a3b8;margin-top:4px}
+.aip-box{background:#1e293b;border-radius:8px;padding:16px;border-left:4px solid #f59e0b;margin-top:16px;font-size:0.9em}
+.aip-box .aip-label{color:#f59e0b;font-weight:700;font-size:0.8em;text-transform:uppercase;margin-bottom:4px}
+.room-pass{color:#4ade80;font-weight:700}
+.room-marginal{color:#f59e0b;font-weight:700}
+.room-fail{color:#ef4444;font-weight:700}
+.disclaimer{text-align:center;color:#64748b;font-size:0.75em;padding:24px 40px;border-top:1px solid #1e293b}
+</style>
+</head>
+<body>
+<div class="nav"><a href="../">&larr; Tour Rater</a> <a href="index.html">All Profiles</a></div>
+<div class="hero">
+  <h1>&#x1F3E0; 1416 Albany Avenue</h1>
+  <div class="subtitle">1.5-Story Craftsman (1912) &middot; Como &middot; MLS# 7046074</div>
+  <div class="stats-row">
+    <div class="stat-card"><div class="stat-label">Price</div><div class="stat-value price">$425,000</div></div>
+    <div class="stat-card"><div class="stat-label">Cleo (Remote)</div><div class="stat-value score">53.5 / 72</div></div>
+    <div class="stat-card"><div class="stat-label">Sqft (AG)</div><div class="stat-value">1,454</div></div>
+    <div class="stat-card"><div class="stat-label">Total Sqft</div><div class="stat-value">1,754</div></div>
+    <div class="stat-card"><div class="stat-label">Beds / Baths</div><div class="stat-value">4 / 2</div></div>
+    <div class="stat-card"><div class="stat-label">Garage</div><div class="stat-value">2-car + workshop</div></div>
+    <div class="stat-card"><div class="stat-label">Tax</div><div class="stat-value price">$4,576</div></div>
+    <div class="stat-card"><div class="stat-label">Lot</div><div class="stat-value">0.24 ac (double)</div></div>
+  </div>
+  <div class="tour-badge" style="background:#f59e0b22;color:#f59e0b;border:1px solid #f59e0b">MONITOR &mdash; Under Contract (53.5/72)</div>
+</div>
+<div class="content">
+  <div class="section two-col">
+    <div class="score-panel">
+      <div class="score-total"><div class="big">53.5</div><div class="of">of 72</div><div class="pct">74.3% &middot; Purchase threshold: 57 (79.2%)</div></div>
+      <svg width="340" height="178" viewBox="0 0 340 178" style="max-width:100%;height:auto">
+  <text x="66" y="21" fill="#ccc" font-size="11" text-anchor="end" font-family="Segoe UI,system-ui,sans-serif">Location</text>
+  <rect x="70" y="5" width="220" height="22" rx="4" fill="#1e293b"/>
+  <rect x="70" y="5" width="201.67" height="22" rx="4" fill="#60a5fa" opacity="0.85"/>
+  <text x="294" y="21" fill="#eee" font-size="12" font-family="Segoe UI,system-ui,sans-serif" font-weight="600">11/12</text>
+  <text x="66" y="49" fill="#ccc" font-size="11" text-anchor="end" font-family="Segoe UI,system-ui,sans-serif">Outdoor</text>
+  <rect x="70" y="33" width="220" height="22" rx="4" fill="#1e293b"/>
+  <rect x="70" y="33" width="201.67" height="22" rx="4" fill="#4ade80" opacity="0.85"/>
+  <text x="294" y="49" fill="#eee" font-size="12" font-family="Segoe UI,system-ui,sans-serif" font-weight="600">11/12</text>
+  <text x="66" y="77" fill="#ccc" font-size="11" text-anchor="end" font-family="Segoe UI,system-ui,sans-serif">Interior</text>
+  <rect x="70" y="61" width="220" height="22" rx="4" fill="#1e293b"/>
+  <rect x="70" y="61" width="128.33" height="22" rx="4" fill="#e2c275" opacity="0.85"/>
+  <text x="294" y="77" fill="#eee" font-size="12" font-family="Segoe UI,system-ui,sans-serif" font-weight="600">7/12</text>
+  <text x="66" y="105" fill="#ccc" font-size="11" text-anchor="end" font-family="Segoe UI,system-ui,sans-serif">Size</text>
+  <rect x="70" y="89" width="220" height="22" rx="4" fill="#1e293b"/>
+  <rect x="70" y="89" width="192.50" height="22" rx="4" fill="#c084fc" opacity="0.85"/>
+  <text x="294" y="105" fill="#eee" font-size="12" font-family="Segoe UI,system-ui,sans-serif" font-weight="600">10.5/12</text>
+  <text x="66" y="133" fill="#ccc" font-size="11" text-anchor="end" font-family="Segoe UI,system-ui,sans-serif">Kitchen</text>
+  <rect x="70" y="117" width="220" height="22" rx="4" fill="#1e293b"/>
+  <rect x="70" y="117" width="128.33" height="22" rx="4" fill="#f97316" opacity="0.85"/>
+  <text x="294" y="133" fill="#eee" font-size="12" font-family="Segoe UI,system-ui,sans-serif" font-weight="600">7/12</text>
+  <text x="66" y="161" fill="#ccc" font-size="11" text-anchor="end" font-family="Segoe UI,system-ui,sans-serif">Systems</text>
+  <rect x="70" y="145" width="220" height="22" rx="4" fill="#1e293b"/>
+  <rect x="70" y="145" width="128.33" height="22" rx="4" fill="#5eead4" opacity="0.85"/>
+  <text x="294" y="161" fill="#eee" font-size="12" font-family="Segoe UI,system-ui,sans-serif" font-weight="600">7/12</text>
+</svg>
+      <div class="threshold-note">Remote-scored by Cleo 2026-04-28. <span>BELOW 57 threshold &mdash; clears 20/36 tour bar (29.5/36).</span></div>
+    </div>
+    <div>
+      <h2 style="color:#e2c275;border:none;padding:0;margin-bottom:8px">&#x1F3C6; Standout Features</h2>
+      <ul>
+        <li class="feature-item">&#x2705; Lowest property taxes in active search ($4,576/yr)</li>
+        <li class="feature-item">&#x2705; 0.24-acre double lot (82&times;128 ft) with full wood fence</li>
+        <li class="feature-item">&#x2705; 880sqft 2-car garage + 15&times;13 workshop extension</li>
+        <li class="feature-item">&#x2705; Wraparound porch (38&times;7) + deck (20&times;10)</li>
+        <li class="feature-item">&#x2705; Main floor full bath + 2 main-floor bedrooms (AIP-ready)</li>
+        <li class="feature-item">&#x2705; $100k+ in updates past 2 years</li>
+        <li class="feature-item">&#x2705; New cabinetry, granite counters, stainless appliances</li>
+        <li class="feature-item">&#x2705; Mud room (12&times;8) &mdash; ideal pet program placement</li>
+      </ul>
+      <div style="margin-top:12px">
+        <h2 style="color:#f97316;border:none;padding:0;margin-bottom:8px;font-size:0.95em">&#x26A0;&#xFE0F; Key Unknowns (Verify at Tour)</h2>
+        <ul>
+          <li class="concern-item">&#x26A0;&#xFE0F; &ldquo;New flooring&rdquo; &mdash; hardwood or LVP? (Score swing &plusmn;3&ndash;5 pts)</li>
+          <li class="concern-item">&#x26A0;&#xFE0F; Natural woodwork &mdash; preserved or painted in $100k+ reno?</li>
+          <li class="concern-item">&#x26A0;&#xFE0F; Sewer &mdash; 1912 clay lateral; scope before any offer</li>
+          <li class="concern-item">&#x26A0;&#xFE0F; Wall unit cooling only &mdash; mini-split retrofit needed</li>
+          <li class="concern-item">&#x26A0;&#xFE0F; Shared driveway &mdash; negotiation item</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="section"><h2>&#x1F4F8; Listing Photos</h2><div class="photo-grid">
+  <img src="https://www.edinarealty.com/listing-images/listing/RMLS/1416-Albany-Avenue-Saint-Paul-MN-55108-7046074-image1.jpg" class="photo-thumb hero-img" loading="lazy" onclick="openLightbox(this.src)" alt="Photo 1" onerror="this.style.display='none'"/>
+  <img src="https://www.edinarealty.com/listing-images/listing/RMLS/1416-Albany-Avenue-Saint-Paul-MN-55108-7046074-image2.jpg" class="photo-thumb" loading="lazy" onclick="openLightbox(this.src)" alt="Photo 2" onerror="this.style.display='none'"/>
+  <img src="https://www.edinarealty.com/listing-images/listing/RMLS/1416-Albany-Avenue-Saint-Paul-MN-55108-7046074-image3.jpg" class="photo-thumb" loading="lazy" onclick="openLightbox(this.src)" alt="Photo 3" onerror="this.style.display='none'"/>
+  <img src="https://www.edinarealty.com/listing-images/listing/RMLS/1416-Albany-Avenue-Saint-Paul-MN-55108-7046074-image4.jpg" class="photo-thumb" loading="lazy" onclick="openLightbox(this.src)" alt="Photo 4" onerror="this.style.display='none'"/>
+  <img src="https://www.edinarealty.com/listing-images/listing/RMLS/1416-Albany-Avenue-Saint-Paul-MN-55108-7046074-image5.jpg" class="photo-thumb" loading="lazy" onclick="openLightbox(this.src)" alt="Photo 5" onerror="this.style.display='none'"/>
+  <img src="https://www.edinarealty.com/listing-images/listing/RMLS/1416-Albany-Avenue-Saint-Paul-MN-55108-7046074-image6.jpg" class="photo-thumb" loading="lazy" onclick="openLightbox(this.src)" alt="Photo 6" onerror="this.style.display='none'"/>
+  <img src="https://www.edinarealty.com/listing-images/listing/RMLS/1416-Albany-Avenue-Saint-Paul-MN-55108-7046074-image7.jpg" class="photo-thumb" loading="lazy" onclick="openLightbox(this.src)" alt="Photo 7" onerror="this.style.display='none'"/>
+  <img src="https://www.edinarealty.com/listing-images/listing/RMLS/1416-Albany-Avenue-Saint-Paul-MN-55108-7046074-image8.jpg" class="photo-thumb" loading="lazy" onclick="openLightbox(this.src)" alt="Photo 8" onerror="this.style.display='none'"/>
+  <img src="https://www.edinarealty.com/listing-images/listing/RMLS/1416-Albany-Avenue-Saint-Paul-MN-55108-7046074-image9.jpg" class="photo-thumb" loading="lazy" onclick="openLightbox(this.src)" alt="Photo 9" onerror="this.style.display='none'"/>
+  <img src="https://www.edinarealty.com/listing-images/listing/RMLS/1416-Albany-Avenue-Saint-Paul-MN-55108-7046074-image10.jpg" class="photo-thumb" loading="lazy" onclick="openLightbox(this.src)" alt="Photo 10" onerror="this.style.display='none'"/>
+  <img src="https://www.edinarealty.com/listing-images/listing/RMLS/1416-Albany-Avenue-Saint-Paul-MN-55108-7046074-image11.jpg" class="photo-thumb" loading="lazy" onclick="openLightbox(this.src)" alt="Photo 11" onerror="this.style.display='none'"/>
+  <img src="https://www.edinarealty.com/listing-images/listing/RMLS/1416-Albany-Avenue-Saint-Paul-MN-55108-7046074-image12.jpg" class="photo-thumb" loading="lazy" onclick="openLightbox(this.src)" alt="Photo 12" onerror="this.style.display='none'"/>
+</div>
+</div>
+  <div class="section"><h2>&#x1F3D7;&#xFE0F; Room Breakdown</h2>
+    <table><tr><th>Floor</th><th>Room</th><th>Dimensions</th><th>Notes</th></tr>
+<tr><td class="floor-cell">Main</td><td>Living Room</td><td class="dim-cell">19&times;12</td><td class="notes-cell">228sqft; social gathering space</td></tr>
+<tr><td class="floor-cell">Main</td><td>Dining</td><td class="dim-cell">13&times;11</td><td class="notes-cell">143sqft; adjacent to kitchen</td></tr>
+<tr><td class="floor-cell">Main</td><td>Kitchen</td><td class="dim-cell">12&times;10</td><td class="notes-cell">120sqft; new cabinetry + granite + stainless</td></tr>
+<tr><td class="floor-cell">Main</td><td>Bedroom 1</td><td class="dim-cell">13&times;12</td><td class="notes-cell">156sqft; main-floor primary option</td></tr>
+<tr><td class="floor-cell">Main</td><td>Bedroom 2</td><td class="dim-cell">13&times;11</td><td class="notes-cell">143sqft</td></tr>
+<tr><td class="floor-cell">Main</td><td>Mud Room</td><td class="dim-cell">12&times;8</td><td class="notes-cell">96sqft; ideal litter box + auto feeder zone</td></tr>
+<tr><td class="floor-cell">Main</td><td>Porch</td><td class="dim-cell">38&times;7</td><td class="notes-cell">266sqft wraparound; outdoor living</td></tr>
+<tr><td class="floor-cell">Main</td><td>Full Bath</td><td class="dim-cell">&mdash;</td><td class="notes-cell">Main floor &mdash; AIP-excellent</td></tr>
+<tr><td class="floor-cell">Upper</td><td>Bedroom 3</td><td class="dim-cell">13&times;9</td><td class="notes-cell">117sqft</td></tr>
+<tr><td class="floor-cell">Upper</td><td>Bedroom 4</td><td class="dim-cell">10&times;10</td><td class="notes-cell">100sqft</td></tr>
+<tr><td class="floor-cell">Upper</td><td>Full Bath</td><td class="dim-cell">&mdash;</td><td class="notes-cell">Upper floor</td></tr>
+<tr><td class="floor-cell">Lower</td><td>Family Room</td><td class="dim-cell">17&times;16</td><td class="notes-cell">272sqft; finished; gym/library candidate</td></tr>
+<tr><td class="floor-cell">Ext.</td><td>Deck</td><td class="dim-cell">20&times;10</td><td class="notes-cell">200sqft</td></tr>
+<tr><td class="floor-cell">Garage</td><td>Workshop</td><td class="dim-cell">15&times;13</td><td class="notes-cell">195sqft dedicated extension; Sherry office option</td></tr>
+</table>
+  </div>
+  <div class="section"><h2>&#x2705; Room Program Assessment</h2>
+    <table><tr><th>Requirement</th><th>Status</th><th>Candidate Space</th></tr>
+<tr><td>Larger bedroom (master)</td><td class="room-pass">&#x2705; Pass</td><td class="notes-cell">Main Bed 13&times;12 (156sqft) or upper with more privacy</td></tr>
+<tr><td>Smaller bedroom (Maxy)</td><td class="room-pass">&#x2705; Pass</td><td class="notes-cell">3 additional options: 13&times;11, 13&times;9, 10&times;10</td></tr>
+<tr><td>Sherry&rsquo;s office (closed door)</td><td class="room-pass">&#x2705; Pass</td><td class="notes-cell">Garage extension 15&times;13 = 195sqft dedicated space &mdash; best in batch</td></tr>
+<tr><td>Drew&rsquo;s office (closed door)</td><td class="room-pass">&#x2705; Pass</td><td class="notes-cell">Upper bedroom 13&times;9 or lower family room partition</td></tr>
+<tr><td>Gym / library (flat floor)</td><td class="room-pass">&#x2705; Pass</td><td class="notes-cell">Lower family room 17&times;16 = flat floor</td></tr>
+<tr><td>5&ndash;8 person social space</td><td class="room-pass">&#x2705; Pass</td><td class="notes-cell">Living 19&times;12 (228sqft) + wraparound porch</td></tr>
+</table>
+    <div style="margin-top:12px;padding:12px;background:#0f172a;border-radius:8px;font-size:0.9em">
+      <strong class="room-pass">Room Program: FULL PASS</strong> &mdash; 4 bedrooms + garage extension + lower family room creates the most flexible room program in this batch. The garage extension as Sherry&rsquo;s dedicated office doesn&rsquo;t consume a bedroom.
+    </div>
+  </div>
+  <div class="section two-col">
+    <div class="cost-panel"><h2 style="border:none;padding:0;margin-bottom:12px">Effective Cost Model</h2>
+      <table><tr><th>Line Item</th><th style="text-align:right">Low Est.</th><th style="text-align:right">High Est.</th></tr>
+<tr><td>Purchase price</td><td class="cost-cell">$425,000</td><td class="cost-cell">$425,000</td></tr>
+<tr><td>Mini-split install (2&ndash;3 zones)</td><td class="cost-cell">$7,000</td><td class="cost-cell">$14,000</td></tr>
+<tr><td>Electrical assessment + upgrade</td><td class="cost-cell">$2,000</td><td class="cost-cell">$6,000</td></tr>
+<tr><td>EV circuit (detached garage)</td><td class="cost-cell">$1,500</td><td class="cost-cell">$3,500</td></tr>
+<tr><td>Sewer scope + remediation</td><td class="cost-cell">$500</td><td class="cost-cell">$6,000</td></tr>
+<tr><td>HELOC carry (7.5%, 5 mo.)</td><td class="cost-cell">$13,281</td><td class="cost-cell">$13,281</td></tr>
+</table>
+      <div class="effective-cost"><div class="label">Total Effective Cost</div><div class="amount">$449k &ndash; $468k</div>
+        <div class="proj">Pre-sale pool: $75,000 &mdash; largest in batch</div></div>
+    </div>
+    <div>
+      <div class="cost-panel" style="margin-bottom:16px"><h2 style="border:none;padding:0;margin-bottom:12px">&#x1F3E5; Aging-in-Place</h2>
+        <table><tr><th>Criterion</th><th>Status</th></tr>
+<tr><td>Main-floor full bath</td><td style="color:#4ade80">&#x2705; Confirmed</td></tr>
+<tr><td>Main-floor convertible bedroom</td><td style="color:#4ade80">&#x2705; 2 bedrooms on main</td></tr>
+<tr><td>Single-floor daily living</td><td style="color:#4ade80">&#x2705; Excellent</td></tr>
+<tr><td>Grab-bar provision</td><td style="color:#94a3b8">&#x2753; Unknown</td></tr>
+</table>
+        <div style="margin-top:8px;padding:8px;background:#0f172a;border-radius:6px;font-size:0.85em;color:#94a3b8">
+          <strong style="color:#4ade80">Verdict: EXCELLENT.</strong> Main floor: kitchen + living + dining + 2 beds + full bath + mud room. No AIP conversion required. Zero retrofit cost.
+        </div>
+      </div>
+      <div class="aip-box">
+        <div class="aip-label">&#x26A0;&#xFE0F; Availability Flag</div>
+        <strong>Active Contingent-Inspection</strong> &mdash; an offer was accepted but the inspection contingency has not been removed. If the buyer walks during inspection, this property returns to active. Monitor MLS daily.
+      </div>
+    </div>
+  </div>
+  <div class="section"><h2>&#x1F3AF; Tour-or-Pass Recommendation</h2>
+    <div style="padding:20px;background:#1e293b;border-radius:10px;border-left:4px solid #f59e0b">
+      <div style="font-size:1.2em;font-weight:700;color:#f59e0b;margin-bottom:12px">MONITOR &mdash; Priority 1 if returns to active</div>
+      <div style="font-size:0.9em;color:#94a3b8;margin-bottom:16px">Cannot tour or offer while Active Contingent-Inspection. If the contingency falls, request showing immediately. 1416 Albany would become the highest-scoring candidate in the active pool at 53.5/72.</div>
+      <div class="two-col">
+        <div>
+          <h2 style="color:#4ade80;border:none;padding:0;margin-bottom:8px;font-size:0.95em">Affirmative Case</h2>
+          <ul>
+            <li class="feature-item">&#x2705; Lowest taxes + largest pre-sale pool ($75k)</li>
+            <li class="feature-item">&#x2705; Best Como Park access (1.5 blocks)</li>
+            <li class="feature-item">&#x2705; 880sqft garage + 195sqft workshop</li>
+            <li class="feature-item">&#x2705; Full AIP profile at purchase</li>
+            <li class="feature-item">&#x2705; 0.24ac double lot with full fence</li>
+            <li class="feature-item">&#x2705; Cleanest room program pass in batch</li>
+          </ul>
+        </div>
+        <div>
+          <h2 style="color:#e2c275;border:none;padding:0;margin-bottom:8px;font-size:0.95em">Gap to 57: Need +3.5 pts</h2>
+          <table style="font-size:0.8em"><tr><th>Section</th><th>Now</th><th>Ceiling</th><th>Condition</th></tr>
+<tr><td>Interior</td><td>7.0</td><td>10.5</td><td class="notes-cell">Hardwood + woodwork confirmed?</td></tr>
+<tr><td>Kitchen</td><td>7.0</td><td>9.0</td><td class="notes-cell">4-station in 12&times;10 + dining?</td></tr>
+<tr><td>Systems</td><td>7.0</td><td>8.5</td><td class="notes-cell">Bath details + electrical?</td></tr>
+</table>
+          <div style="margin-top:8px;padding:8px;background:#0f172a;border-radius:6px;font-size:0.85em;color:#94a3b8">
+            <strong style="color:#e2c275">Achievable:</strong> Need +3.5 of +6.5 available. Clears 57 IF hardwood is genuine AND 1912 woodwork was preserved.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="disclaimer">Remote-scored by Cleo 2026-04-28 (53.5/72) &middot; NOT YET TOURED &middot; No Sherry assessment<br>
+  Status: Active Contingent-Inspection &mdash; monitor for return to market<br>
+  Costs: 2025-2026 Twin Cities estimates &middot; HELOC rate 7.5%, 5-month bridge &middot; Pre-sale pool $75,000</div>
+<div class="lightbox" id="lightbox" onclick="this.classList.remove('active')"><img id="lb-img" src="" alt="Full size"/></div>
+<script>
+function openLightbox(s){document.getElementById('lb-img').src=s;document.getElementById('lightbox').classList.add('active')}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')document.getElementById('lightbox').classList.remove('active')});
+</script>
+</body>
+</html>
