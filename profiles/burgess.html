@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>1031 Burgess Street &mdash; Property Profile</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:#0f172a;color:#e2e8f0;line-height:1.5}
+a{color:#60a5fa}
+.nav{padding:12px 40px;background:#1e293b;border-bottom:1px solid #334155;font-size:0.85em}
+.nav a{text-decoration:none;margin-right:16px}
+.hero{background:linear-gradient(135deg,#1e293b 0%,#0f172a 100%);padding:32px 40px;border-bottom:2px solid #334155}
+.hero h1{font-size:1.8em;color:#f8fafc;margin-bottom:4px}
+.hero .subtitle{color:#94a3b8;font-size:0.95em}
+.stats-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:20px}
+.stat-card{background:#1e293b;border:1px solid #334155;border-radius:8px;padding:10px 14px;min-width:110px}
+.stat-label{font-size:0.7em;color:#94a3b8;text-transform:uppercase;letter-spacing:0.05em}
+.stat-value{font-size:1.1em;font-weight:700;color:#f1f5f9;margin-top:2px}
+.stat-value.price{color:#4ade80}.stat-value.score{color:#e2c275}.stat-value.warn{color:#f97316}.stat-value.low{color:#f59e0b}
+.tour-badge{display:inline-block;padding:6px 16px;border-radius:20px;font-weight:700;font-size:0.85em;margin-top:16px}
+.content{max-width:1200px;margin:0 auto;padding:24px 40px}
+.section{margin-bottom:32px}
+.section h2{color:#e2c275;font-size:1.15em;border-bottom:1px solid #334155;padding-bottom:8px;margin-bottom:16px}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+@media(max-width:900px){.two-col{grid-template-columns:1fr}.stats-row{gap:8px}.content{padding:16px 20px}.hero{padding:20px}.nav{padding:10px 20px}}
+.score-panel{background:#1e293b;border-radius:10px;padding:20px;border:1px solid #334155}
+.score-total{text-align:center;margin-bottom:16px}
+.score-total .big{font-size:2.8em;font-weight:800;color:#e2c275}
+.score-total .of{font-size:1.1em;color:#64748b}
+.score-total .pct{font-size:0.9em;color:#94a3b8}
+.threshold-note{text-align:center;font-size:0.8em;color:#64748b;margin-top:8px}
+.threshold-note span{color:#f97316;font-weight:600}
+table{width:100%;border-collapse:collapse;font-size:0.85em}
+th{text-align:left;color:#94a3b8;font-weight:600;padding:8px 10px;border-bottom:1px solid #334155;font-size:0.8em;text-transform:uppercase}
+td{padding:8px 10px;border-bottom:1px solid #1e293b}
+.floor-cell{color:#64748b;font-size:0.85em}
+.dim-cell{color:#5eead4;font-family:monospace}
+.notes-cell{color:#94a3b8;font-size:0.85em}
+.cost-cell{color:#4ade80;font-family:monospace;text-align:right;white-space:nowrap}
+ul{list-style:none}li{padding:4px 0;font-size:0.9em}
+.feature-item{color:#d1fae5}.concern-item{color:#fed7aa}.flag-item{color:#fca5a5}
+.photo-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:8px}
+.photo-thumb{width:100%;height:130px;object-fit:cover;border-radius:6px;cursor:pointer;border:2px solid transparent;transition:border 0.2s,transform 0.2s}
+.photo-thumb:hover{border-color:#f59e0b;transform:scale(1.03)}
+.photo-thumb.hero-img{grid-column:span 2;grid-row:span 2;height:276px}
+.lightbox{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.92);z-index:1000;justify-content:center;align-items:center;cursor:pointer}
+.lightbox.active{display:flex}
+.lightbox img{max-width:90vw;max-height:90vh;border-radius:8px}
+.cost-panel{background:#1e293b;border-radius:10px;padding:20px;border:1px solid #334155}
+.effective-cost{text-align:center;padding:16px;background:#0f172a;border-radius:8px;margin-top:12px}
+.effective-cost .label{color:#64748b;font-size:0.8em}
+.effective-cost .amount{font-size:1.6em;font-weight:700;color:#4ade80}
+.effective-cost .proj{font-size:0.85em;color:#94a3b8;margin-top:4px}
+.aip-box{background:#1e293b;border-radius:8px;padding:16px;border-left:4px solid #4ade80;margin-top:16px;font-size:0.9em}
+.aip-box .aip-label{font-weight:700;font-size:0.8em;text-transform:uppercase;margin-bottom:4px}
+.warning-box{background:#1e293b;border-radius:8px;padding:16px;border-left:4px solid #f59e0b;margin-top:12px;font-size:0.9em}
+.warning-box .warn-label{color:#f59e0b;font-weight:700;font-size:0.8em;text-transform:uppercase;margin-bottom:4px}
+.knockout-pass{color:#4ade80}
+.knockout-warn{color:#f59e0b}
+.knockout-risk{color:#fca5a5}
+.disclaimer{text-align:center;color:#64748b;font-size:0.75em;padding:24px 40px;border-top:1px solid #1e293b}
+.dom-flag{display:inline-block;background:#f59e0b22;color:#f59e0b;border:1px solid #f59e0b55;border-radius:4px;font-size:0.75em;font-weight:600;padding:2px 8px;margin-left:8px;vertical-align:middle}
+</style>
+</head>
+<body>
+<div class="nav"><a href="../">&larr; Tour Rater</a> <a href="index.html">All Profiles</a></div>
+
+<div class="hero" style="border-left:4px solid #f59e0b">
+  <h1>&#x1F3E0; 1031 Burgess Street <span class="dom-flag">31 DOM</span></h1>
+  <div class="subtitle">1.5-Story Postwar (1957) &middot; South Como / Energy Park &middot; 55103 &middot; MLS# 7041283</div>
+  <div class="stats-row">
+    <div class="stat-card"><div class="stat-label">Price</div><div class="stat-value price">$409,900</div></div>
+    <div class="stat-card"><div class="stat-label">Cleo (Remote)</div><div class="stat-value score">45.5 / 72</div></div>
+    <div class="stat-card"><div class="stat-label">$/Sqft</div><div class="stat-value price">$181</div></div>
+    <div class="stat-card"><div class="stat-label">Sqft (AG)</div><div class="stat-value">1,516</div></div>
+    <div class="stat-card"><div class="stat-label">Total Sqft</div><div class="stat-value">2,260</div></div>
+    <div class="stat-card"><div class="stat-label">Beds / Baths</div><div class="stat-value">5 / 3</div></div>
+    <div class="stat-card"><div class="stat-label">Garage</div><div class="stat-value warn">1-car 240sqft</div></div>
+    <div class="stat-card"><div class="stat-label">Tax (2026)</div><div class="stat-value price">$4,158</div></div>
+    <div class="stat-card"><div class="stat-label">Lot</div><div class="stat-value">50 &times; 124 ft</div></div>
+    <div class="stat-card"><div class="stat-label">Style</div><div class="stat-value low">Postwar 1957</div></div>
+    <div class="stat-card"><div class="stat-label">Status</div><div class="stat-value warn">Active &mdash; 31 DOM</div></div>
+  </div>
+  <div class="tour-badge" style="background:#f59e0b22;color:#f59e0b;border:1px solid #f59e0b">ACTIVE &mdash; 31 DOM, Postwar Style Flag (45.5/72)</div>
+</div>
+
+<div class="content">
+
+  <!-- Score Panel + Room Program -->
+  <div class="section two-col">
+    <div class="score-panel">
+      <div class="score-total">
+        <div class="big">45.5</div>
+        <div class="of">of 72</div>
+        <div class="pct">63.2% &middot; Cleo (Remote) &middot; Purchase threshold: 57 (79.2%)</div>
+      </div>
+      <!-- SVG bar chart. Max bar width = 220px = score of 12 -->
+      <svg width="340" height="178" viewBox="0 0 340 178" style="max-width:100%;height:auto">
+        <!-- Location 10.0/12 → 183.3px -->
+        <text x="66" y="21" fill="#ccc" font-size="11" text-anchor="end" font-family="Segoe UI,system-ui,sans-serif">Location</text>
+        <rect x="70" y="5" width="220" height="22" rx="4" fill="#1e293b"/>
+        <rect x="70" y="5" width="183" height="22" rx="4" fill="#60a5fa" opacity="0.85"/>
+        <text x="294" y="21" fill="#eee" font-size="12" font-family="Segoe UI,system-ui,sans-serif" font-weight="600">10/12</text>
+
+        <!-- Outdoor 5.5/12 → 100.8px -->
+        <text x="66" y="49" fill="#ccc" font-size="11" text-anchor="end" font-family="Segoe UI,system-ui,sans-serif">Outdoor</text>
+        <rect x="70" y="33" width="220" height="22" rx="4" fill="#1e293b"/>
+        <rect x="70" y="33" width="101" height="22" rx="4" fill="#f59e0b" opacity="0.85"/>
+        <text x="294" y="49" fill="#eee" font-size="12" font-family="Segoe UI,system-ui,sans-serif" font-weight="600">5.5/12</text>
+
+        <!-- Interior 7.0/12 → 128.3px -->
+        <text x="66" y="77" fill="#ccc" font-size="11" text-anchor="end" font-family="Segoe UI,system-ui,sans-serif">Interior</text>
+        <rect x="70" y="61" width="220" height="22" rx="4" fill="#1e293b"/>
+        <rect x="70" y="61" width="128" height="22" rx="4" fill="#e2c275" opacity="0.85"/>
+        <text x="294" y="77" fill="#eee" font-size="12" font-family="Segoe UI,system-ui,sans-serif" font-weight="600">7/12</text>
+
+        <!-- Size 7.5/12 → 137.5px -->
+        <text x="66" y="105" fill="#ccc" font-size="11" text-anchor="end" font-family="Segoe UI,system-ui,sans-serif">Size</text>
+        <rect x="70" y="89" width="220" height="22" rx="4" fill="#1e293b"/>
+        <rect x="70" y="89" width="138" height="22" rx="4" fill="#c084fc" opacity="0.85"/>
+        <text x="294" y="105" fill="#eee" font-size="12" font-family="Segoe UI,system-ui,sans-serif" font-weight="600">7.5/12</text>
+
+        <!-- Kitchen 8.0/12 → 146.7px -->
+        <text x="66" y="133" fill="#ccc" font-size="11" text-anchor="end" font-family="Segoe UI,system-ui,sans-serif">Kitchen</text>
+        <rect x="70" y="117" width="220" height="22" rx="4" fill="#1e293b"/>
+        <rect x="70" y="117" width="147" height="22" rx="4" fill="#4ade80" opacity="0.85"/>
+        <text x="294" y="133" fill="#eee" font-size="12" font-family="Segoe UI,system-ui,sans-serif" font-weight="600">8/12</text>
+
+        <!-- Systems 7.5/12 → 137.5px -->
+        <text x="66" y="161" fill="#ccc" font-size="11" text-anchor="end" font-family="Segoe UI,system-ui,sans-serif">Systems</text>
+        <rect x="70" y="145" width="220" height="22" rx="4" fill="#1e293b"/>
+        <rect x="70" y="145" width="138" height="22" rx="4" fill="#5eead4" opacity="0.85"/>
+        <text x="294" y="161" fill="#eee" font-size="12" font-family="Segoe UI,system-ui,sans-serif" font-weight="600">7.5/12</text>
+      </svg>
+      <div class="threshold-note">Remote scored 2026-05-14. <span>BELOW 57 threshold &mdash; 11.5 pts short.</span> In-person ceiling: ~54.5 &mdash; structural gap remains.</div>
+    </div>
+
+    <div>
+      <h2 style="color:#e2c275;border:none;padding:0;margin-bottom:8px">&#x1F3E0; Room Program Assessment</h2>
+      <p style="font-size:0.85em;color:#94a3b8;margin-bottom:12px">Verdict: &#x2705; <strong style="color:#4ade80">FULL PASS</strong> &mdash; 5 bedrooms = most flexible room program in the search.</p>
+      <table>
+        <tr><th>Requirement</th><th>Status</th><th>Space</th></tr>
+        <tr><td>Master bedroom</td><td class="knockout-pass">&#x2705; Pass</td><td class="notes-cell">Upper BD4: 16&times;16 = <strong>256sqft &mdash; largest in search</strong></td></tr>
+        <tr><td>Maxy&rsquo;s bedroom</td><td class="knockout-pass">&#x2705; Pass</td><td class="notes-cell">4 options: Main BD1 12&times;10, BD2 12&times;10, Upper BD3 16&times;8, Lower BD5 9&times;21</td></tr>
+        <tr><td>Sherry&rsquo;s office (closed door)</td><td class="knockout-pass">&#x2705; Pass</td><td class="notes-cell">Lower BD5 (9&times;21 = 189sqft) or Upper BD3 (16&times;8 = 128sqft)</td></tr>
+        <tr><td>Drew&rsquo;s office (closed door)</td><td class="knockout-pass">&#x2705; Pass</td><td class="notes-cell">Remaining bedroom; shared-office acceptable per rubric</td></tr>
+        <tr><td>Gym / library (flat floor)</td><td class="knockout-pass">&#x2705; Pass</td><td class="notes-cell">Lower Family Room 18&times;14 = 252sqft &mdash; flat floor &#x2705;</td></tr>
+        <tr><td>5&ndash;8 person social space</td><td class="knockout-pass">&#x2705; Pass</td><td class="notes-cell">Living Room 19&times;12 = 228sqft</td></tr>
+      </table>
+      <div class="warning-box">
+        <div class="warn-label">&#x26A0;&#xFE0F; Note: Master vs. Bath Mismatch</div>
+        Upper BD4 (16&times;16) is the standout master, but the upper floor has only a <strong>5&times;5 half-bath</strong>. Full bath is main floor or lower. Long-term: either treat main-floor bedroom as master (AIP-ready) or budget a bath rough-in on the upper floor post-sale.
+      </div>
+    </div>
+  </div>
+
+  <!-- Listing Photo -->
+  <div class="section"><h2>&#x1F4F8; Listing Photo</h2>
+    <div class="photo-grid">
+      <img src="https://www.edinarealty.com/listing-images/listing/RMLS/1031-Burgess-Street-Saint-Paul-MN-55103-7041283-image1.jpg"
+           class="photo-thumb hero-img" loading="lazy" onclick="openLightbox(this.src)"
+           alt="1031 Burgess St exterior" onerror="this.style.display='none'"/>
+    </div>
+  </div>
+
+  <!-- Room Breakdown -->
+  <div class="section"><h2>&#x1F3D7;&#xFE0F; Room Breakdown</h2>
+    <table>
+      <tr><th>Floor</th><th>Room</th><th>Dimensions</th><th>Sqft</th><th>Notes</th></tr>
+      <tr><td class="floor-cell">Main</td><td>Bedroom 1</td><td class="dim-cell">12&times;10</td><td class="dim-cell">120</td><td class="notes-cell">Main-floor bedroom; AIP convertible master if needed</td></tr>
+      <tr><td class="floor-cell">Main</td><td>Bedroom 2</td><td class="dim-cell">12&times;10</td><td class="dim-cell">120</td><td class="notes-cell">Second main-floor bedroom; office or guest candidate</td></tr>
+      <tr><td class="floor-cell">Main</td><td>Kitchen</td><td class="dim-cell">11&times;14</td><td class="dim-cell">154</td><td class="notes-cell">Remodeled; quartz counters; modern cabinetry; deck access &#x2705;</td></tr>
+      <tr><td class="floor-cell">Main</td><td>Living Room</td><td class="dim-cell">19&times;12</td><td class="dim-cell">228</td><td class="notes-cell">Social space; 5&ndash;8 person gathering &#x2705;</td></tr>
+      <tr><td class="floor-cell">Main</td><td>Dining Room</td><td class="dim-cell">7&times;10.5</td><td class="dim-cell">73.5</td><td class="notes-cell">Very small &#x26A0;&#xFE0F; &mdash; kitchen overflow only, not a program room</td></tr>
+      <tr><td class="floor-cell">Main</td><td>Full Bath</td><td class="dim-cell">8&times;5</td><td class="dim-cell">40</td><td class="notes-cell">Main floor full bath &mdash; AIP key &#x2705;</td></tr>
+      <tr><td class="floor-cell">Upper</td><td>Bedroom 3</td><td class="dim-cell">16&times;8</td><td class="dim-cell">128</td><td class="notes-cell">Narrow; office or small bedroom candidate</td></tr>
+      <tr><td class="floor-cell">Upper</td><td><strong>Bedroom 4</strong></td><td class="dim-cell">16&times;16</td><td class="dim-cell" style="color:#4ade80"><strong>256</strong></td><td class="notes-cell"><strong>Largest master in search</strong> &mdash; but half-bath only on this floor &#x26A0;&#xFE0F;</td></tr>
+      <tr><td class="floor-cell">Upper</td><td>Half Bath</td><td class="dim-cell">5&times;5</td><td class="dim-cell">25</td><td class="notes-cell">Serves upper floor only &mdash; half bath, not full &#x26A0;&#xFE0F;</td></tr>
+      <tr><td class="floor-cell">Lower</td><td>Bedroom 5</td><td class="dim-cell">9&times;21</td><td class="dim-cell">189</td><td class="notes-cell">Long/narrow; below grade; Sherry office candidate (has door)</td></tr>
+      <tr><td class="floor-cell">Lower</td><td>Family Room</td><td class="dim-cell">18&times;14</td><td class="dim-cell">252</td><td class="notes-cell">Flat floor &#x2705; &mdash; gym or library candidate; verify ceiling height</td></tr>
+      <tr><td class="floor-cell">Lower</td><td>Full Bath</td><td class="dim-cell">10&times;5</td><td class="dim-cell">50</td><td class="notes-cell">Second full bath &mdash; serves lower level</td></tr>
+      <tr><td class="floor-cell">Lower</td><td>Laundry</td><td class="dim-cell">&mdash;</td><td class="dim-cell">&mdash;</td><td class="notes-cell">In basement &mdash; litter box zone candidate</td></tr>
+    </table>
+  </div>
+
+  <!-- Section Scoring Detail -->
+  <div class="section"><h2>&#x1F4CA; Criterion Scoring Detail</h2>
+    <table>
+      <tr><th>Criterion [Wt]</th><th style="text-align:right">Score</th><th>Rationale</th></tr>
+      <!-- Location -->
+      <tr><td colspan="3" style="color:#60a5fa;font-weight:600;padding-top:10px">Location &amp; Civic &mdash; 10.0 / 12</td></tr>
+      <tr><td>Location to friends [2.5]</td><td style="text-align:right;color:#4ade80">2.5</td><td class="notes-cell">South Como; est. ~1.2 mi from Hamline/Minnehaha anchor; strong central placement</td></tr>
+      <tr><td>Active transport [3]</td><td style="text-align:right;color:#4ade80">2.5</td><td class="notes-cell">Bus on Hamline, Lexington, Snelling; Energy Park trail; Green Line accessible via connection</td></tr>
+      <tr><td>Leisure walking [2.5]</td><td style="text-align:right;color:#e2c275">2.0</td><td class="notes-cell">Energy Park recreational trail; Como Park ~1 mi; adequate, not exceptional</td></tr>
+      <tr><td>Lower taxes [3]</td><td style="text-align:right;color:#4ade80">3.0</td><td class="notes-cell">$4,157.74 &mdash; <strong>lowest in active search</strong>; $418/yr less than Albany</td></tr>
+      <!-- Outdoor -->
+      <tr><td colspan="3" style="color:#4ade80;font-weight:600;padding-top:10px">Outdoor &amp; Site &mdash; 5.5 / 12</td></tr>
+      <tr><td>Garage + workspace [3]</td><td style="text-align:right;color:#fca5a5">0.5</td><td class="notes-cell">12&times;20 = 240sqft &mdash; barely fits 1 car; EV + e-bike + workbench cannot coexist; <strong>structural program failure</strong></td></tr>
+      <tr><td>Sheltered outdoor [2]</td><td style="text-align:right;color:#e2c275">1.5</td><td class="notes-cell">Sunny deck from kitchen access &#x2705;; chain link fencing = no privacy &#x26A0;&#xFE0F;; 50&times;124 lot modest</td></tr>
+      <tr><td>Mature tree [1.5]</td><td style="text-align:right;color:#4ade80">2.0</td><td class="notes-cell">1957 construction + 65 yrs; at least 1 mature tree very likely; unconfirmed from listing</td></tr>
+      <tr><td>Native plant potential [3]</td><td style="text-align:right;color:#e2c275">1.5</td><td class="notes-cell">50&times;124 = 6,200sqft; garden capacity present but limited; no double-lot advantage</td></tr>
+      <!-- Interior -->
+      <tr><td colspan="3" style="color:#e2c275;font-weight:600;padding-top:10px">Interior Character &mdash; 7.0 / 12</td></tr>
+      <tr><td>Hardwood floors [2]</td><td style="text-align:right;color:#4ade80">2.5</td><td class="notes-cell">Explicitly confirmed in listing; verify species/condition at tour; not LVP presumed</td></tr>
+      <tr><td>Natural woodwork [3]</td><td style="text-align:right;color:#fca5a5">0.5</td><td class="notes-cell">1957 postwar: painted trim standard; renovation unlikely to have added natural millwork; era structural gap</td></tr>
+      <tr><td>Safe stairs [1.5]</td><td style="text-align:right;color:#4ade80">2.0</td><td class="notes-cell">1.5-story + basement; no flags noted; standard postwar stair layout</td></tr>
+      <tr><td>Sunny morning space [3]</td><td style="text-align:right;color:#e2c275">2.0</td><td class="notes-cell">&ldquo;Bright, comfortable living and dining&rdquo; + &ldquo;sunny deck&rdquo; mentioned; kitchen window; orientation TBD</td></tr>
+      <!-- Size -->
+      <tr><td colspan="3" style="color:#c084fc;font-weight:600;padding-top:10px">Size &amp; Program &mdash; 7.5 / 12</td></tr>
+      <tr><td>1700&ndash;2000 sqft [3]</td><td style="text-align:right;color:#e2c275">2.0</td><td class="notes-cell">1,516 AG (below target) + 744 finished lower = 2,260 total; outside range both ends</td></tr>
+      <tr><td>Sedentary hobbies [2.5]</td><td style="text-align:right;color:#4ade80">2.5</td><td class="notes-cell">5 bedrooms = exceptional flexibility; Lower FR 18&times;14 + Upper BD4 16&times;16 for library/hobby</td></tr>
+      <tr><td>Active hobbies [2]</td><td style="text-align:right;color:#fca5a5">1.0</td><td class="notes-cell">240sqft garage severely limits workout + brewery + workbench; Lower FR as gym = partial mitigation</td></tr>
+      <tr><td>Pet care / litter [1.5]</td><td style="text-align:right;color:#4ade80">2.0</td><td class="notes-cell">Laundry in basement = dedicated litter zone; 5 bedrooms create placement flexibility</td></tr>
+      <!-- Kitchen -->
+      <tr><td colspan="3" style="color:#4ade80;font-weight:600;padding-top:10px">Kitchen &mdash; 8.0 / 12</td></tr>
+      <tr><td>Cooking station [3]</td><td style="text-align:right;color:#4ade80">2.5</td><td class="notes-cell">11&times;14 = 154sqft; quartz + modern cabinetry + &ldquo;generous workspace&rdquo;; strongest kitchen in current batch</td></tr>
+      <tr><td>Baking station [1.5]</td><td style="text-align:right;color:#4ade80">2.0</td><td class="notes-cell">154sqft with quartz supports baking; small dining limits overflow; stand mixer zone likely</td></tr>
+      <tr><td>Cleanup station [3]</td><td style="text-align:right;color:#e2c275">2.0</td><td class="notes-cell">Remodeled kitchen; modern cabinetry; cleanup station feasible; layout specifics TBD at tour</td></tr>
+      <tr><td>Beverage station [2]</td><td style="text-align:right;color:#e2c275">1.5</td><td class="notes-cell">Counter space in 154sqft; no explicit zone; quartz counters allow designation</td></tr>
+      <!-- Systems -->
+      <tr><td colspan="3" style="color:#5eead4;font-weight:600;padding-top:10px">Systems &amp; Bath &mdash; 7.5 / 12</td></tr>
+      <tr><td>Two baths well-placed [3]</td><td style="text-align:right;color:#e2c275">2.0</td><td class="notes-cell">3 baths: main full &#x2705; (AIP-key); upper half &#x26A0;&#xFE0F; (serves 256sqft master floor); lower full; placement adequate not ideal</td></tr>
+      <tr><td>Frictionless amenities [2]</td><td style="text-align:right;color:#e2c275">1.5</td><td class="notes-cell">&ldquo;Updated bathrooms&rdquo; confirmed; details unknown; tour required</td></tr>
+      <tr><td>Johnson-ready electrical [1.5]</td><td style="text-align:right;color:#f97316">1.0</td><td class="notes-cell">1957 construction; FPE / Federal Pacific era risk; panel status unknown; inspect required</td></tr>
+      <tr><td>Central air / heat pumps [1]</td><td style="text-align:right;color:#4ade80">3.0</td><td class="notes-cell">Central AC confirmed &#x2705; &mdash; no retrofit cost</td></tr>
+    </table>
+  </div>
+
+  <!-- Knockout Assessment -->
+  <div class="section"><h2>&#x1F6A7; Section 3 Knockout Assessment</h2>
+    <table>
+      <tr><th>Criterion</th><th>Status</th><th>Notes</th></tr>
+      <tr><td>Saint Paul city limits</td><td class="knockout-pass">&#x2705; Pass</td><td class="notes-cell">55103</td></tr>
+      <tr><td>Not Summit Hill / Crocus Hill</td><td class="knockout-pass">&#x2705; Pass</td><td class="notes-cell">South Como / Energy Park</td></tr>
+      <tr><td>IN-list geography</td><td class="knockout-pass">&#x2705; Pass (verify)</td><td class="notes-cell">Como &#x2705; IN-list; South Como = Como cluster; confirm exact Burgess block</td></tr>
+      <tr><td>Water intrusion</td><td class="knockout-warn">&#x2753; Unknown</td><td class="notes-cell">Stucco exterior = moisture risk; inspect lower level for water history</td></tr>
+      <tr><td>Step cracks / settling</td><td class="knockout-warn">&#x2753; Unknown</td><td class="notes-cell">1957 poured concrete generally stable; inspect at tour</td></tr>
+      <tr><td>Sewer line failure</td><td class="knockout-pass">&#x2705; Pass</td><td class="notes-cell">City connected &mdash; confirmed in listing</td></tr>
+      <tr><td>Active mold</td><td class="knockout-warn">&#x2753; Unknown</td><td class="notes-cell">Inspect lower level; stucco moisture path = mold risk if intrusion present</td></tr>
+      <tr><td>Asbestos</td><td class="knockout-warn">&#x26A0;&#xFE0F; Risk</td><td class="notes-cell">1957: 9&times;9 VAT tile, pipe insulation, ceiling tile all possible; pre-1980 = inspect before offer</td></tr>
+      <tr><td>EV charging capability</td><td class="knockout-warn">&#x26A0;&#xFE0F; Conditional</td><td class="notes-cell">1-car garage exists; panel reach feasible; electrical capacity must be confirmed</td></tr>
+      <tr><td>Basement &ge; 6ft / usable</td><td class="knockout-warn">&#x26A0;&#xFE0F; Verify</td><td class="notes-cell">744sqft finished lower; ceiling height not stated; 1957 era can be tight; measure at tour</td></tr>
+      <tr><td>Budget &le; $525k</td><td class="knockout-pass">&#x2705; Pass</td><td class="notes-cell">$409,900</td></tr>
+      <tr><td>Timeline (close by 2026-08-31)</td><td class="knockout-pass">&#x2705; Pass</td><td class="notes-cell">Active listing; no known encumbrance</td></tr>
+    </table>
+    <div style="margin-top:10px;padding:10px;background:#334155;border-radius:6px;font-size:0.85em;color:#94a3b8">
+      <strong style="color:#4ade80">Verdict:</strong> No hard knockouts from available data. Three inspection-dependent flags (water intrusion, asbestos, basement ceiling height). Proceed to scoring; verify pre-offer.
+    </div>
+  </div>
+
+  <!-- Effective Cost + Features -->
+  <div class="section two-col">
+    <div class="cost-panel">
+      <h2 style="border:none;padding:0;margin-bottom:12px">&#x1F4B0; Effective Cost Model</h2>
+      <table>
+        <tr><th>Item</th><th style="text-align:right">Estimate</th></tr>
+        <tr><td>Purchase price</td><td class="cost-cell">$409,900</td></tr>
+        <tr><td>Electrical assessment + upgrade if needed</td><td class="cost-cell">$2,000&ndash;$6,000</td></tr>
+        <tr><td>EV circuit to detached garage</td><td class="cost-cell">$1,500&ndash;$4,000</td></tr>
+        <tr><td>Kitchen station additions (beverage zone)</td><td class="cost-cell">$2,000&ndash;$5,000</td></tr>
+        <tr><td>HELOC carry (7.5%, 5 mo.)</td><td class="cost-cell">$12,809</td></tr>
+        <tr style="border-top:1px solid #334155"><td colspan="2" style="font-size:0.75em;color:#64748b;padding-top:6px">Optional: chain link replacement $3k&ndash;$8k; asbestos abatement if found $2k&ndash;$10k</td></tr>
+      </table>
+      <div class="effective-cost">
+        <div class="label">Effective Cost (Core)</div>
+        <div class="amount">$428k &ndash; $438k</div>
+        <div class="proj">&#x2705; Well under $510k flag threshold</div>
+      </div>
+      <div style="margin-top:12px;padding:10px;background:#334155;border-radius:6px;font-size:0.85em;color:#94a3b8">
+        <strong style="color:#4ade80">Pre-sale pool:</strong> $500k &minus; $409,900 = <strong>$90,100</strong> &mdash; second-largest in batch. All core retrofits fit inside pre-sale pool.
+      </div>
+    </div>
+    <div>
+      <div class="cost-panel" style="margin-bottom:16px">
+        <h2 style="border:none;padding:0;margin-bottom:12px">&#x2705; Strengths</h2>
+        <ul>
+          <li class="feature-item">&#x2705; Lowest taxes in search &mdash; $4,157.74/yr</li>
+          <li class="feature-item">&#x2705; Best value: $181/sqft (strong vs. batch)</li>
+          <li class="feature-item">&#x2705; 5 bedrooms &mdash; best room count in search</li>
+          <li class="feature-item">&#x2705; Remodeled kitchen &mdash; quartz + deck access</li>
+          <li class="feature-item">&#x2705; Central AC already installed &mdash; no retrofit</li>
+          <li class="feature-item">&#x2705; Main floor full bath &mdash; AIP clean at purchase</li>
+          <li class="feature-item">&#x2705; City sewer confirmed &mdash; no scope required</li>
+          <li class="feature-item">&#x2705; Upper BD4 16&times;16 &mdash; largest master in search</li>
+          <li class="feature-item">&#x2705; Second-largest pre-sale pool ($90k)</li>
+        </ul>
+      </div>
+      <div class="cost-panel">
+        <h2 style="border:none;padding:0;margin-bottom:12px">&#x26A0;&#xFE0F; Concerns</h2>
+        <ul>
+          <li class="flag-item">&#x1F6A8; 1957 postwar &mdash; Drew&rsquo;s documented anti-preference</li>
+          <li class="flag-item">&#x1F6A8; 240sqft garage &mdash; active hobby program has no resolution</li>
+          <li class="concern-item">&#x26A0;&#xFE0F; No natural woodwork &mdash; 1957 era structural gap</li>
+          <li class="concern-item">&#x26A0;&#xFE0F; Upper half-bath only &mdash; master floor lacks full bath</li>
+          <li class="concern-item">&#x26A0;&#xFE0F; 31 DOM &mdash; market validating buyer concern</li>
+          <li class="concern-item">&#x26A0;&#xFE0F; Chain link fencing &mdash; no privacy</li>
+          <li class="concern-item">&#x26A0;&#xFE0F; Tiny dining room (73.5sqft)</li>
+          <li class="concern-item">&#x26A0;&#xFE0F; 1957 electrical panel &mdash; FPE risk era; inspect</li>
+          <li class="concern-item">&#x26A0;&#xFE0F; Asbestos pre-1980 risk (VAT tile likely)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- AIP -->
+  <div class="section">
+    <div class="aip-box">
+      <div class="aip-label" style="color:#4ade80">Aging-in-Place: GOOD (with one gap)</div>
+      Main floor full bath &#x2705; + two main-floor bedrooms (12&times;10 each) = single-floor daily living possible at purchase.
+      Kitchen + living + 2 bedrooms + full bath all on main. <strong style="color:#f59e0b">Gap: upper master floor (16&times;16) has only half-bath.</strong>
+      Resolution: treat a main-floor bedroom as the long-term master (AIP-optimal) or budget a bath rough-in post-sale.
+    </div>
+  </div>
+
+  <!-- Tour Recommendation -->
+  <div class="section">
+    <h2>&#x1F3AF; Tour-or-Pass Recommendation</h2>
+    <div style="padding:16px;background:#1e293b;border-radius:10px;border:1px solid #334155">
+      <div style="font-size:1.1em;color:#f59e0b;font-weight:700;margin-bottom:8px">RECOMMENDATION: TOUR &mdash; LOW PRIORITY. In-person ceiling (~54.5) cannot reach 57.</div>
+      <div style="font-size:0.9em;color:#94a3b8;margin-bottom:12px">
+        Remote score 27.5/36 &#x2705; clears 20/36 tour threshold &middot;
+        Gap to purchase: 45.5 &rarr; 57 = <strong>11.5 pts</strong> &middot;
+        In-person ceiling: ~54.5 &middot;
+        Structural shortfall at ceiling: <strong>~2.5 pts</strong>
+      </div>
+      <div class="two-col">
+        <div>
+          <h2 style="color:#4ade80;border:none;padding:0;margin-bottom:8px;font-size:0.95em">Affirmative Case</h2>
+          <ul>
+            <li class="feature-item">Lowest taxes ($4,158) + best value ($181/sqft) in search</li>
+            <li class="feature-item">5 bedrooms &mdash; room program fully resolved without compromise</li>
+            <li class="feature-item">Largest master (16&times;16 = 256sqft) in the search</li>
+            <li class="feature-item">Strongest kitchen description in current active batch</li>
+            <li class="feature-item">Central AC already installed &mdash; no cooling retrofit</li>
+            <li class="feature-item">Main floor full bath &mdash; AIP clean at purchase</li>
+            <li class="feature-item">$90k pre-sale pool &mdash; all retrofits fundable pre-820-sale</li>
+          </ul>
+        </div>
+        <div>
+          <h2 style="color:#f97316;border:none;padding:0;margin-bottom:8px;font-size:0.95em">Case Against (Structural)</h2>
+          <ul>
+            <li class="flag-item">1957 postwar &mdash; Drew: &ldquo;given the choice, we&rsquo;ll pick a craftsman every time&rdquo;</li>
+            <li class="flag-item">240sqft garage &mdash; workbench + EV + e-bike + brewery has no solution</li>
+            <li class="concern-item">No natural woodwork &mdash; era-locked; in-person won&rsquo;t change this</li>
+            <li class="concern-item">In-person ceiling (~54.5) misses 57 by ~2.5 pts even at best case</li>
+            <li class="concern-item">31 DOM = market already passed on this</li>
+          </ul>
+          <div style="margin-top:8px;padding:8px;background:#334155;border-radius:6px;font-size:0.85em;color:#94a3b8">
+            <strong>The honest question:</strong> Has Drew&rsquo;s style preference evolved? If a renovated 1957 could feel right in person, the value case is real. If not, this is a pass without touring.
+          </div>
+        </div>
+      </div>
+
+      <!-- Tour Priorities Table -->
+      <h2 style="color:#e2c275;border-top:1px solid #334155;padding-top:16px;margin-top:16px;border-bottom:none;margin-bottom:10px;font-size:1em">&#x1F50D; Tour Priorities (if Drew schedules)</h2>
+      <table>
+        <tr><th>Issue</th><th>Why It Matters</th><th>What to Look For</th></tr>
+        <tr><td><strong>Postwar feel in person</strong></td><td class="notes-cell">Drew&rsquo;s gut reaction in 60 seconds</td><td class="notes-cell">Does this feel like &ldquo;a house&rdquo; or does it have character warmth?</td></tr>
+        <tr><td><strong>Lower level ceiling height</strong></td><td class="notes-cell">Knockout risk &mdash; measure required</td><td class="notes-cell">Bring tape measure; 7ft+ needed for gym/brewery; 1957 poured can be low</td></tr>
+        <tr><td><strong>Electrical panel</strong></td><td class="notes-cell">EV path + FPE risk</td><td class="notes-cell">Photo the panel; count slots; confirm amperage; FPE = red flag</td></tr>
+        <tr><td><strong>Asbestos indicators</strong></td><td class="notes-cell">Knockout risk if disturbed</td><td class="notes-cell">9&times;9 floor tile in lower level = probable VAT; ceiling tile; pipe wrap</td></tr>
+        <tr><td><strong>Hardwood species + condition</strong></td><td class="notes-cell">Interior score +0.5</td><td class="notes-cell">Real hardwood vs. LVP &mdash; check transitions at doorways</td></tr>
+        <tr><td><strong>Morning light orientation</strong></td><td class="notes-cell">Interior score +0.5&ndash;1.0</td><td class="notes-cell">Which rooms get morning light? East-facing living = meaningful</td></tr>
+        <tr><td><strong>Kitchen station layout</strong></td><td class="notes-cell">Kitchen score +1.0</td><td class="notes-cell">Can 11&times;14 fit cooking + baking + cleanup + beverage? Walk the counter</td></tr>
+        <tr><td><strong>Water intrusion evidence</strong></td><td class="notes-cell">Knockout risk</td><td class="notes-cell">Staining on lower level walls; efflorescence; musty odor; stucco exterior gaps</td></tr>
+      </table>
+    </div>
+  </div>
+
+</div>
+
+<div class="disclaimer">
+  Cleo remote score 2026-05-14 (45.5/72) &middot; Not yet toured &middot; No Sherry assessment<br>
+  Costs: 2025&ndash;2026 Twin Cities contractor data &middot; HELOC 7.5%, 5-month bridge &middot; Pre-sale pool: $90,100<br>
+  <strong>Style flag:</strong> 1957 postwar is Drew&rsquo;s documented anti-preference (requirements.md §4). Tour only if style exploration is warranted.
+</div>
+
+<div class="lightbox" id="lightbox" onclick="this.classList.remove('active')">
+  <img id="lb-img" src="" alt="Full size"/>
+</div>
+<script>
+function openLightbox(s){document.getElementById('lb-img').src=s;document.getElementById('lightbox').classList.add('active')}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')document.getElementById('lightbox').classList.remove('active')});
+</script>
+</body>
+</html>
