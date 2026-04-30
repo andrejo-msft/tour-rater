@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>708 Watson Avenue &mdash; Property Profile</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:#0f172a;color:#e2e8f0;line-height:1.5}
+a{color:#60a5fa}
+.nav{padding:12px 40px;background:#1e293b;border-bottom:1px solid #334155;font-size:0.85em}
+.nav a{text-decoration:none;margin-right:16px}
+.hero{background:linear-gradient(135deg,#1e293b 0%,#0f172a 100%);padding:32px 40px;border-bottom:2px solid #334155}
+.hero h1{font-size:1.8em;color:#f8fafc;margin-bottom:4px}
+.hero .subtitle{color:#94a3b8;font-size:0.95em}
+.stats-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:20px}
+.stat-card{background:#1e293b;border:1px solid #334155;border-radius:8px;padding:10px 14px;min-width:110px}
+.stat-label{font-size:0.7em;color:#94a3b8;text-transform:uppercase;letter-spacing:0.05em}
+.stat-value{font-size:1.1em;font-weight:700;color:#f1f5f9;margin-top:2px}
+.stat-value.price{color:#4ade80}.stat-value.score{color:#e2c275}.stat-value.warn{color:#f97316}.stat-value.good{color:#4ade80}
+.tour-badge{display:inline-block;padding:6px 16px;border-radius:20px;font-weight:700;font-size:0.85em;margin-top:16px}
+.content{max-width:1200px;margin:0 auto;padding:24px 40px}
+.section{margin-bottom:32px}
+.section h2{color:#e2c275;font-size:1.15em;border-bottom:1px solid #334155;padding-bottom:8px;margin-bottom:16px}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+@media(max-width:900px){.two-col{grid-template-columns:1fr}.stats-row{gap:8px}.content{padding:16px 20px}.hero{padding:20px}.nav{padding:10px 20px}}
+.score-panel{background:#1e293b;border-radius:10px;padding:20px;border:1px solid #334155}
+.score-total{text-align:center;margin-bottom:16px}
+.score-total .big{font-size:2.8em;font-weight:800;color:#e2c275}
+.score-total .of{font-size:1.1em;color:#64748b}
+.score-total .pct{font-size:0.9em;color:#94a3b8}
+.threshold-note{text-align:center;font-size:0.8em;color:#64748b;margin-top:8px}
+.threshold-note span{color:#f97316;font-weight:600}
+table{width:100%;border-collapse:collapse;font-size:0.85em}
+th{text-align:left;color:#94a3b8;font-weight:600;padding:8px 10px;border-bottom:1px solid #334155;font-size:0.8em;text-transform:uppercase}
+td{padding:8px 10px;border-bottom:1px solid #1e293b}
+.floor-cell{color:#64748b;font-size:0.85em}
+.dim-cell{color:#5eead4;font-family:monospace}
+.notes-cell{color:#94a3b8;font-size:0.85em}
+.cost-cell{color:#4ade80;font-family:monospace;text-align:right;white-space:nowrap}
+ul{list-style:none}li{padding:4px 0;font-size:0.9em}
+.feature-item{color:#d1fae5}.concern-item{color:#fed7aa}
+.cost-panel{background:#1e293b;border-radius:10px;padding:20px;border:1px solid #334155}
+.effective-cost{text-align:center;padding:16px;background:#0f172a;border-radius:8px;margin-top:12px}
+.effective-cost .label{color:#64748b;font-size:0.8em}
+.effective-cost .amount{font-size:1.6em;font-weight:700;color:#4ade80}
+.effective-cost .proj{font-size:0.85em;color:#94a3b8;margin-top:4px}
+.aip-box{background:#1e293b;border-radius:8px;padding:16px;border-left:4px solid #f97316;margin-top:16px;font-size:0.9em}
+.aip-box .aip-label{color:#f97316;font-weight:700;font-size:0.8em;text-transform:uppercase;margin-bottom:4px}
+.deficit-box{background:#ef444422;border:1px solid #ef4444;border-radius:8px;padding:12px 16px;font-size:0.85em;color:#fca5a5;margin-bottom:16px}
+.disclaimer{text-align:center;color:#64748b;font-size:0.75em;padding:24px 40px;border-top:1px solid #1e293b}
+</style>
+</head>
+<body>
+<div class="nav"><a href="../">&larr; Tour Rater</a> <a href="index.html">All Profiles</a></div>
+<div class="hero" style="border-left:4px solid #f59e0b">
+  <h1>&#x1F3E0; 708 Watson Avenue</h1>
+  <div class="subtitle">Gut-Rehabbed Victorian (1884) &middot; West 7th &middot; Active &middot; MLS# 7057007</div>
+  <div class="stats-row">
+    <div class="stat-card"><div class="stat-label">Price</div><div class="stat-value price">$350,000</div></div>
+    <div class="stat-card"><div class="stat-label">Cleo Score</div><div class="stat-value score">47.5 / 72</div></div>
+    <div class="stat-card"><div class="stat-label">Ceiling</div><div class="stat-value warn">~53</div></div>
+    <div class="stat-card"><div class="stat-label">Beds / Baths</div><div class="stat-value">3 / 2</div></div>
+    <div class="stat-card"><div class="stat-label">Sqft</div><div class="stat-value">1,928 sf</div></div>
+    <div class="stat-card"><div class="stat-label">Garage</div><div class="stat-value good">2.5-car (575sqft)</div></div>
+    <div class="stat-card"><div class="stat-label">Tax</div><div class="stat-value good">$2,864 &#x2728;</div></div>
+    <div class="stat-card"><div class="stat-label">Eff. Cost</div><div class="stat-value good">$365&ndash;376k</div></div>
+  </div>
+  <div class="tour-badge" style="background:#f59e0b22;color:#f59e0b;border:1px solid #f59e0b">LOW-PRIORITY TOUR &mdash; Exceptional Economics, Interior Character Deficit (47.5/72)</div>
+</div>
+<div class="content">
+  <div class="deficit-box">&#x26A0;&#xFE0F; <strong>Structural scoring deficit.</strong> Interior character score 4.5/12 is locked low &mdash; luxury vinyl plank (not hardwood) and gut-stripped Victorian millwork are not closable at tour. In-person ceiling ~53 structurally misses 57 threshold by ~4 points. However, the economic case ($150k pre-sale pool) is the strongest in the entire search.</div>
+
+  <!-- Score Panel + Room Program -->
+  <div class="section two-col">
+    <div class="score-panel">
+      <div class="score-total">
+        <div class="big">47.5</div>
+        <div class="of">of 72</div>
+        <div class="pct">66.0% &middot; Cleo (Remote) &middot; Ceiling: ~53 &middot; Threshold: 57</div>
+      </div>
+      <svg width="340" height="178" viewBox="0 0 340 178" style="max-width:100%;height:auto">
+  <text x="66" y="21" fill="#ccc" font-size="11" text-anchor="end" font-family="Segoe UI,system-ui,sans-serif">Location</text>
+  <rect x="70" y="5" width="220" height="22" rx="4" fill="#1e293b"/>
+  <rect x="70" y="5" width="155.83" height="22" rx="4" fill="#60a5fa" opacity="0.85"/>
+  <text x="294" y="21" fill="#eee" font-size="12" font-family="Segoe UI,system-ui,sans-serif" font-weight="600">8.5/12</text>
+  <text x="66" y="49" fill="#ccc" font-size="11" text-anchor="end" font-family="Segoe UI,system-ui,sans-serif">Outdoor</text>
+  <rect x="70" y="33" width="220" height="22" rx="4" fill="#1e293b"/>
+  <rect x="70" y="33" width="146.67" height="22" rx="4" fill="#4ade80" opacity="0.85"/>
+  <text x="294" y="49" fill="#eee" font-size="12" font-family="Segoe UI,system-ui,sans-serif" font-weight="600">8.0/12</text>
+  <text x="66" y="77" fill="#ccc" font-size="11" text-anchor="end" font-family="Segoe UI,system-ui,sans-serif">Interior</text>
+  <rect x="70" y="61" width="220" height="22" rx="4" fill="#1e293b"/>
+  <rect x="70" y="61" width="82.5" height="22" rx="4" fill="#ef4444" opacity="0.85"/>
+  <text x="294" y="77" fill="#eee" font-size="12" font-family="Segoe UI,system-ui,sans-serif" font-weight="600">4.5/12</text>
+  <text x="66" y="105" fill="#ccc" font-size="11" text-anchor="end" font-family="Segoe UI,system-ui,sans-serif">Size</text>
+  <rect x="70" y="89" width="220" height="22" rx="4" fill="#1e293b"/>
+  <rect x="70" y="89" width="155.83" height="22" rx="4" fill="#c084fc" opacity="0.85"/>
+  <text x="294" y="105" fill="#eee" font-size="12" font-family="Segoe UI,system-ui,sans-serif" font-weight="600">8.5/12</text>
+  <text x="66" y="133" fill="#ccc" font-size="11" text-anchor="end" font-family="Segoe UI,system-ui,sans-serif">Kitchen</text>
+  <rect x="70" y="117" width="220" height="22" rx="4" fill="#1e293b"/>
+  <rect x="70" y="117" width="146.67" height="22" rx="4" fill="#f97316" opacity="0.85"/>
+  <text x="294" y="133" fill="#eee" font-size="12" font-family="Segoe UI,system-ui,sans-serif" font-weight="600">8.0/12</text>
+  <text x="66" y="161" fill="#ccc" font-size="11" text-anchor="end" font-family="Segoe UI,system-ui,sans-serif">Systems</text>
+  <rect x="70" y="145" width="220" height="22" rx="4" fill="#1e293b"/>
+  <rect x="70" y="145" width="183.33" height="22" rx="4" fill="#5eead4" opacity="0.85"/>
+  <text x="294" y="161" fill="#eee" font-size="12" font-family="Segoe UI,system-ui,sans-serif" font-weight="600">10.0/12</text>
+</svg>
+      <div class="threshold-note">Remote scored 2026-05-02. <span>Structurally misses 57 by ~4 pts.</span> Interior character (4.5/12) is the locked deficit. Systems (10.0/12) is best in batch.</div>
+    </div>
+    <div>
+      <h2 style="color:#e2c275;border:none;padding:0;margin-bottom:8px">&#x1F3E0; Room Program Assessment</h2>
+      <p style="font-size:0.85em;color:#94a3b8;margin-bottom:12px">Verdict: &#x26A0;&#xFE0F; MARGINAL &mdash; 3 bedrooms + bonus room + dedicated office. Program resolves with shared-office rule.</p>
+      <table>
+        <tr><th>Requirement</th><th>Status</th><th>Notes</th></tr>
+        <tr><td>Master bedroom</td><td style="color:#4ade80">&#x2705; Pass</td><td class="notes-cell">Main Bd1</td></tr>
+        <tr><td>Maxy&rsquo;s bedroom</td><td style="color:#e2c275">&#x26A0;&#xFE0F; Marginal</td><td class="notes-cell">Main Bd2 or upper bonus room</td></tr>
+        <tr><td>Sherry&rsquo;s office</td><td style="color:#4ade80">&#x2705; Pass</td><td class="notes-cell">Dedicated upper office (closed door)</td></tr>
+        <tr><td>Drew&rsquo;s office</td><td style="color:#e2c275">&#x26A0;&#xFE0F; Marginal</td><td class="notes-cell">Upper bonus room if partitioned, or Bd2</td></tr>
+        <tr><td>Gym / library</td><td style="color:#e2c275">&#x26A0;&#xFE0F; Marginal</td><td class="notes-cell">Upper bonus room (shared) or unfinished basement</td></tr>
+        <tr><td>5&ndash;8 person social</td><td style="color:#e2c275">&#x26A0;&#xFE0F; Marginal</td><td class="notes-cell">896sqft main floor may be tight for 8</td></tr>
+      </table>
+      <div style="margin-top:12px;padding:10px;background:#334155;border-radius:6px;font-size:0.85em;color:#94a3b8">
+        <strong style="color:#f59e0b">Upper floor is the linchpin.</strong> Bonus room size and office layout determine whether program resolves. Walkout basement is future expansion path.
+      </div>
+    </div>
+  </div>
+
+  <!-- The Central Tension -->
+  <div class="section two-col">
+    <div class="cost-panel">
+      <h2 style="border:none;padding:0;margin-bottom:12px">&#x2705; Exceptional Strengths</h2>
+      <ul>
+        <li class="feature-item">&#x1F4B0; <strong>$350,000</strong> &mdash; lowest price in search ($182/sqft)</li>
+        <li class="feature-item">&#x1F4B0; <strong>$2,864 taxes</strong> &mdash; lowest in entire search (saves $3,000+/yr)</li>
+        <li class="feature-item">&#x1F4B0; <strong>$150k pre-sale pool</strong> &mdash; largest financial flexibility</li>
+        <li class="feature-item">&#x2705; Best systems score (10.0/12) &mdash; full rehab electrical + AC + new baths</li>
+        <li class="feature-item">&#x2705; 2.5-car garage (575sqft) &mdash; workshop viable</li>
+        <li class="feature-item">&#x2705; 5-burner stove + quartz/granite kitchen</li>
+        <li class="feature-item">&#x2705; Central AC &#x2705; + modern electrical &#x2705;</li>
+        <li class="feature-item">&#x2705; Private cedar-fenced courtyard/patio</li>
+        <li class="feature-item">&#x2705; Dedicated upper-level office + laundry</li>
+        <li class="feature-item">&#x2705; Walk-out basement &mdash; future expansion</li>
+      </ul>
+    </div>
+    <div class="cost-panel">
+      <h2 style="border:none;padding:0;margin-bottom:12px">&#x274C; Locked Deficits</h2>
+      <ul>
+        <li class="concern-item">&#x274C; <strong>Luxury vinyl plank</strong> &mdash; NOT hardwood. Drew&rsquo;s rubric scores this 0/3 for character.</li>
+        <li class="concern-item">&#x274C; <strong>Gut-stripped Victorian</strong> &mdash; no original millwork, pocket doors, or stained glass preserved. The 1884 construction date is invisible.</li>
+        <li class="concern-item">&#x274C; <strong>Electric fireplace</strong> &mdash; &ldquo;custom 5ft electric&rdquo; replaces period-appropriate original</li>
+        <li class="concern-item">&#x26A0;&#xFE0F; 1884 foundation &mdash; 142 years old. Inspect for settling.</li>
+        <li class="concern-item">&#x26A0;&#xFE0F; Original clay sewer lateral &mdash; scope required</li>
+        <li class="concern-item">&#x26A0;&#xFE0F; 896sqft main floor &mdash; tight for daily living + social</li>
+        <li class="concern-item">&#x26A0;&#xFE0F; New carpet on upper &mdash; no hardwood anywhere</li>
+        <li class="concern-item">&#x26A0;&#xFE0F; West 7th walkability &lt; Mac-Groveland</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Effective Cost -->
+  <div class="section two-col">
+    <div class="cost-panel">
+      <h2 style="border:none;padding:0;margin-bottom:12px">&#x1F4B0; Effective Cost Model</h2>
+      <table>
+        <tr><th>Item</th><th style="text-align:right">Cost</th></tr>
+        <tr><td>Purchase price</td><td class="cost-cell">$350,000</td></tr>
+        <tr><td>Sewer scope + possible lateral</td><td class="cost-cell">$500&ndash;$8,000</td></tr>
+        <tr><td>Foundation inspection</td><td class="cost-cell">$500&ndash;$2,000</td></tr>
+        <tr><td>EV circuit to garage</td><td class="cost-cell">$1,500&ndash;$3,000</td></tr>
+        <tr><td>HELOC carry (7.5%, 5 mo.)</td><td class="cost-cell">$10,938</td></tr>
+      </table>
+      <div class="effective-cost">
+        <div class="label">Effective Cost (Total)</div>
+        <div class="amount">$363k&ndash;$376k</div>
+        <div class="proj">&#x2705;&#x2705; Deepest under $510k threshold &middot; $150k pre-sale pool</div>
+      </div>
+      <div style="margin-top:12px;padding:10px;background:#334155;border-radius:6px;font-size:0.85em;color:#94a3b8">
+        <strong style="color:#4ade80">Best economic case in search.</strong> Full gut rehab means zero deferred maintenance. No HVAC, electrical, or bath costs. The $150k pool could fund hardwood replacement (~$25k) and trim restoration if Drew considers it.
+      </div>
+    </div>
+    <div>
+      <div class="aip-box" style="border-left-color:#4ade80;margin-top:0">
+        <div class="aip-label" style="color:#4ade80">Aging-in-Place: GOOD</div>
+        Main floor bedroom + full bath + kitchen. All daily needs on one level. Upper floor is bonus space. Modern electrical and central AC already installed. Only concern is 896sqft main floor footprint for long-term comfort.
+      </div>
+      <div style="margin-top:16px;padding:16px;background:#1e293b;border-radius:10px;border:1px solid #334155">
+        <h2 style="color:#f59e0b;border:none;padding:0;margin-bottom:12px;font-size:0.95em">&#x1F50D; Tour Priorities (If Touring)</h2>
+        <table>
+          <tr><th>#</th><th>Verify At Tour</th></tr>
+          <tr><td style="color:#f59e0b;font-weight:700">1</td><td>Were ANY Victorian elements preserved? (millwork, doorways, trim)</td></tr>
+          <tr><td style="color:#f59e0b;font-weight:700">2</td><td>Upper bonus room size &mdash; can it serve as gym/library?</td></tr>
+          <tr><td style="color:#f59e0b;font-weight:700">3</td><td>Foundation condition &mdash; 142 years old, settling?</td></tr>
+          <tr><td style="color:#f59e0b;font-weight:700">4</td><td>Main floor social capacity &mdash; can 8 people gather?</td></tr>
+          <tr><td style="color:#f59e0b;font-weight:700">5</td><td>Kitchen baking station viability &mdash; counter space?</td></tr>
+          <tr><td style="color:#f59e0b;font-weight:700">6</td><td>Basement ceiling height &mdash; future expansion?</td></tr>
+          <tr><td style="color:#f59e0b;font-weight:700">7</td><td>LVP quality &mdash; does it feel like a flip or a thoughtful rehab?</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tour Recommendation -->
+  <div class="section">
+    <h2>&#x1F3AF; Tour-or-Pass Recommendation</h2>
+    <div style="padding:16px;background:#1e293b;border-radius:10px;border:1px solid #f59e0b">
+      <div style="font-size:1.1em;color:#f59e0b;font-weight:700;margin-bottom:8px">RECOMMENDATION: LOW-PRIORITY TOUR &mdash; Confirm Character Gap or Find Preserved Elements</div>
+      <div style="font-size:0.9em;color:#94a3b8;margin-bottom:12px">Score 47.5/72, ceiling ~53 &middot; Structurally misses 57 by ~4 pts &middot; Interior 4.5/12 is locked &middot; BUT: best economics in search ($150k pool, $2,864 taxes)</div>
+      <div class="two-col">
+        <div>
+          <h2 style="color:#4ade80;border:none;padding:0;margin-bottom:8px;font-size:0.95em">Case For Touring</h2>
+          <ul>
+            <li class="feature-item">Cheapest all-in cost by $50k+ vs any other candidate</li>
+            <li class="feature-item">$150k pool could fund hardwood + trim restoration</li>
+            <li class="feature-item">Zero deferred maintenance &mdash; move-in ready</li>
+            <li class="feature-item">If ANY Victorian elements survived, score could shift</li>
+            <li class="feature-item">Best systems + best garage + best taxes combo</li>
+          </ul>
+        </div>
+        <div>
+          <h2 style="color:#ef4444;border:none;padding:0;margin-bottom:8px;font-size:0.95em">Case Against</h2>
+          <ul>
+            <li class="concern-item">LVP + gut strip = interior character is likely disqualifying for Drew</li>
+            <li class="concern-item">~4pt structural miss means tour can&rsquo;t close the gap</li>
+            <li class="concern-item">142-year-old foundation is genuine risk</li>
+            <li class="concern-item">West 7th is less walkable than Mac-Groveland</li>
+            <li class="concern-item">Electric fireplace signals flip aesthetic, not restoration</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="disclaimer">Cleo remote score 2026-05-02 (47.5/72) &middot; Not toured &middot; No Sherry assessment &middot; Interior character 4.5/12 locked<br>
+  Economic case: $350k + $2,864 tax + $150k pool = best value in search &middot; But LVP + gut-strip likely disqualifying for Drew&rsquo;s character preference</div>
+</body>
+</html>
