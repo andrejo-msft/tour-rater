@@ -2,58 +2,73 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0f172a">
 <title>Property Profiles &mdash; Move 2026</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Segoe UI',system-ui,sans-serif;background:#0f172a;color:#e2e8f0;line-height:1.5}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,system-ui,sans-serif;background:#0f172a;color:#e2e8f0;line-height:1.5;overscroll-behavior-y:contain}
 a{color:#60a5fa;text-decoration:none}
-.nav{padding:12px 40px;background:#1e293b;border-bottom:1px solid #334155;font-size:0.85em}
-.header{text-align:center;padding:40px 20px 20px}
-.header h1{font-size:1.8em;color:#f8fafc}
-.header p{color:#94a3b8;margin-top:8px;font-size:0.95em}
-.section-label{max-width:1000px;margin:24px auto 8px;padding:0 40px;font-size:0.8em;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:#94a3b8}
-.section-label .ring-badge{display:inline-block;padding:2px 10px;border-radius:10px;font-size:0.85em;margin-left:8px}
-.grid{max-width:1000px;margin:0 auto;padding:0 40px 20px;display:grid;gap:16px}
-.prop-card{display:grid;grid-template-columns:200px 1fr;background:#1e293b;border-radius:10px;overflow:hidden;border:1px solid #334155;transition:transform 0.2s,border-color 0.2s;color:#e2e8f0}
-.prop-card:hover{transform:translateY(-2px);border-color:#e2c275}
-.prop-img{background-size:cover;background-position:center;min-height:140px}
-.prop-info{padding:16px 20px}
-.prop-addr{font-size:1.15em;font-weight:700;color:#f8fafc}
-.prop-sub{color:#94a3b8;font-size:0.85em;margin-top:4px}
-.prop-stats{display:flex;gap:16px;margin-top:12px;font-size:0.9em;flex-wrap:wrap}
+.topnav{background:#1e293b;border-bottom:1px solid #334155;font-size:0.9em}
+.topnav a{display:inline-flex;align-items:center;min-height:44px;padding:8px 16px;color:#60a5fa}
+.header{text-align:center;padding:20px 16px 8px;max-width:1200px;margin:0 auto}
+.header h1{font-size:1.55em;color:#f8fafc}
+.header p{color:#94a3b8;margin-top:6px;font-size:0.9em}
+.header .note{margin-top:10px;color:#fca5a5;font-size:0.88em;background:#7f1d1d22;border:1px solid #7f1d1d;padding:8px 12px;border-radius:8px;display:inline-block}
+.section-nav{position:sticky;top:0;z-index:20;background:rgba(15,23,42,0.92);-webkit-backdrop-filter:saturate(180%) blur(10px);backdrop-filter:saturate(180%) blur(10px);border-bottom:1px solid #334155;padding-top:env(safe-area-inset-top,0)}
+.section-nav ul{display:flex;list-style:none;max-width:1200px;margin:0 auto;padding:0 4px;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.section-nav ul::-webkit-scrollbar{display:none}
+.section-nav li{flex:1 0 auto}
+.section-nav a{display:flex;align-items:center;justify-content:center;min-height:44px;padding:0 14px;color:#cbd5e1;font-size:0.82em;font-weight:600;text-transform:uppercase;letter-spacing:0.04em;white-space:nowrap;border-bottom:2px solid transparent}
+.section-nav a:hover,.section-nav a:focus{color:#f8fafc;border-bottom-color:#e2c275;outline:none}
+.section-label{max-width:1200px;margin:24px auto 8px;padding:0 16px;font-size:0.82em;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:#94a3b8;scroll-margin-top:60px}
+.section-label .ring-badge{display:inline-block;padding:2px 10px;border-radius:10px;font-size:0.85em;margin-left:8px;vertical-align:middle}
+.grid{max-width:1200px;margin:0 auto;padding:0 16px 20px;display:grid;gap:14px;grid-template-columns:1fr}
+@media(min-width:600px){.grid{grid-template-columns:repeat(2,1fr);gap:16px}}
+@media(min-width:1024px){.grid{grid-template-columns:repeat(3,1fr);gap:18px;padding:0 24px 24px}.section-label{padding:0 24px;font-size:0.85em}.topnav a{padding:8px 24px}.header{padding:32px 24px 16px}.header h1{font-size:1.9em}}
+.prop-card{display:block;background:#1e293b;border-radius:10px;overflow:hidden;border:1px solid #334155;color:#e2e8f0;min-height:44px;transition:border-color 0.18s ease,transform 0.18s ease}
+.prop-card:focus,.prop-card:hover{border-color:#e2c275;outline:none}
+@media(hover:hover) and (prefers-reduced-motion:no-preference){.prop-card:hover{transform:translateY(-2px)}}
+.prop-img{display:block;width:100%;height:180px;object-fit:cover;background:#0f172a;border-bottom:1px solid #334155}
+.prop-img.placeholder{height:6px;background:linear-gradient(90deg,#334155,#475569);border-bottom:0}
+.prop-info{padding:14px 16px 16px}
+.prop-addr{font-size:1.1em;font-weight:700;color:#f8fafc;line-height:1.3}
+.prop-sub{color:#94a3b8;font-size:0.88em;margin-top:4px;line-height:1.4}
+.prop-stats{display:flex;gap:14px;margin-top:10px;font-size:0.92em;flex-wrap:wrap}
 .ps-price{color:#4ade80;font-weight:700}
 .ps-score{color:#e2c275;font-weight:700}
 .ps-sqft{color:#94a3b8}
-.prop-tour{margin-top:8px;font-size:0.8em;font-weight:600}
-@media(max-width:700px){.prop-card{grid-template-columns:1fr}.prop-img{height:180px}.grid{padding:0 16px 16px}.nav{padding:10px 16px}.section-label{padding:0 16px}}
-.disclaimer{text-align:center;color:#64748b;font-size:0.75em;padding:24px;margin-top:20px}
+.prop-tour{margin-top:10px;font-size:0.85em;font-weight:600;line-height:1.4}
+.eliminated .prop-card{opacity:0.72}
+.disclaimer{max-width:1000px;margin:24px auto 0;padding:16px 16px calc(24px + env(safe-area-inset-bottom,0));text-align:left;color:#64748b;font-size:0.78em;line-height:1.6;border-top:1px solid #1e293b}
+.disclaimer strong{color:#94a3b8}
+@media(prefers-reduced-motion:reduce){.prop-card,.prop-card:hover{transition:none;transform:none}}
 </style>
 </head>
 <body>
-<div class="nav"><a href="../">&larr; Tour Rater</a></div>
+<div class="topnav"><a href="../">&larr; Tour Rater</a></div>
 <div class="header">
   <h1>&#x1F3E0; Property Profiles</h1>
-  <p>Move 2026 &mdash; Active Candidates &middot; Photo-Enhanced Scoring &middot; Updated 2026-05-05 (dispatch 2)</p>
+  <p>Move 2026 &mdash; Active Candidates &middot; Photo-Enhanced Scoring &middot; Updated 2026-05-06</p>
+  <p class="note">No threshold-clearer in active pool right now &mdash; 1945 Portland eliminated 2026-05-05 (guest-parking). Albany (53.5/72) is highest-scoring active candidate.</p>
 </div>
 
-<!-- TOURED / THRESHOLD CLEARED — NONE ACTIVE (Portland eliminated 2026-05-05) -->
-<div class="section-label">&#x2705; Toured &amp; Active &mdash; Clears Threshold <span class="ring-badge" style="background:#ef444422;color:#f87171;border:1px solid #ef4444">0 active &mdash; Portland eliminated 2026-05-05</span></div>
-<div class="grid">
-  <div class="prop-card" style="border-left:4px solid #334155;opacity:0.5;pointer-events:none">
-    <div class="prop-img" style="background:#0f172a"></div>
-    <div class="prop-info">
-      <div class="prop-addr" style="color:#64748b">No active threshold-clearers</div>
-      <div class="prop-sub" style="color:#475569">1945 Portland eliminated 2026-05-05 (guest-parking). Albany (53.5/72) is highest-scoring active candidate.</div>
-    </div>
-  </div>
-</div>
+<nav class="section-nav" aria-label="Section navigation">
+  <ul>
+    <li><a href="#active-near">Near</a></li>
+    <li><a href="#active-first">Active</a></li>
+    <li><a href="#second-ring">Stretch</a></li>
+    <li><a href="#pending">Pending</a></li>
+    <li><a href="#eliminated">Eliminated</a></li>
+  </ul>
+</nav>
 
 <!-- NEAR-THRESHOLD PRIORITY -->
-<div class="section-label">&#x1F50D; Active &mdash; Near Threshold <span class="ring-badge" style="background:#e2c27522;color:#e2c275;border:1px solid #e2c275">Cleo remote scored</span></div>
+<div class="section-label" id="active-near">&#x1F50D; Active &mdash; Near Threshold <span class="ring-badge" style="background:#e2c27522;color:#e2c275;border:1px solid #e2c275">Cleo remote scored</span></div>
 <div class="grid">
     <a href="benhill.html" class="prop-card" style="border-left:4px solid #f97316">
-      <div class="prop-img" style="background-image:url('https://www.edinarealty.com/listing-images/listing/RMLS/949-Benhill-Road-Saint-Paul-MN-55105-7029604-image1.jpg');background-color:#1e293b"></div>
+      <img class="prop-img" loading="lazy" decoding="async" alt="" src="https://www.edinarealty.com/listing-images/listing/RMLS/949-Benhill-Road-Saint-Paul-MN-55105-7029604-image1.jpg">
       <div class="prop-info">
         <div class="prop-addr">949 Benhill Road</div>
         <div class="prop-sub">Craftsman Bungalow (1900) &middot; Summit Hill &middot; 0.35ac double lot</div>
@@ -68,10 +83,10 @@ a{color:#60a5fa;text-decoration:none}
 </div>
 
 <!-- ACTIVE FIRST RING -->
-<div class="section-label">&#x1F3E0; Active &mdash; First Ring <span class="ring-badge" style="background:#4ade8022;color:#4ade80;border:1px solid #4ade80">Cleo remote scored</span></div>
+<div class="section-label" id="active-first">&#x1F3E0; Active &mdash; First Ring <span class="ring-badge" style="background:#4ade8022;color:#4ade80;border:1px solid #4ade80">Cleo remote scored</span></div>
 <div class="grid">
     <a href="sargent.html" class="prop-card" style="border-left:4px solid #f59e0b">
-      <div class="prop-img" style="background-image:url('https://www.edinarealty.com/listing-images/listing/RMLS/1224-Sargent-Avenue-Saint-Paul-MN-55105-7058635-image1.jpg')"></div>
+      <img class="prop-img" loading="lazy" decoding="async" alt="" src="https://www.edinarealty.com/listing-images/listing/RMLS/1224-Sargent-Avenue-Saint-Paul-MN-55105-7058635-image1.jpg">
       <div class="prop-info">
         <div class="prop-addr">1224 Sargent Avenue</div>
         <div class="prop-sub">1.5-Story Postwar (1953) &middot; Mac-Groveland</div>
@@ -83,22 +98,8 @@ a{color:#60a5fa;text-decoration:none}
         <div class="prop-tour" style="color:#f59e0b">ACTIVE &mdash; Postwar Style Flag (47.5/72)</div>
       </div>
     </a>
-    <a href="burgess.html" class="prop-card" style="border-left:4px solid #f59e0b">
-      <div class="prop-img" style="background-image:url('https://www.edinarealty.com/listing-images/listing/RMLS/1031-Burgess-Street-Saint-Paul-MN-55103-7041283-image1.jpg')"></div>
-      <div class="prop-info">
-        <div class="prop-addr">1031 Burgess Street</div>
-        <div class="prop-sub">1.5-Story Postwar (1957) &middot; South Como / Energy Park &middot; 5bd / 3ba</div>
-        <div class="prop-stats">
-          <span class="ps-price">$409,900</span>
-          <span class="ps-score">Cleo 45.5/72</span>
-          <span class="ps-score">Sherry 70/99</span>
-          <span class="ps-sqft">2,260 sf &middot; $181/sqft</span>
-        </div>
-        <div class="prop-tour" style="color:#f59e0b">ACTIVE &mdash; Drew drive-by 4/30: &ldquo;didn&rsquo;t impact me&rdquo; &bull; &#x26A0; POSTWAR (1957) &mdash; Recommend discuss elimination</div>
-      </div>
-    </a>
     <a href="california.html" class="prop-card" style="border-left:4px solid #818cf8">
-      <div class="prop-img" style="background-color:#1e293b"></div>
+      <div class="prop-img placeholder" aria-hidden="true"></div>
       <div class="prop-info">
         <div class="prop-addr">1105 California Ave W</div>
         <div class="prop-sub">Rambler (1926) &middot; Como &middot; 9ft Ceilings</div>
@@ -111,7 +112,7 @@ a{color:#60a5fa;text-decoration:none}
       </div>
     </a>
     <a href="stanford.html" class="prop-card" style="border-left:4px solid #818cf8">
-      <div class="prop-img" style="background-image:url('https://www.edinarealty.com/listing-images/listing/RMLS/2043-Stanford-Avenue-Saint-Paul-MN-55105-7049592-image1.jpg')"></div>
+      <img class="prop-img" loading="lazy" decoding="async" alt="" src="https://www.edinarealty.com/listing-images/listing/RMLS/2043-Stanford-Avenue-Saint-Paul-MN-55105-7049592-image1.jpg">
       <div class="prop-info">
         <div class="prop-addr">2043 Stanford Avenue</div>
         <div class="prop-sub">Craftsman (1924) &middot; Mac-Groveland &middot; $3,833 tax &#x2728;</div>
@@ -124,7 +125,7 @@ a{color:#60a5fa;text-decoration:none}
       </div>
     </a>
     <a href="stclair.html" class="prop-card" style="border-left:4px solid #818cf8">
-      <div class="prop-img" style="background-image:url('https://www.edinarealty.com/listing-images/listing/RMLS/1315-Saint-Clair-Avenue-Saint-Paul-MN-55105-7035477-image1.jpg')"></div>
+      <img class="prop-img" loading="lazy" decoding="async" alt="" src="https://www.edinarealty.com/listing-images/listing/RMLS/1315-Saint-Clair-Avenue-Saint-Paul-MN-55105-7035477-image1.jpg">
       <div class="prop-info">
         <div class="prop-addr">1315 Saint Clair Avenue</div>
         <div class="prop-sub">Craftsman Bungalow (1922) &middot; Mac-Groveland &#x2705; &middot; Museum-Quality Woodwork</div>
@@ -137,7 +138,7 @@ a{color:#60a5fa;text-decoration:none}
       </div>
     </a>
     <a href="watson.html" class="prop-card" style="border-left:4px solid #f59e0b">
-      <div class="prop-img" style="background-image:url('https://www.edinarealty.com/listing-images/listing/RMLS/708-Watson-Avenue-Saint-Paul-MN-55102-7057007-image1.jpg')"></div>
+      <img class="prop-img" loading="lazy" decoding="async" alt="" src="https://www.edinarealty.com/listing-images/listing/RMLS/708-Watson-Avenue-Saint-Paul-MN-55102-7057007-image1.jpg">
       <div class="prop-info">
         <div class="prop-addr">708 Watson Avenue</div>
         <div class="prop-sub">Gut-Rehabbed Victorian (1884) &middot; West 7th &middot; $2,864 tax &#x2728;</div>
@@ -150,7 +151,7 @@ a{color:#60a5fa;text-decoration:none}
       </div>
     </a>
     <a href="lincoln.html" class="prop-card" style="border-left:4px solid #818cf8">
-      <div class="prop-img" style="background-color:#1e293b"></div>
+      <div class="prop-img placeholder" aria-hidden="true"></div>
       <div class="prop-info">
         <div class="prop-addr">1323 Lincoln Avenue</div>
         <div class="prop-sub">Craftsman (1894) &middot; Mac-Groveland &middot; &#x26A0; Relisted (new MLS# 7066429)</div>
@@ -163,7 +164,7 @@ a{color:#60a5fa;text-decoration:none}
       </div>
     </a>
     <a href="dayton.html" class="prop-card" style="border-left:4px solid #4ade80">
-      <div class="prop-img" style="background-color:#1e293b"></div>
+      <div class="prop-img placeholder" aria-hidden="true"></div>
       <div class="prop-info">
         <div class="prop-addr">536 Dayton Avenue</div>
         <div class="prop-sub">Victorian (1889) &middot; Cathedral Hill &middot; &#x2705; Both gates cleared 2026-05-05</div>
@@ -176,7 +177,7 @@ a{color:#60a5fa;text-decoration:none}
       </div>
     </a>
     <a href="wellesley.html" class="prop-card" style="border-left:4px solid #818cf8">
-      <div class="prop-img" style="background-color:#1e293b"></div>
+      <div class="prop-img placeholder" aria-hidden="true"></div>
       <div class="prop-info">
         <div class="prop-addr">1594 Wellesley Avenue</div>
         <div class="prop-sub">Craftsman (1922) &middot; Mac-Groveland &middot; Main-floor full bath &#x2705;</div>
@@ -189,7 +190,7 @@ a{color:#60a5fa;text-decoration:none}
       </div>
     </a>
     <a href="asbury.html" class="prop-card" style="border-left:4px solid #818cf8">
-      <div class="prop-img" style="background-color:#1e293b"></div>
+      <div class="prop-img placeholder" aria-hidden="true"></div>
       <div class="prop-info">
         <div class="prop-addr">549 Asbury Street N</div>
         <div class="prop-sub">Two-Story (1925) &middot; Hamline-Midway &middot; East Sunroom &#x2600;&#xFE0F;</div>
@@ -202,7 +203,7 @@ a{color:#60a5fa;text-decoration:none}
       </div>
     </a>
     <a href="selby.html" class="prop-card" style="border-left:4px solid #818cf8">
-      <div class="prop-img" style="background-color:#1e293b"></div>
+      <div class="prop-img placeholder" aria-hidden="true"></div>
       <div class="prop-info">
         <div class="prop-addr">1149 Selby Avenue</div>
         <div class="prop-sub">Two-Story (1904) &middot; Selby Corridor &middot; 4bd / 1.5ba &middot; &#x2705; Restored 5/5</div>
@@ -217,10 +218,10 @@ a{color:#60a5fa;text-decoration:none}
 </div>
 
 <!-- SECOND RING (Stretch Comparisons) -->
-<div class="section-label">&#x1F535; Second Ring &mdash; Stretch Comparisons <span class="ring-badge" style="background:#60a5fa22;color:#93c5fd;border:1px solid #60a5fa">outside comfort zone</span></div>
+<div class="section-label" id="second-ring">&#x1F535; Second Ring &mdash; Stretch Comparisons <span class="ring-badge" style="background:#60a5fa22;color:#93c5fd;border:1px solid #60a5fa">outside comfort zone</span></div>
 <div class="grid">
     <a href="44th-ave.html" class="prop-card" style="border-left:4px solid #60a5fa">
-      <div class="prop-img" style="background-image:url('https://www.edinarealty.com/listing-images/listing/RMLS/3729-44th-Avenue-S-Minneapolis-MN-55406-7053027-image1.jpg')"></div>
+      <img class="prop-img" loading="lazy" decoding="async" alt="" src="https://www.edinarealty.com/listing-images/listing/RMLS/3729-44th-Avenue-S-Minneapolis-MN-55406-7053027-image1.jpg">
       <div class="prop-info">
         <div class="prop-addr">3729 44th Ave S, Minneapolis</div>
         <div class="prop-sub">1.5-Story Craftsman (1928) &middot; Standish (55406) &middot; &#x1F535; Minneapolis</div>
@@ -233,7 +234,7 @@ a{color:#60a5fa;text-decoration:none}
       </div>
     </a>
     <a href="bayard.html" class="prop-card" style="border-left:4px solid #60a5fa">
-      <div class="prop-img" style="background-color:#1e293b"></div>
+      <div class="prop-img placeholder" aria-hidden="true"></div>
       <div class="prop-info">
         <div class="prop-addr">1451 Bayard Ave, Highland Park</div>
         <div class="prop-sub">Post-1930s (1941) &middot; Highland Park (55116) &middot; &#x1F535; EV-Ready Garage</div>
@@ -246,11 +247,12 @@ a{color:#60a5fa;text-decoration:none}
       </div>
     </a>
 </div>
-
-<div class="section-label" style="color:#f59e0b">&#x23F3; Pending &mdash; Under Contract (Not in Active Pool)</div>
+
+<!-- PENDING -->
+<div class="section-label" id="pending" style="color:#f59e0b">&#x23F3; Pending &mdash; Under Contract (Not in Active Pool)</div>
 <div class="grid">
-    <a href="albany.html" class="prop-card" style="border-left:4px solid #f59e0b;opacity:0.85">
-      <div class="prop-img" style="background-image:url('https://www.edinarealty.com/listing-images/listing/RMLS/1416-Albany-Avenue-Saint-Paul-MN-55108-7046074-image1.jpg')"></div>
+    <a href="albany.html" class="prop-card" style="border-left:4px solid #f59e0b">
+      <img class="prop-img" loading="lazy" decoding="async" alt="" src="https://www.edinarealty.com/listing-images/listing/RMLS/1416-Albany-Avenue-Saint-Paul-MN-55108-7046074-image1.jpg">
       <div class="prop-info">
         <div class="prop-addr">1416 Albany Avenue</div>
         <div class="prop-sub">1.5-Story (1912) &middot; Como &middot; 0.24ac Double Lot</div>
@@ -259,31 +261,32 @@ a{color:#60a5fa;text-decoration:none}
           <span class="ps-score">Cleo 53.5/72</span>
           <span class="ps-sqft">1,754 sf &middot; 880sqft garage</span>
         </div>
-        <div class="prop-tour" style="color:#f59e0b">&#x23F3; PENDING &mdash; Drew verified 2026-05-05 09:17 CT; Zillow URL fetched confirms. NOT available. Prior &ldquo;BACK TO ACTIVE&rdquo; claim was wrong (verify-status-on-write failure). Monitor daily &mdash; if pending falls through, same-day action. (53.5/72; highest-scoring candidate if Active)</div>
+        <div class="prop-tour" style="color:#f59e0b">&#x23F3; PENDING &mdash; Drew verified 2026-05-05 09:17 CT; Zillow URL fetched confirms. NOT available. Monitor daily &mdash; if pending falls through, same-day action. (53.5/72; highest-scoring candidate if Active)</div>
       </div>
     </a>
 </div>
 
-<div class="section-label" style="color:#64748b">&#x1F6D1; Eliminated</div>
-<div class="grid">
-    <a href="carroll.html" class="prop-card" style="border-left:4px solid #64748b;opacity:0.7">
-      <div class="prop-img" style="background-color:#1e293b"></div>
+<!-- ELIMINATED -->
+<div class="section-label" id="eliminated" style="color:#64748b">&#x1F6D1; Eliminated</div>
+<div class="grid eliminated">
+    <a href="carroll.html" class="prop-card" style="border-left:4px solid #64748b">
+      <div class="prop-img placeholder" aria-hidden="true"></div>
       <div class="prop-info">
         <div class="prop-addr">1787 Carroll Avenue</div>
-        <div class="prop-sub">New Construction (2024) &middot; Lovering Park &middot; $549k</div>
+        <div class="prop-sub">New Construction (2024) &middot; Lovering Park</div>
         <div class="prop-stats">
           <span class="ps-price">$549,000</span>
           <span class="ps-score">Knockout</span>
           <span class="ps-sqft">2,219 sf &middot; 4bd / 4ba</span>
         </div>
-        <div class="prop-tour" style="color:#64748b">ELIMINATED 2026-05-05 &mdash; New construction (2024) + over buyer budget ceiling. Double knockout. &#x1F4CA; Retro-scored 37.5/72 (2026-05-05): scores below ALL active candidates. New-construction-character-penalty confirmed. See candidate file for full breakdown and comparator analysis.</div>
+        <div class="prop-tour" style="color:#64748b">ELIMINATED 2026-05-05 &mdash; New construction (2024) knockout. &#x1F4CA; Retro-scored 37.5/72: scores below all active candidates. See candidate file for breakdown.</div>
       </div>
     </a>
-    <a href="portland.html" class="prop-card" style="border-left:4px solid #64748b;opacity:0.7">
-      <div class="prop-img" style="background-image:url('https://www.edinarealty.com/listing-images/listing/RMLS/1945-Portland-Avenue-Saint-Paul-MN-55104-7059438-image1.jpg')"></div>
+    <a href="portland.html" class="prop-card" style="border-left:4px solid #64748b">
+      <img class="prop-img" loading="lazy" decoding="async" alt="" src="https://www.edinarealty.com/listing-images/listing/RMLS/1945-Portland-Avenue-Saint-Paul-MN-55104-7059438-image1.jpg">
       <div class="prop-info">
         <div class="prop-addr">1945 Portland Avenue</div>
-        <div class="prop-sub">1.5-Story Craftsman (1919) &middot; Merriam Park &middot; Was sole threshold-clearer</div>
+        <div class="prop-sub">1.5-Story Craftsman (1919) &middot; Merriam Park</div>
         <div class="prop-stats">
           <span class="ps-price">$525,000</span>
           <span class="ps-score">Drew 59/72</span>
@@ -293,8 +296,21 @@ a{color:#60a5fa;text-decoration:none}
         <div class="prop-tour" style="color:#64748b">ELIMINATED 2026-05-05 &mdash; Guest parking: &ldquo;inability to have people easily park without fear of being towed was a non-starter&rdquo; &mdash; Drew</div>
       </div>
     </a>
-    <a href="fairmount.html" class="prop-card" style="border-left:4px solid #64748b;opacity:0.7">
-      <div class="prop-img" style="background-image:url('https://www.edinarealty.com/listing-images/listing/RMLS/1327-Fairmount-Avenue-Saint-Paul-MN-55105-6777234-image1.jpg')"></div>
+    <a href="burgess.html" class="prop-card" style="border-left:4px solid #64748b">
+      <img class="prop-img" loading="lazy" decoding="async" alt="" src="https://www.edinarealty.com/listing-images/listing/RMLS/1031-Burgess-Street-Saint-Paul-MN-55103-7041283-image1.jpg">
+      <div class="prop-info">
+        <div class="prop-addr">1031 Burgess Street</div>
+        <div class="prop-sub">1.5-Story Postwar (1957) &middot; South Como / Energy Park &middot; 5bd / 3ba</div>
+        <div class="prop-stats">
+          <span class="ps-price">$409,900</span>
+          <span class="ps-score">Cleo 45.5/72</span>
+          <span class="ps-sqft">2,260 sf</span>
+        </div>
+        <div class="prop-tour" style="color:#64748b">ELIMINATED 2026-05-06 &mdash; Postwar (1957) style flag + Drew drive-by 4/30: &ldquo;didn&rsquo;t impact me&rdquo;. Per Cleo wellesley-prep dispatch.</div>
+      </div>
+    </a>
+    <a href="fairmount.html" class="prop-card" style="border-left:4px solid #64748b">
+      <img class="prop-img" loading="lazy" decoding="async" alt="" src="https://www.edinarealty.com/listing-images/listing/RMLS/1327-Fairmount-Avenue-Saint-Paul-MN-55105-6777234-image1.jpg">
       <div class="prop-info">
         <div class="prop-addr">1327 Fairmount Avenue</div>
         <div class="prop-sub">American Foursquare (1922) &middot; Mac-Groveland</div>
@@ -304,24 +320,24 @@ a{color:#60a5fa;text-decoration:none}
           <span class="ps-score">Sherry 80/99</span>
           <span class="ps-sqft">2,165 sf</span>
         </div>
-        <div class="prop-tour" style="color:#64748b">ELIMINATED &mdash; Bid lost 2026-05-02 ($542k, 3rd place). Market signal: $499k tier requires $555k+ to win.</div>
+        <div class="prop-tour" style="color:#64748b">ELIMINATED &mdash; Bid lost 2026-05-02 (3rd place). Market signal: $499k tier required higher to win.</div>
       </div>
     </a>
-    <a href="idaho.html" class="prop-card" style="border-left:4px solid #64748b;opacity:0.7">
-      <div class="prop-img" style="background-image:url('https://www.edinarealty.com/listing-images/listing/RMLS/1311-Idaho-Avenue-W-Saint-Paul-MN-55108-7035728-image1.jpg')"></div>
+    <a href="idaho.html" class="prop-card" style="border-left:4px solid #64748b">
+      <img class="prop-img" loading="lazy" decoding="async" alt="" src="https://www.edinarealty.com/listing-images/listing/RMLS/1311-Idaho-Avenue-W-Saint-Paul-MN-55108-7035728-image1.jpg">
       <div class="prop-info">
         <div class="prop-addr">1311 Idaho Ave W</div>
         <div class="prop-sub">Cape Cod (1940) &middot; Como Park &middot; 4bd/2ba &middot; Solar Panels</div>
         <div class="prop-stats">
           <span class="ps-price">$400,000</span>
           <span class="ps-score">Cleo 51.0/72</span>
-          <span class="ps-sqft">1,892 sf &middot; $211/sf</span>
+          <span class="ps-sqft">1,892 sf</span>
         </div>
         <div class="prop-tour" style="color:#64748b">ELIMINATED 2026-05-03 &mdash; Location: suburban edge. Drew: &ldquo;Idaho is lovely but too close to the suburban edge of Saint Paul. That is not something we are in a hurry for.&rdquo;</div>
       </div>
     </a>
-    <a href="hague.html" class="prop-card" style="border-left:4px solid #64748b;opacity:0.7">
-      <div class="prop-img" style="background-image:url('https://www.edinarealty.com/listing-images/listing/RMLS/1737-Hague-Avenue-Saint-Paul-MN-55104-7035892-image1.jpg');background-color:#1e293b"></div>
+    <a href="hague.html" class="prop-card" style="border-left:4px solid #64748b">
+      <img class="prop-img" loading="lazy" decoding="async" alt="" src="https://www.edinarealty.com/listing-images/listing/RMLS/1737-Hague-Avenue-Saint-Paul-MN-55104-7035892-image1.jpg">
       <div class="prop-info">
         <div class="prop-addr">1737 Hague Avenue</div>
         <div class="prop-sub">American Foursquare (1910) &middot; Merriam Park &middot; 4 beds on one level</div>
@@ -333,8 +349,8 @@ a{color:#60a5fa;text-decoration:none}
         <div class="prop-tour" style="color:#64748b">ELIMINATED 2026-05-03 &mdash; Room packing. Drew: &ldquo;The 1737 Hague seems like it can&rsquo;t actually hold the rooms that we require. They don&rsquo;t pack in very well.&rdquo;</div>
       </div>
     </a>
-    <a href="pascal.html" class="prop-card" style="border-left:4px solid #64748b;opacity:0.7">
-      <div class="prop-img" style="background-image:url('https://www.edinarealty.com/listing-images/listing/RMLS/453-Pascal-Street-S-Saint-Paul-MN-55105-7048885-image1.jpg')"></div>
+    <a href="pascal.html" class="prop-card" style="border-left:4px solid #64748b">
+      <img class="prop-img" loading="lazy" decoding="async" alt="" src="https://www.edinarealty.com/listing-images/listing/RMLS/453-Pascal-Street-S-Saint-Paul-MN-55105-7048885-image1.jpg">
       <div class="prop-info">
         <div class="prop-addr">453 Pascal Street S</div>
         <div class="prop-sub">Postwar 2-Story (1953) &middot; Mac-Groveland</div>
@@ -346,7 +362,8 @@ a{color:#60a5fa;text-decoration:none}
         <div class="prop-tour" style="color:#64748b">ELIMINATED &mdash; Room program insufficient</div>
       </div>
     </a>
-    </div>
-<div class="disclaimer">Scored 2026-04-28&ndash;05-05 &middot; Drew /72 + Sherry /99 dual-rater &middot; Cleo /72 remote-only for new candidates &middot; Purchase threshold: 57/72<br>5/5 third-dispatch corrections: <strong>Albany CORRECTED TO PENDING</strong> (Drew verified 2026-05-05 09:17 CT; Zillow URL fetched confirms; prior &ldquo;BACK TO ACTIVE&rdquo; was wrong &mdash; verify-status-on-write failure). Albany moved to Pending section. <strong>Asbury price drop $319,900 &rarr; $299,900</strong> (verified Zillow 2026-05-05). <strong>Carroll retro-scored 37.5/72 analytical only</strong> (knockout stands; see Carroll profile). Status audit run 2026-05-05: all other active candidates confirmed Active (Grotto unverified via direct URL; last Active Apr 2026).<br>5/5 second-dispatch: Selby RESTORED (bath-rule corrected: 2 toilet locations required, 1 full + 1 half qualifies; re-scored 45.5/72). Carroll eliminated (new construction 2024 + $549k over budget). Dayton both gates cleared 50/72. Portland eliminated (guest-parking knockout; Drew verbatim).<br>Eliminations 5/3: Idaho (location-suburban-edge), Hague (room-packing-insufficient). Fairmount (bid-lost 5/2). New 5/5: Wellesley 45.0/72, Asbury 41.0/72, Lincoln relisted $460k 48.5/72. Active pool: 12 confirmed active (Albany pending).</div>
+</div>
+
+<div class="disclaimer">Scored 2026-04-28&ndash;05-06 &middot; Drew /72 + Sherry /99 dual-rater &middot; Cleo /72 remote-only for new candidates.<br><br>2026-05-06 layout pass (mobile-first redesign): single-column on phone, 2-up on tablet, 3-up on desktop, sticky section nav, lazy-loaded photos, 44pt tap targets. Empty &ldquo;Toured &amp; Active&rdquo; placeholder removed; status note moved to header. Burgess moved to Eliminated per Cleo wellesley-prep dispatch.<br><br>2026-05-05 third dispatch: <strong>Albany corrected to Pending</strong> (Drew verified 09:17 CT). <strong>Asbury price drop $319,900 &rarr; $299,900</strong> (verified Zillow 2026-05-05). <strong>Carroll retro-scored 37.5/72 analytical only</strong> (knockout stands). 5/5 second dispatch: Selby restored (bath-rule corrected; re-scored 45.5/72). Carroll eliminated (new construction 2024). Dayton both gates cleared 50/72. Portland eliminated (guest-parking knockout; Drew verbatim). Eliminations 5/3: Idaho (location-suburban-edge), Hague (room-packing-insufficient). Fairmount (bid-lost 5/2). New 5/5: Wellesley 45.0/72, Asbury 41.0/72, Lincoln relisted $460k 48.5/72.</div>
 </body>
 </html>
