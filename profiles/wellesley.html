@@ -10,14 +10,27 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:#0f172a;color:#e2e8f
 a{color:#60a5fa}
 .nav{padding:12px 40px;background:#1e293b;border-bottom:1px solid #334155;font-size:0.85em}
 .nav a{text-decoration:none;margin-right:16px}
-.hero{background:linear-gradient(135deg,#1e293b 0%,#0f172a 100%);padding:32px 40px;border-bottom:2px solid #334155}
-.hero h1{font-size:1.8em;color:#f8fafc;margin-bottom:4px}
-.hero .subtitle{color:#94a3b8;font-size:0.95em}
+/* Status banner */
+.status-banner{background:linear-gradient(90deg,#14532d,#166534);border-bottom:2px solid #4ade80;padding:14px 40px;font-weight:800;font-size:1.0em;color:#86efac;letter-spacing:0.04em;text-align:center}
+@media(max-width:900px){.status-banner{padding:12px 16px;font-size:0.95em}}
+/* Working-through tracker */
+.tracker-wrap{background:#071a0c;border-bottom:1px solid #166534;padding:16px 40px 20px}
+@media(max-width:900px){.tracker-wrap{padding:14px 16px 18px}}
+.tracker-title{color:#4ade80;font-size:0.85em;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:10px}
+.tracker-list{list-style:none;display:flex;flex-direction:column;gap:5px}
+.tracker-list li{font-size:0.88em;padding:7px 12px;border-radius:6px;line-height:1.4}
+.tracker-list li.t-done{color:#d1fae5;background:#14532d44}
+.tracker-list li.t-active{color:#fed7aa;background:#431d0640}
+.tracker-list li.t-pending{color:#94a3b8;background:#1e293b66}
+/* Hero */
+.hero{background:linear-gradient(135deg,#071a0c 0%,#0c2214 50%,#0f172a 100%);padding:32px 40px;border-bottom:2px solid #4ade80}
+.hero h1{font-size:1.8em;color:#f0fdf4;margin-bottom:4px}
+.hero .subtitle{color:#6ee7b7;font-size:0.95em}
 .stats-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:20px}
-.stat-card{background:#1e293b;border:1px solid #334155;border-radius:8px;padding:10px 14px;min-width:110px}
-.stat-label{font-size:0.7em;color:#94a3b8;text-transform:uppercase;letter-spacing:0.05em}
-.stat-value{font-size:1.1em;font-weight:700;color:#f1f5f9;margin-top:2px}
-.stat-value.price{color:#4ade80}.stat-value.score{color:#e2c275}.stat-value.warn{color:#f97316}
+.stat-card{background:#0a1f10;border:1px solid #166534;border-radius:8px;padding:10px 14px;min-width:110px}
+.stat-label{font-size:0.7em;color:#6ee7b7;text-transform:uppercase;letter-spacing:0.05em}
+.stat-value{font-size:1.1em;font-weight:700;color:#f0fdf4;margin-top:2px}
+.stat-value.price{color:#4ade80}.stat-value.score{color:#e2c275}.stat-value.warn{color:#f97316}.stat-value.purchased{color:#4ade80}
 .tour-badge{display:inline-block;padding:6px 16px;border-radius:20px;font-weight:700;font-size:0.85em;margin-top:16px}
 .content{max-width:1200px;margin:0 auto;padding:24px 40px}
 .section{margin-bottom:32px}
@@ -39,32 +52,57 @@ ul{list-style:none}li{padding:4px 0;font-size:0.9em}
 .cost-panel{background:#1e293b;border-radius:10px;padding:20px;border:1px solid #334155}
 .effective-cost{text-align:center;padding:16px;background:#0f172a;border-radius:8px;margin-top:12px}
 .effective-cost .label{color:#64748b;font-size:0.8em}
-.effective-cost .amount{font-size:1.6em;font-weight:700;color:#f97316}
+.effective-cost .amount{font-size:1.6em;font-weight:700;color:#4ade80}
 .effective-cost .proj{font-size:0.85em;color:#94a3b8;margin-top:4px}
-.aip-box{background:#1e293b;border-radius:8px;padding:16px;border-left:4px solid #4ade80;margin-top:16px;font-size:0.9em}
+.aip-box{background:#0a1f10;border-radius:8px;padding:16px;border-left:4px solid #4ade80;margin-top:16px;font-size:0.9em}
 .aip-box .aip-label{color:#4ade80;font-weight:700;font-size:0.8em;text-transform:uppercase;margin-bottom:4px}
 .warn-box{background:#1e293b;border-radius:8px;padding:16px;border-left:4px solid #f97316;margin-top:16px;font-size:0.9em}
 .warn-box .warn-label{color:#f97316;font-weight:700;font-size:0.8em;text-transform:uppercase;margin-bottom:4px}
+/* Details / collapsibles */
+details{background:#1e293b;border-radius:8px;padding:0;margin-bottom:12px;border:1px solid #334155;overflow:hidden}
+summary{cursor:pointer;color:#e2c275;font-weight:700;font-size:0.9em;padding:12px 16px;list-style:none;display:flex;align-items:center;justify-content:space-between;gap:8px;-webkit-tap-highlight-color:transparent;min-height:44px}
+summary::after{content:"▼";font-size:0.65em;color:#64748b;flex-shrink:0;transition:transform 0.2s}
+details[open] summary::after{transform:rotate(-180deg)}
+summary::-webkit-details-marker{display:none}
+.details-content{padding:14px 16px;font-size:0.87em;color:#cbd5e1;line-height:1.7;border-top:1px solid #334155}
+.details-content ul{list-style:disc;padding-left:18px}.details-content li{padding:3px 0}
+.details-content table{margin-top:8px}
+.info-row{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:8px}
+.info-tag{background:#1e293b;border:1px solid #334155;border-radius:6px;padding:4px 10px;font-size:0.82em;color:#94a3b8}
 .disclaimer{text-align:center;color:#64748b;font-size:0.75em;padding:24px 40px;border-top:1px solid #1e293b}
+@media(max-width:900px){.disclaimer{padding:20px 16px}}
 </style>
 </head>
 <body>
 <div class="nav"><a href="../">&larr; Tour Rater</a> <a href="index.html">All Profiles</a></div>
-<div class="hero" style="border-left:4px solid #e2c275">
+<div class="status-banner">&#x2705;&nbsp; OFFER ACCEPTED &mdash; $513,000 &mdash; Closing 2026-06-03</div>
+<div class="tracker-wrap">
+  <div class="tracker-title">&#x1F4CB; Working Through It</div>
+  <ul class="tracker-list">
+    <li class="t-done">&#x2705; Offer accepted 2026-05-07 &mdash; $513,000, terms unchanged from 2026-05-06 offer</li>
+    <li class="t-active">&#x1F504; General inspection scheduled 2026-05-08 (Friday) &mdash; inspector briefed on TIH concealed areas</li>
+    <li class="t-active">&#x1F504; Sewer scope &mdash; scheduling separately (1922 build; not covered by TIH)</li>
+    <li class="t-active">&#x1F504; HELOC draw &mdash; confirm timing with bank; draw covers purchase + closing costs (~&minus;$15k)</li>
+    <li class="t-active">&#x1F504; Foundation / beams / floor system &mdash; concealed per TIH; inspector to bring moisture meter &amp; request access behind removable finish</li>
+    <li class="t-active">&#x1F504; Phase 0 retrofit planning &mdash; 100A&#x2192;200A panel upgrade, soil regrade, brewing utility (post-close)</li>
+    <li class="t-pending">&#x23F3; Closing &mdash; 2026-06-03 (28 days from acceptance)</li>
+  </ul>
+</div>
+<div class="hero" style="border-left:4px solid #4ade80">
   <h1>&#x1F3E0; 1594 Wellesley Avenue</h1>
   <div class="subtitle">2-Story Craftsman (1922) &middot; Mac-Groveland (55105) &middot; MLS# 7021503</div>
   <div class="stats-row">
-    <div class="stat-card"><div class="stat-label">Price</div><div class="stat-value price">$500,000</div></div>
+    <div class="stat-card"><div class="stat-label">Price</div><div class="stat-value price">$513,000</div></div>
     <div class="stat-card"><div class="stat-label">Cleo (Remote)</div><div class="stat-value score">45.0 / 72</div></div>
     <div class="stat-card"><div class="stat-label">Ceiling</div><div class="stat-value warn">~50 / 72</div></div>
     <div class="stat-card"><div class="stat-label">Sqft (finished)</div><div class="stat-value">1,920</div></div>
     <div class="stat-card"><div class="stat-label">Beds / Baths</div><div class="stat-value">3 / 2+ (2 usable)</div></div>
     <div class="stat-card"><div class="stat-label">Garage</div><div class="stat-value">2-car detached</div></div>
-    <div class="stat-card"><div class="stat-label">Tax (non-hmstd)</div><div class="stat-value warn">$8,258</div></div>
+    <div class="stat-card"><div class="stat-label">Tax (homesteaded)</div><div class="stat-value warn">$8,258</div></div>
     <div class="stat-card"><div class="stat-label">Lot</div><div class="stat-value">0.12 ac</div></div>
-    <div class="stat-card"><div class="stat-label">Status</div><div class="stat-value">Active</div></div>
+    <div class="stat-card"><div class="stat-label">Status</div><div class="stat-value purchased">PURCHASED</div></div>
   </div>
-  <div class="tour-badge" style="background:#e2c27522;color:#e2c275;border:1px solid #e2c275">ACTIVE &mdash; 45.0/72 &middot; Tax drag caps ceiling ~50 (BELOW 57 threshold)</div>
+  <div class="tour-badge" style="background:#14532d;color:#86efac;border:1px solid #4ade80">&#x2705; OFFER ACCEPTED &middot; $513,000 &middot; Inspection 2026-05-08 &middot; Closing 2026-06-03</div>
 </div>
 <div class="content">
   <div class="section two-col">
@@ -126,19 +164,20 @@ ul{list-style:none}li{padding:4px 0;font-size:0.9em}
 
   <div class="section two-col">
     <div class="cost-panel">
-      <h2>Effective Cost Estimate</h2>
+      <h2>Effective Cost (Actual)</h2>
       <table>
         <tr><th>Line Item</th><th style="text-align:right">Low</th><th style="text-align:right">High</th></tr>
-        <tr><td>Purchase price</td><td style="text-align:right;color:#4ade80">$500,000</td><td style="text-align:right;color:#4ade80">$500,000</td></tr>
-        <tr><td>EV circuit (2-car garage, modern panel)</td><td style="text-align:right">$1,500</td><td style="text-align:right">$4,000</td></tr>
-        <tr><td>Asbestos inspection / abatement (1922 risk)</td><td style="text-align:right">$0</td><td style="text-align:right">$8,000</td></tr>
-        <tr><td>Kitchen station refinement</td><td style="text-align:right">$3,000</td><td style="text-align:right">$7,000</td></tr>
-        <tr><td>HELOC carry (7.5%, 5 mo.)</td><td style="text-align:right">$15,625</td><td style="text-align:right">$15,625</td></tr>
+        <tr><td>Purchase price (accepted)</td><td style="text-align:right;color:#4ade80">$513,000</td><td style="text-align:right;color:#4ade80">$513,000</td></tr>
+        <tr><td>100A&#x2192;200A panel upgrade (Phase 0)</td><td style="text-align:right">$2,500</td><td style="text-align:right">$4,500</td></tr>
+        <tr><td>Soil regrade (TIH B-flag)</td><td style="text-align:right">$500</td><td style="text-align:right">$2,000</td></tr>
+        <tr><td>Brewing utility retrofit (220V + drain)</td><td style="text-align:right">$1,500</td><td style="text-align:right">$4,000</td></tr>
+        <tr><td>HELOC carry (7.5%, 5 mo.)</td><td style="text-align:right">$16,000</td><td style="text-align:right">$16,000</td></tr>
+        <tr><td>Inspection-contingent unknowns (foundation/sewer)</td><td style="text-align:right">$0</td><td style="text-align:right">$30,000</td></tr>
       </table>
       <div class="effective-cost">
         <div class="label">Effective Cost Range</div>
-        <div class="amount">~$520k &ndash; $535k</div>
-        <div class="proj">⚠️ Negotiate to ~$490k to stay safely under buyer ceiling.<br>HELOC assumes 7.5% rate &middot; Pull Arjun close-projection for actual rate.</div>
+        <div class="amount">~$533k &ndash; $570k</div>
+        <div class="proj">Bid math closure: $513k accepted — $3k above recommended open ($510k), $37k under hard stop ($550k).<br>HELOC bridges 820 Osceola sale. Confirm projected 820 close date for accurate carry calc.</div>
       </div>
     </div>
     <div>
@@ -148,16 +187,15 @@ ul{list-style:none}li{padding:4px 0;font-size:0.9em}
         <li class="feature-item">&#x2705; Main-floor full bath &mdash; best AIP in active search</li>
         <li class="feature-item">&#x2705; 2 main-floor bedrooms &mdash; day-one single-floor living</li>
         <li class="feature-item">&#x2705; Ductless mini-splits (heat pump) = efficient cooling &amp; heating</li>
-        <li class="feature-item">&#x2705; 2-car detached garage (EV path clear)</li>
-        <li class="feature-item">&#x2705; Rich oak floors + natural woodwork + built-ins</li>
+        <li class="feature-item">&#x2705; 2-car detached garage (EV charger path clear)</li>
+        <li class="feature-item">&#x2705; Rich oak floors + natural woodwork + custom built-ins</li>
         <li class="feature-item">&#x2705; Enclosed front porch + newer rear deck</li>
-        <li class="feature-item">&#x2705; Heated floors in upper 3/4 bath</li>
-        <li class="concern-item">&#x26A0; $8,258 taxes &mdash; structural ceiling drag (0.5/3 score)</li>
-        <li class="concern-item">&#x26A0; Sherry&rsquo;s office depends on lower flex door (confirm at tour)</li>
-        <li class="concern-item">&#x26A0; Kitchen dimensions unknown; confirm multi-station usability</li>
-        <li class="concern-item">&#x26A0; 1922 asbestos risk &mdash; pipe wrap / floor tile; inspection required</li>
-        <li class="concern-item">&#x26A0; Score ceiling ~50/72 &mdash; will not clear 57 pass threshold</li>
-        <li class="concern-item">&#x26A0; Effective cost ~$520-535k; requires price negotiation to ~$490k</li>
+        <li class="feature-item">&#x2705; Heated floors in lower family room + upper 3/4 bath</li>
+        <li class="concern-item">&#x26A0; $8,258 taxes (homesteaded, 2025) &mdash; structural ceiling drag</li>
+        <li class="concern-item">&#x26A0; 100A panel confirmed by TIH (not 200A) &mdash; Phase 0 upgrade required</li>
+        <li class="concern-item">&#x26A0; Foundation, beams, first-floor system all concealed in TIH &mdash; inspection priority</li>
+        <li class="concern-item">&#x26A0; Soil grade lacks pitch away from house &mdash; moisture risk indicator</li>
+        <li class="concern-item">&#x26A0; Two-office acoustic test (Bed 2 / Bed 3) &mdash; result pending inspection day</li>
       </ul>
     </div>
   </div>
@@ -169,13 +207,75 @@ ul{list-style:none}li{padding:4px 0;font-size:0.9em}
       <tr><td>Heating / Cooling</td><td>Ductless mini-splits (heat pump) throughout</td><td style="color:#4ade80">&#x2705; Full credit</td></tr>
       <tr><td>Lower level radiant</td><td>Radiant heated floors in lower flex space</td><td style="color:#4ade80">&#x2705; Comfort bonus</td></tr>
       <tr><td>Upper bath heated floors</td><td>Heated floor tiles in upper 3/4 bath</td><td style="color:#4ade80">&#x2705; Frictionless credit</td></tr>
-      <tr><td>Electrical</td><td>Modern panel (mini-split confirms 200A+)</td><td style="color:#4ade80">&#x2705; Full credit</td></tr>
-      <tr><td>Roof</td><td>Not mentioned; age unknown</td><td style="color:#f59e0b">&#x26A0; Flag for inspection</td></tr>
-      <tr><td>Sewer</td><td>Unknown</td><td style="color:#f59e0b">&#x26A0; Scope required</td></tr>
+      <tr><td>Electrical</td><td>100A service (TIH confirmed) &mdash; 200A upgrade required for EV + heat pump + induction</td><td style="color:#f97316">&#x26A0; Phase 0 upgrade</td></tr>
+      <tr><td>Roof</td><td>Meets minimum visually only (TIH); age unknown &mdash; confirm with inspector</td><td style="color:#f59e0b">&#x26A0; Confirm age</td></tr>
+      <tr><td>Sewer</td><td>Not scoped (TIH never includes); 1922 build = high prior on cast iron deterioration</td><td style="color:#f59e0b">&#x26A0; Scope required</td></tr>
     </table>
   </div>
+
+  <!-- TIH Summary -->
+  <div class="section">
+    <h2>&#x1F4CB; TIH Report Summary</h2>
+    <details>
+      <summary>Material findings (TIH evaluation, 2026-04-27) &mdash; expand</summary>
+      <div class="details-content">
+        <p style="margin-bottom:10px;color:#94a3b8;font-size:0.85em">Inspector: Patrick Leahy, Permit DSITISH-035379-2026, expires 2026-04-27 next year.</p>
+        <ul>
+          <li><strong style="color:#f97316">Stairs to upper floor (B-flag):</strong> Handrail not continuous; steep/narrow treads (structural, unfixable). Non-issue if primary bedroom stays on main floor. Material if upper suite must be primary long-term.</li>
+          <li><strong style="color:#f59e0b">100A electrical service (B-flag):</strong> Confirmed 100A &mdash; below modern preference. EV + heat pump + induction future requires 200A upgrade ($2,500&ndash;4,500). <em>Note: prep-file inferred 200A from listing language; TIH is direct measurement. Trust TIH.</em></li>
+          <li><strong style="color:#f59e0b">Soil grade lacks pitch away from house (B-flag):</strong> Regrade $500&ndash;2,000. Pairs with foundation blind spot &mdash; leading indicator of basement water.</li>
+          <li><strong style="color:#f97316">Foundation, beams, first-floor system &mdash; all concealed (C):</strong> Finished basement ceiling prevented visual inspection. Most expensive failure-mode blind spot. Inspector must bring moisture meter and request access behind any removable finish.</li>
+        </ul>
+        <p style="margin-top:10px;color:#94a3b8">Minor items (cheap fixes): kitchen faucet leak, dining ceiling cracks, chimney crown, outdated smoke detector, missing receptacle cover plate, garage weatherstripping.</p>
+        <p style="margin-top:8px;color:#6ee7b7">Not flagged by TIH (positive signals): knob-and-tube not called out; asbestos not flagged.</p>
+      </div>
+    </details>
+    <details>
+      <summary>Items NOT covered by TIH (require separate action) &mdash; expand</summary>
+      <div class="details-content">
+        <ul>
+          <li>Foundation condition &mdash; concealed; inspector priority</li>
+          <li>Beams / columns &mdash; concealed</li>
+          <li>Sewer scope &mdash; TIH never includes; 1922 build = schedule before contingency window expires</li>
+          <li>Furnace / boiler age &mdash; TIH listed heating type as &ldquo;Other&rdquo; gas; confirm system type and age</li>
+          <li>Roof age &mdash; visual minimum only</li>
+          <li>Knob-and-tube &mdash; not flagged but verify in basement and attic knee-wall</li>
+        </ul>
+      </div>
+    </details>
+  </div>
+
+  <!-- Two-Office Plan -->
+  <div class="section">
+    <h2>&#x1F4BC; Two-Office Plan</h2>
+    <details>
+      <summary>Option A: Separate rooms &mdash; Bed 2 (12&times;10) + Bed 3 (10&times;10), main floor</summary>
+      <div class="details-content">
+        <ul>
+          <li><strong>Drew (Bed 2, 120 sqft):</strong> Comfortable WFH setup; L-desk + monitor array + bookshelf fits.</li>
+          <li><strong>Sherry (Bed 3, 100 sqft):</strong> Functional but snug for full WFH with all-day occupancy. Standing desk is tight but workable.</li>
+          <li><strong>Advantage:</strong> Separate doors, same floor, kitchen proximity, social parity.</li>
+          <li><strong>Critical test — acoustics:</strong> Rooms almost certainly share a wall. 1922 lathe-and-plaster typically better than modern drywall but not soundproof. In-person clap test mandatory before committing. If wall fails test, flip to Option B.</li>
+          <li><strong>Acoustic test pending</strong> &mdash; result from inspection day.</li>
+        </ul>
+      </div>
+    </details>
+    <details>
+      <summary>Option B: Shared lower family room (22&times;16 = 352 sqft)</summary>
+      <div class="details-content">
+        <ul>
+          <li>352 sqft easily fits two full desk setups facing opposite walls with 8+ ft separation.</li>
+          <li>Radiant floor heat; comfortable for sedentary work.</li>
+          <li><strong>Tradeoff:</strong> Lower-level natural light limited vs. main floor. Simultaneous voice calls require staggered schedules or a partition screen.</li>
+          <li>If Option B is chosen: two main-floor bedrooms become Maxy&rsquo;s room + flex/spare &mdash; a good program for partial-year presence.</li>
+          <li>Lower family room as dedicated gym (reformer, Peloton, weights, yoga) is the strongest gym fit in the search &mdash; don&rsquo;t sacrifice it unless acoustic test forces Option B.</li>
+        </ul>
+      </div>
+    </details>
+  </div>
+
 </div>
-<div class="disclaimer">Remote scored 2026-05-05 by home-finder-cleo &middot; 24-criterion rubric &middot; Pass threshold 57/72 &middot; Scored against <a href="index.html">All Profiles</a></div>
+<div class="disclaimer">Purchased 2026-05-07 at $513,000 &middot; Closing 2026-06-03 &middot; Remote scored 2026-05-05 by home-finder rubric (45.0/72; historical record) &middot; Pass threshold 57/72 (purchase was below-threshold, below-ceiling buy; decision was correct given timeline and AIP fit) &middot; <a href="index.html">All Profiles</a></div>
 <script>
 document.querySelectorAll('.photo-thumb').forEach(img=>{img.addEventListener('click',()=>{const lb=document.querySelector('.lightbox');lb.querySelector('img').src=img.src;lb.classList.add('active')});});
 document.querySelectorAll('.lightbox').forEach(lb=>lb.addEventListener('click',()=>lb.classList.remove('active')));
