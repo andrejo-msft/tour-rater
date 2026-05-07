@@ -44,25 +44,74 @@ a{color:#60a5fa;text-decoration:none}
 .disclaimer{max-width:1000px;margin:24px auto 0;padding:16px 16px calc(24px + env(safe-area-inset-bottom,0));text-align:left;color:#64748b;font-size:0.78em;line-height:1.6;border-top:1px solid #1e293b}
 .disclaimer strong{color:#94a3b8}
 @media(prefers-reduced-motion:reduce){.prop-card,.prop-card:hover{transition:none;transform:none}}
+/* Purchased hero */
+.purchased-label{max-width:1200px;margin:24px auto 10px;padding:0 16px;font-size:1em;font-weight:800;text-transform:uppercase;letter-spacing:0.06em;color:#4ade80;scroll-margin-top:60px}
+@media(min-width:1024px){.purchased-label{padding:0 24px;font-size:1.1em}}
+.purchased-hero-wrap{max-width:1200px;margin:0 auto;padding:0 16px 20px}
+@media(min-width:1024px){.purchased-hero-wrap{padding:0 24px 24px}}
+.purchased-card{display:block;background:linear-gradient(135deg,#071a0c 0%,#0c2214 50%,#071a0c 100%);border-radius:14px;overflow:hidden;border:2px solid #4ade80;color:#e2e8f0;transition:border-color 0.18s ease,box-shadow 0.18s ease}
+.purchased-card:focus,.purchased-card:hover{border-color:#86efac;outline:none;box-shadow:0 4px 28px #4ade8038}
+@media(hover:hover) and (prefers-reduced-motion:no-preference){.purchased-card:hover{transform:translateY(-2px)}}
+.purchased-banner{background:linear-gradient(90deg,#14532d,#166534);border-bottom:1px solid #4ade8066;padding:13px 20px;font-weight:800;font-size:0.98em;color:#86efac;letter-spacing:0.04em;text-align:center}
+.purchased-info{padding:18px 20px 22px}
+.purchased-info .prop-addr{font-size:1.35em;color:#f0fdf4;font-weight:700;line-height:1.3}
+.purchased-info .prop-sub{color:#6ee7b7;font-size:0.92em;margin-top:6px;line-height:1.4}
+.purchased-info .prop-stats{display:flex;gap:18px;margin-top:12px;flex-wrap:wrap}
+.purchased-info .ps-price{font-size:1.08em;color:#4ade80;font-weight:700}
+.purchased-info .prop-tour{margin-top:12px;font-size:0.87em;font-weight:600;line-height:1.4}
+/* Backup pool */
+.backup-label{max-width:1200px;margin:0 auto;padding:22px 16px 4px;font-size:0.8em;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:#475569;scroll-margin-top:60px;border-top:1px solid #1e293b}
+@media(min-width:1024px){.backup-label{padding:22px 24px 4px}}
+.backup-note{max-width:1200px;margin:0 auto 4px;padding:0 16px;font-size:0.77em;color:#334155;font-style:italic}
+@media(min-width:1024px){.backup-note{padding:0 24px}}
+.backup-section .section-label{color:#475569}
+.backup-section .section-label .ring-badge{opacity:0.6}
+.backup-section .prop-card{opacity:0.75;background:#111b29}
+.backup-section .prop-card:hover,.backup-section .prop-card:focus{opacity:1}
+.backup-section .prop-addr{font-size:1.0em}
+.backup-section .prop-sub{font-size:0.82em}
 </style>
+
 </head>
 <body>
 <div class="topnav"><a href="../">&larr; Tour Rater</a></div>
 <div class="header">
   <h1>&#x1F3E0; Property Profiles</h1>
-  <p>Move 2026 &mdash; Active Candidates &middot; Photo-Enhanced Scoring &middot; Updated 2026-05-06</p>
-  <p class="note">No threshold-clearer in active pool right now &mdash; 1945 Portland eliminated 2026-05-05 (guest-parking). Albany (53.5/72) is highest-scoring active candidate.</p>
+  <p>Move 2026 &mdash; Active Candidates &middot; Photo-Enhanced Scoring &middot; Updated 2026-05-07</p>
+  <p class="note" style="background:#14532d33;border-color:#4ade80;color:#86efac">&#x1F389; PURCHASED &mdash; 1594 Wellesley Avenue &middot; $513,000 &middot; Closing 2026-06-03</p>
 </div>
 
 <nav class="section-nav" aria-label="Section navigation">
   <ul>
-    <li><a href="#active-near">Near</a></li>
-    <li><a href="#active-first">Active</a></li>
-    <li><a href="#second-ring">Stretch</a></li>
-    <li><a href="#pending">Pending</a></li>
+    <li><a href="#purchased">&#x1F389; Purchased</a></li>
+    <li><a href="#backup-pool">Backup Pool</a></li>
     <li><a href="#eliminated">Eliminated</a></li>
   </ul>
 </nav>
+
+<!-- PURCHASED HERO -->
+<div class="purchased-label" id="purchased">&#x1F389; Purchased &mdash; Closing 2026-06-03</div>
+<div class="purchased-hero-wrap">
+  <a href="wellesley.html" class="purchased-card">
+    <div class="purchased-banner">&#x2705;&nbsp; OFFER ACCEPTED &middot; $513,000 &middot; Closing 2026-06-03</div>
+    <div class="prop-img placeholder" aria-hidden="true"></div>
+    <div class="purchased-info">
+      <div class="prop-addr">1594 Wellesley Avenue</div>
+      <div class="prop-sub">Craftsman (1922) &middot; Mac-Groveland (55105) &middot; Main-floor full bath &#x2705; &middot; 1,920 sf &middot; 2-car garage &middot; Mini-splits</div>
+      <div class="prop-stats">
+        <span class="ps-price">$513,000</span>
+        <span class="ps-score">Cleo 45.0/72 &middot; Best AIP in search</span>
+        <span class="ps-sqft">3 bd &middot; 2+ ba &middot; 0.12 ac</span>
+      </div>
+      <div class="prop-tour" style="color:#4ade80">&#x1F50D; Inspection 2026-05-08 &middot; Sewer scope pending &middot; Contingency window through ~2026-05-17 &middot; 100A&#x2192;200A panel &amp; Phase 0 retrofit in planning</div>
+    </div>
+  </a>
+</div>
+
+<!-- BACKUP POOL -->
+<div class="backup-label" id="backup-pool">&#x1F4CB; Backup Pool &mdash; Active Until Inspection Clears</div>
+<div class="backup-note">Contingency window through ~2026-05-17. These candidates remain tracked and browsable until inspection is complete.</div>
+<div class="backup-section">
 
 <!-- NEAR-THRESHOLD PRIORITY -->
 <div class="section-label" id="active-near">&#x1F50D; Active &mdash; Near Threshold <span class="ring-badge" style="background:#e2c27522;color:#e2c275;border:1px solid #e2c275">Cleo remote scored</span></div>
@@ -176,19 +225,6 @@ a{color:#60a5fa;text-decoration:none}
         <div class="prop-tour" style="color:#4ade80">&#x2705; ACTIVE &mdash; Cathedral Hill confirmed in-zone (Drew 5/5). Bath-count cleared 5/5. Ceiling ~54&ndash;56.</div>
       </div>
     </a>
-    <a href="wellesley.html" class="prop-card" style="border-left:4px solid #818cf8">
-      <div class="prop-img placeholder" aria-hidden="true"></div>
-      <div class="prop-info">
-        <div class="prop-addr">1594 Wellesley Avenue</div>
-        <div class="prop-sub">Craftsman (1922) &middot; Mac-Groveland &middot; Main-floor full bath &#x2705;</div>
-        <div class="prop-stats">
-          <span class="ps-price">$500,000</span>
-          <span class="ps-score">Cleo 45.0/72</span>
-          <span class="ps-sqft">1,920 sf &middot; 2-car garage &middot; Mini-splits</span>
-        </div>
-        <div class="prop-tour" style="color:#818cf8">ACTIVE &mdash; Best AIP layout in search. Tax drag ($8,258) caps ceiling ~50 (45.0/72)</div>
-      </div>
-    </a>
     <a href="asbury.html" class="prop-card" style="border-left:4px solid #818cf8">
       <div class="prop-img placeholder" aria-hidden="true"></div>
       <div class="prop-info">
@@ -265,6 +301,8 @@ a{color:#60a5fa;text-decoration:none}
       </div>
     </a>
 </div>
+
+</div><!-- /backup-section -->
 
 <!-- ELIMINATED -->
 <div class="section-label" id="eliminated" style="color:#64748b">&#x1F6D1; Eliminated</div>
@@ -364,6 +402,6 @@ a{color:#60a5fa;text-decoration:none}
     </a>
 </div>
 
-<div class="disclaimer">Scored 2026-04-28&ndash;05-06 &middot; Drew /72 + Sherry /99 dual-rater &middot; Cleo /72 remote-only for new candidates.<br><br>2026-05-06 layout pass (mobile-first redesign): single-column on phone, 2-up on tablet, 3-up on desktop, sticky section nav, lazy-loaded photos, 44pt tap targets. Empty &ldquo;Toured &amp; Active&rdquo; placeholder removed; status note moved to header. Burgess moved to Eliminated per Cleo wellesley-prep dispatch.<br><br>2026-05-05 third dispatch: <strong>Albany corrected to Pending</strong> (Drew verified 09:17 CT). <strong>Asbury price drop $319,900 &rarr; $299,900</strong> (verified Zillow 2026-05-05). <strong>Carroll retro-scored 37.5/72 analytical only</strong> (knockout stands). 5/5 second dispatch: Selby restored (bath-rule corrected; re-scored 45.5/72). Carroll eliminated (new construction 2024). Dayton both gates cleared 50/72. Portland eliminated (guest-parking knockout; Drew verbatim). Eliminations 5/3: Idaho (location-suburban-edge), Hague (room-packing-insufficient). Fairmount (bid-lost 5/2). New 5/5: Wellesley 45.0/72, Asbury 41.0/72, Lincoln relisted $460k 48.5/72.</div>
+<div class="disclaimer">Scored 2026-04-28&ndash;05-06 &middot; Drew /72 + Sherry /99 dual-rater &middot; Cleo /72 remote-only for new candidates.<br><br><strong>2026-05-07 update</strong>: Wellesley offer ACCEPTED at $513,000. Closing 2026-06-03. Wellesley promoted to Purchased hero section; remaining candidates demoted to Backup Pool (contingency through ~2026-05-17). Wellesley removed from Active First Ring grid.<br><br>2026-05-06 layout pass (mobile-first redesign): single-column on phone, 2-up on tablet, 3-up on desktop, sticky section nav, lazy-loaded photos, 44pt tap targets. Empty &ldquo;Toured &amp; Active&rdquo; placeholder removed; status note moved to header. Burgess moved to Eliminated per Cleo wellesley-prep dispatch.<br><br>2026-05-05 third dispatch: <strong>Albany corrected to Pending</strong> (Drew verified 09:17 CT). <strong>Asbury price drop $319,900 &rarr; $299,900</strong> (verified Zillow 2026-05-05). <strong>Carroll retro-scored 37.5/72 analytical only</strong> (knockout stands). 5/5 second dispatch: Selby restored (bath-rule corrected; re-scored 45.5/72). Carroll eliminated (new construction 2024). Dayton both gates cleared 50/72. Portland eliminated (guest-parking knockout; Drew verbatim). Eliminations 5/3: Idaho (location-suburban-edge), Hague (room-packing-insufficient). Fairmount (bid-lost 5/2). New 5/5: Wellesley 45.0/72, Asbury 41.0/72, Lincoln relisted $460k 48.5/72.</div>
 </body>
 </html>
